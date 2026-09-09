@@ -10,7 +10,7 @@ const NAV = [
   { href: "/services", label: "Services" },
   { href: "/architecture", label: "Architecture & Stack" },
   { href: "/about", label: "About" },
-  { href: "#", label: "Insights" },
+  { href: "/insights", label: "Insights" },
 ];
 
 function Logo() {
