@@ -1,25 +1,19 @@
 import Link from "next/link";
 
 const CAPABILITIES = [
-  "Core System Architecture",
-  "Enterprise Cloud Platforms",
-  "High-Load API Frameworks",
-  "Real-Time Data Pipelines",
-  "Bespoke Frontend Platforms",
-];
-
-const STUDIOS = [
-  { city: "San Francisco", address: "555 Mission St, Suite 2400" },
-  { city: "London", address: "10 Finsbury Square, EC2A" },
-  { city: "Berlin", address: "Münzstraße 12, Mitte" },
+  { label: "Core System Architecture", href: "/services#discipline-01" },
+  { label: "Enterprise Cloud Platforms", href: "/services#discipline-02" },
+  { label: "High-Load API Frameworks", href: "/services#discipline-04" },
+  { label: "Real-Time Data Pipelines", href: "/services#discipline-03" },
+  { label: "Bespoke Frontend Platforms", href: "/architecture" },
 ];
 
 const ENGAGEMENT = [
-  "Client Portal",
-  "Technical Audits",
-  "Security & Compliance",
-  "Engineering Careers",
-  "Open Source Registry",
+  { label: "Client Portal", href: "/#discovery-portal" },
+  { label: "Technical Audits", href: "/services#discipline-04" },
+  { label: "Security & Compliance", href: "/services#compliance" },
+  { label: "Engineering Careers", href: "/careers" },
+  { label: "Open Source Registry", href: "/open-source" },
 ];
 
 const LEGAL = [
@@ -33,7 +27,7 @@ export function SiteFooter() {
   return (
     <footer className="w-full border-t border-hairline-soft bg-surface-soft pt-section pb-xxxl">
       <div className="mx-auto max-w-shell px-xxl">
-        <div className="grid grid-cols-1 gap-xxxl border-b border-hairline-soft pb-section-sm md:grid-cols-2 lg:grid-cols-5">
+        <div className="grid grid-cols-1 gap-xxxl border-b border-hairline-soft pb-section-sm md:grid-cols-2 lg:grid-cols-4">
           <div className="flex flex-col gap-base lg:col-span-2">
             <div className="flex items-center gap-xs">
               <span className="font-display text-heading-sm font-bold text-ink-deep">Nexus Dev</span>
@@ -66,23 +60,13 @@ export function SiteFooter() {
             </span>
             <ul className="flex flex-col gap-xs">
               {CAPABILITIES.map((item) => (
-                <li
-                  key={item}
-                  className="cursor-pointer text-body-sm text-secondary transition-colors hover:text-ink-deep"
-                >
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="flex flex-col gap-md">
-            <span className="text-body-sm-bold uppercase tracking-wider text-ink-deep">Studios</span>
-            <ul className="flex flex-col gap-base">
-              {STUDIOS.map((studio) => (
-                <li key={studio.city} className="flex flex-col">
-                  <span className="text-body-sm-bold text-ink-deep">{studio.city}</span>
-                  <span className="text-caption text-secondary">{studio.address}</span>
+                <li key={item.label}>
+                  <Link
+                    href={item.href}
+                    className="text-body-sm text-secondary transition-colors hover:text-ink-deep"
+                  >
+                    {item.label}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -94,11 +78,13 @@ export function SiteFooter() {
             </span>
             <ul className="flex flex-col gap-xs">
               {ENGAGEMENT.map((item) => (
-                <li
-                  key={item}
-                  className="cursor-pointer text-body-sm text-secondary transition-colors hover:text-ink-deep"
-                >
-                  {item}
+                <li key={item.label}>
+                  <Link
+                    href={item.href}
+                    className="text-body-sm text-secondary transition-colors hover:text-ink-deep"
+                  >
+                    {item.label}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -107,7 +93,7 @@ export function SiteFooter() {
 
         <div className="flex flex-col items-center justify-between gap-base pt-xl md:flex-row">
           <span className="text-caption text-secondary">
-            © {new Date().getFullYear()} Nexus Dev Engineering Studio AG. All rights reserved.
+            © {new Date().getFullYear()} Nexus Dev. All rights reserved.
           </span>
           <div className="flex flex-wrap items-center justify-center gap-xl">
             {LEGAL.map((item) => (

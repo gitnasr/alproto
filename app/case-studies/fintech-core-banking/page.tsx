@@ -178,10 +178,10 @@ const PHASES = [
 ];
 
 const CERTS = [
-  "SOC2 Type II Certified",
-  "PCI-DSS Level 1 Compliant",
-  "ISO 27001 Security Standard",
-  "FINMA & BaFin Compliant Architecture",
+  "Built for SOC2 & PCI-DSS environments",
+  "Immutable audit trail architecture",
+  "Encryption in transit and at rest",
+  "Designed for regulatory review",
 ];
 
 const RELATED = [
@@ -657,7 +657,7 @@ export default function CaseStudyPage() {
 
             <div className="flex w-full min-w-[280px] flex-col gap-base rounded-md bg-surface-soft p-xl lg:w-auto">
               <span className="text-caption-bold uppercase tracking-wider text-steel">
-                Independent Audit Certifications
+                Security &amp; Compliance Posture
               </span>
               <div className="flex flex-col gap-xs">
                 {CERTS.map((c) => (
@@ -750,7 +750,7 @@ export default function CaseStudyPage() {
 
             <div className="relative z-10 flex w-full flex-col items-center gap-base sm:flex-row md:w-auto">
               <Link
-                href="#"
+                href="/#discovery-portal"
                 className="inline-flex w-full items-center justify-center rounded-full bg-primary-container px-xxl py-base text-body-sm-bold text-on-primary transition-colors duration-200 hover:bg-primary sm:w-auto"
               >
                 Schedule Technical Discovery

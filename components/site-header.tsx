@@ -6,7 +6,7 @@ import { useState } from "react";
 import { Icon } from "./icon";
 
 const NAV = [
-  { href: "/case-studies/fintech-core-banking", label: "Case Studies" },
+  { href: "/case-studies", label: "Case Studies" },
   { href: "/services", label: "Services" },
   { href: "/architecture", label: "Architecture & Stack" },
   { href: "/about", label: "About" },
@@ -70,14 +70,11 @@ export function SiteHeader() {
 
         <div className="flex items-center gap-lg">
           <Link
-            href="#"
+            href="/#discovery-portal"
             className="hidden rounded-full bg-primary-container px-xxl py-sm text-body-sm-bold text-on-primary transition-colors duration-200 hover:bg-primary sm:inline-flex"
           >
             Start a Project
           </Link>
-          <span className="hidden h-8 w-8 items-center justify-center rounded-full bg-primary text-on-primary sm:flex">
-            <Icon name="person" />
-          </span>
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
@@ -103,7 +100,7 @@ export function SiteHeader() {
             </Link>
           ))}
           <Link
-            href="#"
+            href="/#discovery-portal"
             onClick={() => setOpen(false)}
             className="mt-xs inline-flex justify-center rounded-full bg-primary-container px-xxl py-md text-body-sm-bold text-on-primary"
           >

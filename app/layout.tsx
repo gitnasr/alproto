@@ -19,12 +19,23 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:5000"),
   title: {
     default: "Nexus Dev — Mission-critical software engineering",
     template: "%s · Nexus Dev",
   },
   description:
     "High-performance digital product engineering firm. We architect, engineer, and deploy mission-critical software systems for global enterprises.",
+  openGraph: {
+    siteName: "Nexus Dev",
+    type: "website",
+    title: "Nexus Dev — Mission-critical software engineering",
+    description:
+      "High-performance digital product engineering firm. We architect, engineer, and deploy mission-critical software systems for global enterprises.",
+  },
+  twitter: {
+    card: "summary",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

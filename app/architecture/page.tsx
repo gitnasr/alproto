@@ -13,7 +13,7 @@ const TELEMETRY = [
   ["verified", "100% Production Tested"],
   ["lock_reset", "Zero External Dependency Debt"],
   ["speed", "Sub-Millisecond p99 Benchmarks"],
-  ["shield", "SOC2 Type II & PCI-DSS Ready"],
+  ["shield", "Security-First Engineering"],
 ];
 
 const KPIS = [
@@ -309,7 +309,7 @@ export default function ArchitecturePage() {
 
           <div className="flex w-full shrink-0 flex-col items-center gap-base sm:flex-row lg:w-auto">
             <Link
-              href="#"
+              href="/#discovery-portal"
               className="inline-flex w-full items-center justify-center rounded-full bg-primary-container px-xxxl py-base text-body-sm-bold text-on-primary shadow-xl transition-colors duration-200 hover:bg-primary sm:w-auto"
             >
               Schedule Architectural Audit

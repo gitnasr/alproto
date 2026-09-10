@@ -205,13 +205,10 @@ export default function InsightsPage() {
               </div>
 
               <div className="pt-base">
-                <Link
-                  href="#"
-                  className="inline-flex items-center gap-xs text-body-sm-bold text-ink-deep transition-colors hover:text-primary-container"
-                >
-                  Read the Decision Record
-                  <Icon name="arrow_forward" />
-                </Link>
+                <span className="inline-flex items-center gap-xs rounded-full bg-canvas px-md py-xxs text-caption-bold uppercase tracking-wide text-secondary">
+                  <Icon name="schedule" size={16} />
+                  Full write-up coming soon
+                </span>
               </div>
             </div>
 
@@ -250,9 +247,8 @@ export default function InsightsPage() {
 
           <div className="grid grid-cols-1 gap-xl md:grid-cols-2 lg:grid-cols-3">
             {ARTICLES.map((a) => (
-              <Link
+              <article
                 key={a.title}
-                href="#"
                 className="group flex flex-col justify-between gap-xl rounded-lg bg-canvas p-xxl shadow-sm transition-shadow duration-200 hover:shadow-md"
               >
                 <div className="flex flex-col gap-base">
@@ -260,11 +256,6 @@ export default function InsightsPage() {
                     <span className="rounded-full bg-surface-container-low px-sm py-xxs text-caption-bold uppercase text-secondary">
                       {a.category}
                     </span>
-                    <Icon
-                      name="arrow_outward"
-                      size={20}
-                      className="text-steel transition-colors group-hover:text-primary"
-                    />
                   </div>
                   <h3 className="text-heading-sm font-semibold text-ink-deep transition-colors group-hover:text-primary">
                     {a.title}
@@ -280,7 +271,7 @@ export default function InsightsPage() {
                     read={a.read}
                   />
                 </div>
-              </Link>
+              </article>
             ))}
           </div>
         </div>
