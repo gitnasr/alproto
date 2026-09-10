@@ -222,7 +222,7 @@ const COMPARISON: [string, string, string, string][] = [
     "Roster Caliber Guarantee",
     "100% Staff/Principal (No Juniors)",
     "Senior-Led Pod + QA Engineers",
-    "Ex-FAANG / Tier-1 Principal Only",
+    "Principal-level architects only",
   ],
   [
     "Minimum Commitment",
@@ -270,23 +270,23 @@ const PROTOCOL = [
 const COMPLIANCE = [
   {
     icon: "shield",
-    title: "SOC 2 Type II",
-    copy: "Annual external AICPA compliance audit verification.",
+    title: "Security-First Delivery",
+    copy: "Threat modeling and least-privilege access on every engagement.",
   },
   {
-    icon: "health_and_safety",
-    title: "HIPAA Compliant",
-    copy: "BAA ready for secure ePHI health data streaming pipelines.",
+    icon: "enhanced_encryption",
+    title: "Encryption by Default",
+    copy: "Data encrypted in transit and at rest across every system we deliver.",
   },
   {
-    icon: "payments",
-    title: "PCI-DSS Level 1",
-    copy: "Architectures certified for high-frequency financial ledgers.",
+    icon: "fact_check",
+    title: "Audit-Ready Logging",
+    copy: "Traceable change history and observability built into delivery.",
   },
   {
-    icon: "security",
-    title: "ISO 27001",
-    copy: "Information Security Management System certified.",
+    icon: "policy",
+    title: "Compliance-Aware Builds",
+    copy: "Architectures designed to support your SOC 2, PCI, or HIPAA program.",
   },
 ];
 
@@ -403,7 +403,8 @@ export default function ServicesPage() {
             {DISCIPLINES.map((d) => (
               <article
                 key={d.n}
-                className="flex flex-col justify-between gap-xxl rounded-lg bg-canvas p-xxl shadow-sm transition-shadow duration-200 hover:shadow-md"
+                id={`discipline-${d.n}`}
+                className="scroll-mt-24 flex flex-col justify-between gap-xxl rounded-lg bg-canvas p-xxl shadow-sm transition-shadow duration-200 hover:shadow-md"
               >
                 <div className="flex flex-col gap-lg">
                   <div className="flex flex-wrap items-center justify-between gap-xs">
@@ -632,7 +633,7 @@ export default function ServicesPage() {
       </section>
 
       {/* SECTION 5 — Governance & compliance */}
-      <section className="w-full bg-canvas px-xxl py-section-lg">
+      <section id="compliance" className="scroll-mt-24 w-full bg-canvas px-xxl py-section-lg">
         <div className="mx-auto grid max-w-shell grid-cols-1 items-center gap-xxxl lg:grid-cols-12">
           <div className="flex flex-col gap-base lg:col-span-6">
             <span className="text-caption-bold uppercase tracking-widest text-primary">
@@ -716,18 +717,11 @@ export default function ServicesPage() {
 
             <div className="flex shrink-0 flex-col gap-base sm:flex-row lg:flex-col">
               <Link
-                href="#"
+                href="/#discovery-portal"
                 className="inline-flex items-center justify-center gap-xs rounded-full bg-primary-container px-xxxl py-base text-center text-body-md-bold text-on-primary shadow-md transition-colors duration-200 hover:bg-primary"
               >
                 Schedule Technical Discovery
                 <Icon name="calendar_month" size={20} />
-              </Link>
-              <Link
-                href="#"
-                className="inline-flex items-center justify-center gap-xs rounded-full bg-canvas/10 px-xxxl py-base text-center text-body-md-bold text-on-primary transition-colors duration-200 hover:bg-canvas/20"
-              >
-                Download Capabilities RFC Spec
-                <Icon name="download" size={20} />
               </Link>
             </div>
           </div>

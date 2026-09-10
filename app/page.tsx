@@ -171,7 +171,7 @@ export default function HomePage() {
               </h1>
               <p className="mt-xs max-w-2xl font-display text-subtitle-md font-light text-secondary md:text-heading-md">
                 From zero-to-one digital platforms to distributed real-time cloud architectures.
-                High-velocity engineering squads shipping production code for Fortune 500s and
+                High-velocity engineering squads shipping production code for enterprises and
                 high-growth scaleups.
               </p>
               <div className="mt-lg flex flex-wrap items-center gap-base">
@@ -225,9 +225,9 @@ export default function HomePage() {
               <div className="flex items-center justify-between pt-sm text-caption text-secondary">
                 <span className="flex items-center gap-xxs">
                   <Icon name="verified_user" size={14} className="text-primary" />
-                  SOC2 Type II Verified
+                  Security-first delivery
                 </span>
-                <span>AWS / GCP Premier Tier</span>
+                <span>AWS / GCP / Azure</span>
               </div>
             </div>
           </div>
@@ -390,7 +390,7 @@ export default function HomePage() {
               {[
                 {
                   badge: "HEALTHCARE AI",
-                  tags: ["ENTERPRISE HEALTHTECH", "HIPAA & SOC2 COMPLIANT"],
+                  tags: ["ENTERPRISE HEALTHTECH", "REGULATED ENVIRONMENT"],
                   title: "AI-Powered Medical Diagnostic Suite",
                   copy: "Sub-second real-time inference pipeline and high-performance WebGL DICOM visualizer enabling clinical oncology teams to diagnose early pathology with precision.",
                   stack: ["PyTorch", "WebGL / Three.js", "Next.js 14", "Google Cloud Vertex"],

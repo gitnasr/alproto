@@ -115,8 +115,8 @@ const TIMELINE: [string, string, string][] = [
   ],
   [
     "2022",
-    "SOC 2 Type II and PCI-DSS Level 1",
-    "Formalized the governance posture that lets pods work inside regulated production environments.",
+    "Governance posture formalized",
+    "Security and delivery practices hardened for work inside regulated production environments.",
   ],
   [
     "2024",
@@ -396,7 +396,7 @@ export default function AboutPage() {
 
             <div className="flex shrink-0 flex-col gap-base sm:flex-row lg:flex-col">
               <Link
-                href="#"
+                href="/#discovery-portal"
                 className="inline-flex items-center justify-center gap-xs rounded-full bg-primary-container px-xxxl py-base text-center text-body-md-bold text-on-primary shadow-md transition-colors duration-200 hover:bg-primary"
               >
                 Schedule Technical Discovery
