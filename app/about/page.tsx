@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Icon } from "@/components/icon";
+import { Reveal } from "@/components/reveal";
+
+function Dot() {
+  return <span className="text-accent-electric">.</span>;
+}
 
 export const metadata: Metadata = {
   title: "About",
@@ -20,12 +25,6 @@ const STUDIO_STATS = [
     tag: "Roster",
     title: "38 Engineers",
     copy: "Every one at Staff level or above, hired out of production teams — never off a bench.",
-  },
-  {
-    icon: "public",
-    tag: "Footprint",
-    title: "3 Studios",
-    copy: "San Francisco, London, and Berlin — overlapping hours across US and EU business days.",
   },
   {
     icon: "handshake",
@@ -100,18 +99,13 @@ const LEADERSHIP = [
 const TIMELINE: [string, string, string][] = [
   [
     "2016",
-    "Studio founded in San Francisco",
+    "Studio founded",
     "Three engineers, one engagement: decomposing a payments monolith for a Series B marketplace.",
   ],
   [
     "2018",
     "First zero-downtime core cutover",
     "Shipped the parallel-shadow diffing framework that still gates every modernization engagement.",
-  ],
-  [
-    "2020",
-    "London studio opens",
-    "EU coverage for regulated financial clients; FINMA and BaFin architectural reviews begin.",
   ],
   [
     "2022",
@@ -121,7 +115,7 @@ const TIMELINE: [string, string, string][] = [
   [
     "2024",
     "Applied ML practice established",
-    "Berlin studio opens alongside a dedicated inference and vector search team.",
+    "A dedicated inference and vector search team formed for production ML engagements.",
   ],
   [
     "2026",
@@ -152,62 +146,66 @@ export default function AboutPage() {
   return (
     <div className="flex w-full flex-col">
       {/* Hero + studio stats */}
-      <section className="relative w-full overflow-hidden bg-canvas px-xxl pt-section pb-section-lg">
-        <div className="pointer-events-none absolute -top-32 right-1/4 h-96 w-96 rounded-full bg-primary-container/5 blur-3xl" />
-        <div className="pointer-events-none absolute top-1/2 -left-20 h-80 w-80 rounded-full bg-accent-electric/5 blur-3xl" />
+      <section className="relative w-full overflow-hidden bg-ink-deep px-xxl py-section-lg text-canvas">
+        <div className="pointer-events-none absolute -top-32 right-1/4 h-[520px] w-[520px] rounded-full bg-primary-container/15 blur-3xl" />
+        <div className="pointer-events-none absolute top-1/2 -left-20 h-[380px] w-[380px] rounded-full bg-accent-electric/10 blur-3xl" />
 
         <div className="relative mx-auto flex max-w-shell flex-col gap-xxxl">
-          <div className="flex flex-wrap items-center gap-xs">
-            <span className="inline-flex items-center gap-xs rounded-full bg-surface-soft px-base py-xxs shadow-sm">
-              <span className="h-2 w-2 animate-pulse rounded-full bg-status-success" />
-              <span className="text-caption-bold uppercase tracking-wider text-ink-deep">
-                Studio Profile // Engineering-Led Since 2016
+          <Reveal>
+            <div className="flex flex-wrap items-center gap-xs">
+              <span className="inline-flex items-center gap-xs rounded-full bg-canvas/10 px-base py-xxs backdrop-blur">
+                <span className="h-2 w-2 animate-pulse rounded-full bg-status-success" />
+                <span className="text-caption-bold uppercase tracking-wider text-canvas/80">
+                  Studio Profile // Engineering-Led Since 2016
+                </span>
               </span>
-            </span>
-            <span className="hidden text-caption text-secondary sm:inline-block">
-              SAN FRANCISCO • LONDON • BERLIN
-            </span>
-          </div>
+            </div>
+          </Reveal>
 
           <div className="grid grid-cols-1 items-start gap-xxl lg:grid-cols-12">
             <div className="flex flex-col gap-lg lg:col-span-8">
-              <h1 className="text-display-lg-mobile font-semibold tracking-tight text-ink-deep md:text-display-lg lg:text-hero-display">
-                An engineering studio, <span className="text-primary">not an agency.</span>
-              </h1>
+              <Reveal delay={100}>
+                <h1 className="text-display-lg-mobile font-bold tracking-tight text-canvas md:text-display-lg lg:text-hero-display">
+                  An engineering studio,{" "}
+                  <span className="text-accent-electric">not an agency</span>
+                  <Dot />
+                </h1>
+              </Reveal>
             </div>
             <div className="flex flex-col gap-base lg:col-span-4 lg:pt-base">
-              <p className="text-subtitle-md leading-relaxed text-charcoal">
-                Nexus Dev exists because the hardest systems work kept getting sold by people who
-                would never have to operate it. We removed that layer. The architect who scopes your
-                platform is the engineer who ships it and the one who hands you the runbook.
-              </p>
-              <div className="flex items-center gap-sm pt-xs">
-                <Link
-                  href="#principles"
-                  className="inline-flex items-center gap-xs text-body-sm-bold text-primary transition-colors hover:text-ink-deep"
-                >
-                  How We Operate
-                  <Icon name="arrow_downward" />
-                </Link>
-              </div>
+              <Reveal delay={200}>
+                <p className="text-subtitle-md leading-relaxed text-stone">
+                  Nexus Dev exists because the hardest systems work kept getting sold by people who
+                  would never have to operate it. We removed that layer. The architect who scopes
+                  your platform is the engineer who ships it and the one who hands you the runbook.
+                </p>
+                <div className="flex items-center gap-sm pt-base">
+                  <Link
+                    href="#principles"
+                    className="inline-flex items-center gap-xs text-body-sm-bold text-accent-electric transition-colors hover:text-canvas"
+                  >
+                    How We Operate
+                    <Icon name="arrow_downward" />
+                  </Link>
+                </div>
+              </Reveal>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 gap-base pt-lg sm:grid-cols-2 lg:grid-cols-4">
-            {STUDIO_STATS.map((s) => (
-              <div
-                key={s.tag}
-                className="flex flex-col gap-xs rounded-lg bg-surface-soft p-xxl transition-colors duration-200 hover:bg-surface-container-low"
-              >
-                <div className="flex items-center justify-between">
-                  <Icon name={s.icon} size={24} className="text-primary" />
-                  <span className="text-caption-bold uppercase text-primary">{s.tag}</span>
+          <div className="grid grid-cols-1 gap-base pt-lg sm:grid-cols-2 lg:grid-cols-3">
+            {STUDIO_STATS.map((s, i) => (
+              <Reveal key={s.tag} delay={i * 100}>
+                <div className="flex h-full flex-col gap-xs rounded-xl border border-canvas/10 bg-canvas/5 p-xxl transition-colors duration-200 hover:bg-canvas/10">
+                  <div className="flex items-center justify-between">
+                    <Icon name={s.icon} size={24} className="text-accent-electric" />
+                    <span className="text-caption-bold uppercase text-accent-electric">{s.tag}</span>
+                  </div>
+                  <span className="mt-xs font-display text-heading-sm font-semibold text-canvas">
+                    {s.title}
+                  </span>
+                  <p className="text-body-sm text-stone">{s.copy}</p>
                 </div>
-                <span className="mt-xs font-display text-heading-sm font-semibold text-ink-deep">
-                  {s.title}
-                </span>
-                <p className="text-body-sm text-secondary">{s.copy}</p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -216,24 +214,29 @@ export default function AboutPage() {
       {/* Operating principles */}
       <section id="principles" className="w-full bg-surface-soft px-xxl py-section-lg">
         <div className="mx-auto flex max-w-shell flex-col gap-xxxl">
-          <div className="flex flex-col justify-between gap-base md:flex-row md:items-end">
-            <div className="flex flex-col gap-xs">
-              <span className="text-caption-bold uppercase tracking-widest text-primary">
-                Studio Charter
-              </span>
-              <h2 className="text-heading-lg font-semibold text-ink-deep">Operating Principles</h2>
+          <Reveal>
+            <div className="flex flex-col justify-between gap-base md:flex-row md:items-end">
+              <div className="flex flex-col gap-xs">
+                <span className="text-caption-bold uppercase tracking-widest text-primary">
+                  Studio Charter
+                </span>
+                <h2 className="text-heading-lg font-semibold text-ink-deep">
+                  Operating principles
+                  <Dot />
+                </h2>
+              </div>
+              <p className="max-w-[28rem] text-body-sm text-secondary">
+                Four commitments that decide which engagements we take and how every pod is run.
+                They are contractual, not aspirational.
+              </p>
             </div>
-            <p className="max-w-[28rem] text-body-sm text-secondary">
-              Four commitments that decide which engagements we take and how every pod is run. They
-              are contractual, not aspirational.
-            </p>
-          </div>
+          </Reveal>
 
           <div className="grid grid-cols-1 gap-xl md:grid-cols-2 lg:grid-cols-4">
-            {PRINCIPLES.map((p) => (
+            {PRINCIPLES.map((p, i) => (
+              <Reveal key={p.n} delay={i * 100}>
               <div
-                key={p.n}
-                className="flex flex-col gap-base rounded-lg bg-canvas p-xxl shadow-sm transition-all hover:shadow-lg"
+                className="flex h-full flex-col gap-base rounded-lg bg-canvas p-xxl shadow-sm transition-all hover:shadow-lg"
               >
                 <div className="flex h-10 w-10 items-center justify-center rounded-full bg-surface-container text-primary">
                   <Icon name={p.icon} size={20} />
@@ -248,58 +251,62 @@ export default function AboutPage() {
                   <Icon name="chevron_right" size={14} />
                 </span>
               </div>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
       {/* Leadership */}
-      <section className="w-full bg-canvas px-xxl py-section-lg">
-        <div className="mx-auto flex max-w-shell flex-col gap-xxxl">
-          <div className="flex max-w-2xl flex-col gap-xs">
-            <span className="text-caption-bold uppercase tracking-widest text-primary">
-              Practice Leads
-            </span>
-            <h2 className="text-heading-lg font-semibold text-ink-deep">
-              The people who sign the architecture
-            </h2>
-            <p className="text-body-md text-secondary">
-              Each practice is led by an engineer who still ships. Engagement scoping, RFC sign-off,
-              and production escalation all route through the same person.
-            </p>
-          </div>
+      <section className="relative w-full overflow-hidden bg-ink-deep px-xxl py-section-lg text-canvas">
+        <div className="pointer-events-none absolute -top-24 right-0 h-[420px] w-[420px] rounded-full bg-primary-container/10 blur-3xl" />
+        <div className="relative mx-auto flex max-w-shell flex-col gap-xxxl">
+          <Reveal>
+            <div className="flex max-w-2xl flex-col gap-xs">
+              <span className="text-caption-bold uppercase tracking-widest text-accent-electric">
+                Practice Leads
+              </span>
+              <h2 className="text-heading-lg font-semibold tracking-tight text-canvas">
+                The people who sign the architecture
+                <Dot />
+              </h2>
+              <p className="text-body-md text-stone">
+                Each practice is led by an engineer who still ships. Engagement scoping, RFC
+                sign-off, and production escalation all route through the same person.
+              </p>
+            </div>
+          </Reveal>
 
           <div className="grid grid-cols-1 gap-xl md:grid-cols-2">
-            {LEADERSHIP.map((person) => (
-              <article
-                key={person.name}
-                className="flex flex-col gap-lg rounded-lg bg-surface-soft p-xxl transition-colors duration-200 hover:bg-surface-container-low"
-              >
-                <div className="flex items-center gap-base">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary/10 font-display text-body-md-bold font-bold text-primary">
-                    {person.initials}
+            {LEADERSHIP.map((person, i) => (
+              <Reveal key={person.name} delay={(i % 2) * 120}>
+                <article className="flex h-full flex-col gap-lg rounded-xl border border-canvas/10 bg-canvas/5 p-xxl transition-colors duration-200 hover:bg-canvas/10">
+                  <div className="flex items-center gap-base">
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-accent-electric/15 font-display text-body-md-bold font-bold text-accent-electric">
+                      {person.initials}
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="font-display text-heading-sm font-semibold text-canvas">
+                        {person.name}
+                      </span>
+                      <span className="text-caption-bold uppercase tracking-wider text-accent-electric">
+                        {person.role}
+                      </span>
+                    </div>
                   </div>
-                  <div className="flex flex-col">
-                    <span className="font-display text-heading-sm font-semibold text-ink-deep">
-                      {person.name}
-                    </span>
-                    <span className="text-caption-bold uppercase tracking-wider text-primary">
-                      {person.role}
-                    </span>
+                  <p className="text-body-sm leading-relaxed text-stone">{person.bio}</p>
+                  <div className="mt-auto flex flex-wrap gap-xs">
+                    {person.focus.map((f) => (
+                      <span
+                        key={f}
+                        className="rounded-full border border-canvas/15 px-sm py-xxs text-caption-bold text-canvas/80"
+                      >
+                        {f}
+                      </span>
+                    ))}
                   </div>
-                </div>
-                <p className="text-body-sm leading-relaxed text-charcoal">{person.bio}</p>
-                <div className="flex flex-wrap gap-xs">
-                  {person.focus.map((f) => (
-                    <span
-                      key={f}
-                      className="rounded-full bg-canvas px-sm py-xxs text-caption-bold text-ink-body"
-                    >
-                      {f}
-                    </span>
-                  ))}
-                </div>
-              </article>
+                </article>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -308,20 +315,25 @@ export default function AboutPage() {
       {/* Timeline */}
       <section className="w-full bg-surface-soft px-xxl py-section-lg">
         <div className="mx-auto flex max-w-shell flex-col gap-xxxl">
-          <div className="flex flex-col justify-between gap-base md:flex-row md:items-end">
-            <div className="flex flex-col gap-xs">
-              <span className="text-caption-bold uppercase tracking-widest text-primary">
-                Studio Record
-              </span>
-              <h2 className="text-heading-lg font-semibold text-ink-deep">Ten Years of Cutovers</h2>
+          <Reveal>
+            <div className="flex flex-col justify-between gap-base md:flex-row md:items-end">
+              <div className="flex flex-col gap-xs">
+                <span className="text-caption-bold uppercase tracking-widest text-primary">
+                  Studio Record
+                </span>
+                <h2 className="text-heading-lg font-semibold text-ink-deep">
+                  Ten years of cutovers
+                  <Dot />
+                </h2>
+              </div>
+              <p className="max-w-[28rem] text-body-sm text-secondary">
+                Growth has been deliberate. Headcount tracks the number of engagements we can staff
+                at Staff level — never the other way round.
+              </p>
             </div>
-            <p className="max-w-[28rem] text-body-sm text-secondary">
-              Growth has been deliberate. Headcount tracks the number of engagements we can staff at
-              Staff level — never the other way round.
-            </p>
-          </div>
+          </Reveal>
 
-          <div className="flex flex-col rounded-lg bg-canvas p-xxl shadow-sm">
+          <Reveal className="flex flex-col rounded-lg bg-canvas p-xxl shadow-sm">
             {TIMELINE.map(([year, title, copy], i) => (
               <div
                 key={year}
@@ -338,43 +350,51 @@ export default function AboutPage() {
                 </div>
               </div>
             ))}
-          </div>
+          </Reveal>
         </div>
       </section>
 
       {/* What we don't do */}
       <section className="w-full bg-canvas px-xxl py-section-lg">
         <div className="mx-auto flex max-w-shell flex-col gap-xxxl">
-          <div className="flex max-w-2xl flex-col gap-xs">
-            <span className="text-caption-bold uppercase tracking-widest text-primary">
-              Explicit Non-Goals
-            </span>
-            <h2 className="text-heading-lg font-semibold text-ink-deep">What we deliberately skip</h2>
-            <p className="text-body-md text-secondary">
-              Stating the boundaries up front saves everyone a discovery call. If any of these are
-              dealbreakers, we are the wrong studio.
-            </p>
-          </div>
+          <Reveal>
+            <div className="flex max-w-2xl flex-col gap-xs">
+              <span className="text-caption-bold uppercase tracking-widest text-primary">
+                Explicit Non-Goals
+              </span>
+              <h2 className="text-heading-lg font-semibold text-ink-deep">
+                What we deliberately skip
+                <Dot />
+              </h2>
+              <p className="text-body-md text-secondary">
+                Stating the boundaries up front saves everyone a discovery call. If any of these are
+                dealbreakers, we are the wrong studio.
+              </p>
+            </div>
+          </Reveal>
 
           <div className="grid grid-cols-1 gap-xl md:grid-cols-3">
-            {NOT_THIS.map((n) => (
-              <div key={n.title} className="flex flex-col gap-base rounded-lg bg-surface-soft p-xxl">
+            {NOT_THIS.map((n, i) => (
+              <Reveal key={n.title} delay={i * 100}>
+              <div className="flex h-full flex-col gap-base rounded-lg bg-surface-soft p-xxl">
                 <div className="flex h-12 w-12 items-center justify-center rounded-md bg-canvas text-status-critical shadow-sm">
                   <Icon name={n.icon} size={24} />
                 </div>
                 <h3 className="text-heading-sm font-semibold text-ink-deep">{n.title}</h3>
                 <p className="text-body-sm leading-relaxed text-charcoal">{n.copy}</p>
               </div>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="w-full bg-canvas px-xxl pb-hero">
-        <div className="relative mx-auto max-w-shell overflow-hidden rounded-lg bg-ink-deep p-xxxl text-on-primary shadow-xl">
-          <div className="pointer-events-none absolute -right-24 -bottom-24 h-96 w-96 rounded-full bg-primary-container/20 blur-3xl" />
+      <section className="relative w-full overflow-hidden bg-ink-deep px-xxl py-hero text-on-primary">
+        <div className="pointer-events-none absolute -right-32 -bottom-32 h-96 w-96 rounded-full bg-primary-container/20 blur-3xl" />
+        <div className="pointer-events-none absolute top-0 right-1/3 h-64 w-64 rounded-full bg-accent-electric/10 blur-2xl" />
 
+        <Reveal className="relative mx-auto max-w-shell">
           <div className="relative flex flex-col justify-between gap-xxxl lg:flex-row lg:items-center">
             <div className="flex max-w-2xl flex-col gap-base">
               <span className="inline-flex items-center gap-xs self-start rounded-full bg-canvas/10 px-base py-xxs text-caption-bold uppercase text-on-primary-container">
@@ -411,7 +431,7 @@ export default function AboutPage() {
               </Link>
             </div>
           </div>
-        </div>
+        </Reveal>
       </section>
     </div>
   );

@@ -2,6 +2,11 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Icon } from "@/components/icon";
 import { MediaFrame } from "@/components/media-frame";
+import { Reveal } from "@/components/reveal";
+
+function Dot() {
+  return <span className="text-accent-electric">.</span>;
+}
 
 export const metadata: Metadata = {
   title: "Fintech Core Banking Re-architecture",
@@ -268,97 +273,109 @@ export default function CaseStudyPage() {
   return (
     <div className="flex w-full flex-col">
       {/* Breadcrumb bar */}
-      <section className="w-full bg-surface-soft px-xxl py-md">
+      <section className="w-full border-b border-canvas/10 bg-ink-deep px-xxl py-md">
         <div className="mx-auto flex max-w-shell flex-wrap items-center justify-between gap-base">
-          <div className="flex flex-wrap items-center gap-xs text-caption text-charcoal">
+          <div className="flex flex-wrap items-center gap-xs text-caption text-stone">
             <Link
-              href="/case-studies/fintech-core-banking"
-              className="flex items-center gap-xxs transition-colors hover:text-primary"
+              href="/case-studies"
+              className="flex items-center gap-xxs transition-colors hover:text-accent-electric"
             >
               <Icon name="arrow_back" size={14} />
               Case Studies
             </Link>
             <span>/</span>
-            <span className="text-steel">Fintech Infrastructure</span>
+            <span className="text-canvas/50">Fintech Infrastructure</span>
             <span>/</span>
-            <span className="text-caption-bold text-ink-deep">
+            <span className="text-caption-bold text-canvas">
               Project Atlas: Global Tier-1 Banking Partner
             </span>
           </div>
           <div className="flex items-center gap-xs">
-            <span className="inline-flex items-center gap-xxs rounded-full bg-status-success/10 px-xs py-xxs text-caption-bold text-status-success">
+            <span className="inline-flex items-center gap-xxs rounded-full bg-status-success/15 px-xs py-xxs text-caption-bold text-status-success">
               <span className="h-1.5 w-1.5 animate-ping rounded-full bg-status-success" />
               ACTIVE IN PRODUCTION
             </span>
-            <span className="text-caption text-steel">Case ID: NX-8842-FIN</span>
+            <span className="text-caption text-canvas/40">Case ID: NX-8842-FIN</span>
           </div>
         </div>
       </section>
 
       {/* Hero */}
-      <section className="w-full bg-canvas py-section-sm">
-        <div className="mx-auto flex max-w-shell flex-col gap-xxl px-xxl">
-          <div className="flex flex-wrap items-center gap-xs">
-            <span className="rounded-full bg-ink-deep px-sm py-xxs text-caption-bold uppercase tracking-wider text-canvas">
-              Tier-1 Banking Infrastructure
-            </span>
-            <span className="rounded-full bg-primary/10 px-sm py-xxs text-caption-bold uppercase tracking-wider text-primary">
-              Series D Scale
-            </span>
-            {["Mission-Critical Runtime", "ACID Compliant"].map((b) => (
-              <span
-                key={b}
-                className="rounded-full bg-surface-container-high px-sm py-xxs text-caption-bold uppercase tracking-wider text-charcoal"
-              >
-                {b}
+      <section className="relative w-full overflow-hidden bg-ink-deep py-section-lg text-canvas">
+        <div className="pointer-events-none absolute -top-32 right-1/4 h-[520px] w-[520px] rounded-full bg-primary-container/15 blur-3xl" />
+        <div className="pointer-events-none absolute bottom-0 -left-24 h-[380px] w-[380px] rounded-full bg-accent-electric/10 blur-3xl" />
+
+        <div className="relative mx-auto flex max-w-shell flex-col gap-xxl px-xxl">
+          <Reveal>
+            <div className="flex flex-wrap items-center gap-xs">
+              <span className="rounded-full bg-accent-electric px-sm py-xxs text-caption-bold uppercase tracking-wider text-ink-deep">
+                Tier-1 Banking Infrastructure
               </span>
-            ))}
-          </div>
+              <span className="rounded-full bg-canvas/10 px-sm py-xxs text-caption-bold uppercase tracking-wider text-canvas/80">
+                Series D Scale
+              </span>
+              {["Mission-Critical Runtime", "ACID Compliant"].map((b) => (
+                <span
+                  key={b}
+                  className="rounded-full border border-canvas/15 px-sm py-xxs text-caption-bold uppercase tracking-wider text-canvas/70"
+                >
+                  {b}
+                </span>
+              ))}
+            </div>
+          </Reveal>
 
           <div className="flex max-w-5xl flex-col gap-lg">
-            <h1 className="text-display-lg-mobile font-semibold tracking-tight text-ink-deep md:text-display-lg lg:text-hero-display">
-              Re-architecting a Multi-Region Core Banking Ledger for 50,000+ TPS and Zero-Defect
-              Settlement.
-            </h1>
-            <p className="max-w-4xl text-subtitle-lg leading-relaxed font-normal text-charcoal">
-              How an embedded 6-person Nexus.Dev staff-level squad dismantled a 14-year-old
-              monolithic legacy core, migrating $18B+ quarterly transactional throughput to an
-              event-driven, multi-region active-active distributed ledger in 9 months with zero
-              unbudgeted downtime.
-            </p>
+            <Reveal delay={100}>
+              <h1 className="text-display-lg-mobile font-bold tracking-tight text-canvas md:text-display-lg lg:text-hero-display">
+                Re-architecting a multi-region core banking ledger for{" "}
+                <span className="text-accent-electric">50,000+ TPS</span> and zero-defect settlement
+                <Dot />
+              </h1>
+            </Reveal>
+            <Reveal delay={200}>
+              <p className="max-w-4xl text-subtitle-lg leading-relaxed font-normal text-stone">
+                How an embedded 6-person Nexus.Dev staff-level squad dismantled a 14-year-old
+                monolithic legacy core, migrating $18B+ quarterly transactional throughput to an
+                event-driven, multi-region active-active distributed ledger in 9 months with zero
+                unbudgeted downtime.
+              </p>
+            </Reveal>
           </div>
 
-          <div className="grid grid-cols-1 gap-xl rounded-lg bg-surface-soft p-xxl md:grid-cols-2 lg:grid-cols-4">
-            {META.map((m) => (
-              <div key={m.label} className="flex flex-col gap-xxs">
-                <span className="text-caption-bold uppercase tracking-wider text-steel">
-                  {m.label}
-                </span>
-                <span className="text-body-md-bold text-ink-deep">{m.value}</span>
-                <span className="text-caption text-secondary">{m.note}</span>
-              </div>
-            ))}
-            <div className="flex flex-col gap-xxs">
-              <span className="text-caption-bold uppercase tracking-wider text-steel">
-                Primary Stack
-              </span>
-              <div className="flex flex-wrap gap-xxs pt-xxs">
-                {["Rust", "Kafka", "Aurora Multi-Master", "EKS"].map((s) => (
-                  <span
-                    key={s}
-                    className="rounded-full bg-canvas px-xs py-xxs text-caption text-charcoal"
-                  >
-                    {s}
+          <Reveal delay={250}>
+            <div className="grid grid-cols-1 gap-xl rounded-xl border border-canvas/10 bg-canvas/5 p-xxl md:grid-cols-2 lg:grid-cols-4">
+              {META.map((m) => (
+                <div key={m.label} className="flex flex-col gap-xxs">
+                  <span className="text-caption-bold uppercase tracking-wider text-canvas/50">
+                    {m.label}
                   </span>
-                ))}
+                  <span className="text-body-md-bold text-canvas">{m.value}</span>
+                  <span className="text-caption text-stone">{m.note}</span>
+                </div>
+              ))}
+              <div className="flex flex-col gap-xxs">
+                <span className="text-caption-bold uppercase tracking-wider text-canvas/50">
+                  Primary Stack
+                </span>
+                <div className="flex flex-wrap gap-xxs pt-xxs">
+                  {["Rust", "Kafka", "Aurora Multi-Master", "EKS"].map((s) => (
+                    <span
+                      key={s}
+                      className="rounded-full border border-canvas/15 px-xs py-xxs text-caption text-canvas/80"
+                    >
+                      {s}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
       {/* Hero visual */}
-      <section className="w-full bg-canvas pb-section">
+      <section className="w-full bg-ink-deep pb-section">
         <div className="mx-auto max-w-shell px-xxl">
           <div className="relative overflow-hidden rounded-lg bg-ink-deep p-4 shadow-2xl md:p-8">
             <div className="flex flex-wrap items-center justify-between gap-base pb-base">
@@ -726,11 +743,11 @@ export default function CaseStudyPage() {
       </section>
 
       {/* CTA */}
-      <section className="w-full bg-canvas pb-section">
-        <div className="mx-auto max-w-shell px-xxl">
-          <div className="relative flex flex-col items-center justify-between gap-xxxl overflow-hidden rounded-lg bg-ink-deep p-xxl text-canvas shadow-2xl md:flex-row md:p-xxxl">
-            <div className="pointer-events-none absolute -right-24 -bottom-24 h-96 w-96 rounded-full bg-primary/20 blur-3xl" />
-
+      <section className="relative w-full overflow-hidden bg-ink-deep py-hero">
+        <div className="pointer-events-none absolute -right-32 -bottom-32 h-96 w-96 rounded-full bg-primary-container/20 blur-3xl" />
+        <div className="pointer-events-none absolute top-0 right-1/3 h-64 w-64 rounded-full bg-accent-electric/10 blur-2xl" />
+        <div className="relative mx-auto max-w-shell px-xxl">
+          <Reveal className="flex flex-col items-center justify-between gap-xxxl text-canvas md:flex-row">
             <div className="relative z-10 flex max-w-2xl flex-col gap-base">
               <span className="text-caption-bold uppercase tracking-widest text-accent-electric">
                 Architectural Advisory
@@ -757,12 +774,12 @@ export default function CaseStudyPage() {
               </Link>
               <Link
                 href="/architecture"
-                className="inline-flex w-full items-center justify-center rounded-full bg-canvas/10 px-xl py-base text-body-sm-bold text-canvas transition-colors duration-200 hover:bg-canvas/20 sm:w-auto"
+                className="inline-flex w-full items-center justify-center rounded-full border border-canvas/25 px-xl py-base text-body-sm-bold text-canvas transition-colors duration-200 hover:border-canvas/50 hover:bg-canvas/10 sm:w-auto"
               >
                 View Core Architecture
               </Link>
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
     </div>

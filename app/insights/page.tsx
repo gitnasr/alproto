@@ -2,6 +2,11 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Icon } from "@/components/icon";
 import { MediaFrame } from "@/components/media-frame";
+import { Reveal } from "@/components/reveal";
+
+function Dot() {
+  return <span className="text-accent-electric">.</span>;
+}
 
 export const metadata: Metadata = {
   title: "Insights",
@@ -116,55 +121,63 @@ export default function InsightsPage() {
   return (
     <div className="flex w-full flex-col">
       {/* Hero */}
-      <section className="relative w-full overflow-hidden bg-canvas px-xxl pt-section pb-section-sm">
-        <div className="pointer-events-none absolute -top-32 right-1/4 h-96 w-96 rounded-full bg-primary-container/5 blur-3xl" />
+      <section className="relative w-full overflow-hidden bg-ink-deep px-xxl py-section-lg text-canvas">
+        <div className="pointer-events-none absolute -top-32 right-1/4 h-[520px] w-[520px] rounded-full bg-primary-container/15 blur-3xl" />
+        <div className="pointer-events-none absolute bottom-0 -left-24 h-[380px] w-[380px] rounded-full bg-accent-electric/10 blur-3xl" />
 
         <div className="relative mx-auto flex max-w-shell flex-col gap-xxxl">
-          <div className="flex flex-wrap items-center gap-xs">
-            <span className="inline-flex items-center gap-xs rounded-full bg-surface-soft px-base py-xxs shadow-sm">
-              <span className="h-2 w-2 animate-pulse rounded-full bg-status-success" />
-              <span className="text-caption-bold uppercase tracking-wider text-ink-deep">
-                Engineering Journal // Written From Production
+          <Reveal>
+            <div className="flex flex-wrap items-center gap-xs">
+              <span className="inline-flex items-center gap-xs rounded-full bg-canvas/10 px-base py-xxs backdrop-blur">
+                <span className="h-2 w-2 animate-pulse rounded-full bg-status-success" />
+                <span className="text-caption-bold uppercase tracking-wider text-canvas/80">
+                  Engineering Journal // Written From Production
+                </span>
               </span>
-            </span>
-            <span className="hidden text-caption text-secondary sm:inline-block">
-              NO GUEST POSTS • NO GHOSTWRITERS
-            </span>
-          </div>
+              <span className="hidden text-caption text-stone sm:inline-block">
+                NO GUEST POSTS • NO GHOSTWRITERS
+              </span>
+            </div>
+          </Reveal>
 
           <div className="grid grid-cols-1 items-start gap-xxl lg:grid-cols-12">
             <div className="flex flex-col gap-lg lg:col-span-8">
-              <h1 className="text-display-lg-mobile font-semibold tracking-tight text-ink-deep md:text-display-lg lg:text-hero-display">
-                Field notes from <span className="text-primary">real cutovers.</span>
-              </h1>
+              <Reveal delay={100}>
+                <h1 className="text-display-lg-mobile font-bold tracking-tight text-canvas md:text-display-lg lg:text-hero-display">
+                  Field notes from <span className="text-accent-electric">real cutovers</span>
+                  <Dot />
+                </h1>
+              </Reveal>
             </div>
             <div className="flex flex-col gap-base lg:col-span-4 lg:pt-base">
-              <p className="text-subtitle-md leading-relaxed text-charcoal">
-                Every article here is written by the engineer who ran the system it describes.
-                Benchmarks come from production, postmortems name the wrong turn, and nothing is
-                published unless we would defend it in an architecture review.
-              </p>
+              <Reveal delay={200}>
+                <p className="text-subtitle-md leading-relaxed text-stone">
+                  Every article here is written by the engineer who ran the system it describes.
+                  Benchmarks come from production, postmortems name the wrong turn, and nothing is
+                  published unless we would defend it in an architecture review.
+                </p>
+              </Reveal>
             </div>
           </div>
         </div>
       </section>
 
       {/* Featured */}
-      <section className="w-full bg-canvas px-xxl pb-section-lg">
+      <section className="w-full bg-canvas px-xxl py-section-lg">
         <div className="mx-auto flex max-w-shell flex-col gap-section-sm">
-          <div className="flex flex-col justify-between gap-base md:flex-row md:items-end">
-            <div className="flex flex-col gap-xs">
-              <div className="flex items-center gap-xs">
-                <span className="h-2.5 w-2.5 rounded-full bg-primary-container" />
+          <Reveal>
+            <div className="flex flex-col justify-between gap-base md:flex-row md:items-end">
+              <div className="flex flex-col gap-xs">
                 <span className="text-caption-bold uppercase tracking-wider text-primary">
                   Latest Deep Dive
                 </span>
+                <h2 className="text-heading-lg font-semibold tracking-tight text-ink-deep">
+                  This month from the studio
+                  <Dot />
+                </h2>
               </div>
-              <h2 className="text-heading-lg font-semibold tracking-tight text-ink-deep">
-                This month from the studio
-              </h2>
             </div>
-          </div>
+          </Reveal>
 
           <article className="grid grid-cols-1 items-center gap-xxl overflow-hidden rounded-xl bg-surface-soft p-xxl shadow-sm lg:grid-cols-12 lg:p-xxxl">
             <div className="flex flex-col gap-base lg:col-span-7">
@@ -230,26 +243,29 @@ export default function InsightsPage() {
       {/* Article grid */}
       <section className="w-full bg-surface-soft px-xxl py-section-lg">
         <div className="mx-auto flex max-w-shell flex-col gap-xxxl">
-          <div className="flex flex-col justify-between gap-base md:flex-row md:items-end">
-            <div className="flex flex-col gap-xs">
-              <span className="text-caption-bold uppercase tracking-widest text-primary">
-                The Archive
-              </span>
-              <h2 className="text-heading-lg font-semibold text-ink-deep">
-                Postmortems, benchmarks &amp; decision records
-              </h2>
+          <Reveal>
+            <div className="flex flex-col justify-between gap-base md:flex-row md:items-end">
+              <div className="flex flex-col gap-xs">
+                <span className="text-caption-bold uppercase tracking-widest text-primary">
+                  The Archive
+                </span>
+                <h2 className="text-heading-lg font-semibold text-ink-deep">
+                  Postmortems, benchmarks &amp; decision records
+                  <Dot />
+                </h2>
+              </div>
+              <p className="max-w-[28rem] text-body-sm text-secondary">
+                Published when there is something measured to report. We would rather run six
+                articles a year that hold up than a weekly post that does not.
+              </p>
             </div>
-            <p className="max-w-[28rem] text-body-sm text-secondary">
-              Published when there is something measured to report. We would rather run six articles
-              a year that hold up than a weekly post that does not.
-            </p>
-          </div>
+          </Reveal>
 
           <div className="grid grid-cols-1 gap-xl md:grid-cols-2 lg:grid-cols-3">
-            {ARTICLES.map((a) => (
+            {ARTICLES.map((a, i) => (
+              <Reveal key={a.title} delay={(i % 3) * 100}>
               <article
-                key={a.title}
-                className="group flex flex-col justify-between gap-xl rounded-lg bg-canvas p-xxl shadow-sm transition-shadow duration-200 hover:shadow-md"
+                className="group flex h-full flex-col justify-between gap-xl rounded-lg bg-canvas p-xxl shadow-sm transition-shadow duration-200 hover:shadow-md"
               >
                 <div className="flex flex-col gap-base">
                   <div className="flex items-center justify-between gap-xs">
@@ -272,17 +288,18 @@ export default function InsightsPage() {
                   />
                 </div>
               </article>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
       {/* Digest CTA */}
-      <section className="w-full bg-canvas px-xxl py-section-lg">
-        <div className="relative mx-auto max-w-shell overflow-hidden rounded-lg bg-ink-deep p-xxxl text-on-primary shadow-xl">
-          <div className="pointer-events-none absolute -right-24 -bottom-24 h-96 w-96 rounded-full bg-primary-container/20 blur-3xl" />
-          <div className="pointer-events-none absolute top-0 right-1/3 h-64 w-64 rounded-full bg-accent-electric/10 blur-2xl" />
+      <section className="relative w-full overflow-hidden bg-ink-deep px-xxl py-hero text-on-primary">
+        <div className="pointer-events-none absolute -right-32 -bottom-32 h-96 w-96 rounded-full bg-primary-container/20 blur-3xl" />
+        <div className="pointer-events-none absolute top-0 right-1/3 h-64 w-64 rounded-full bg-accent-electric/10 blur-2xl" />
 
+        <Reveal className="relative mx-auto max-w-shell">
           <div className="relative flex flex-col justify-between gap-xxxl lg:flex-row lg:items-center">
             <div className="flex max-w-2xl flex-col gap-base">
               <span className="inline-flex items-center gap-xs self-start rounded-full bg-canvas/10 px-base py-xxs text-caption-bold uppercase text-on-primary-container">
@@ -290,7 +307,8 @@ export default function InsightsPage() {
                 The Architecture Digest
               </span>
               <h2 className="text-display-lg-mobile font-semibold tracking-tight text-on-primary md:text-display-lg">
-                One engineering write-up a month. Nothing else.
+                One engineering write-up a month. Nothing else
+                <Dot />
               </h2>
               <p className="text-subtitle-md leading-relaxed text-hairline">
                 New postmortems and benchmark reports as they publish, sent by the engineer who wrote
@@ -323,7 +341,7 @@ export default function InsightsPage() {
               </span>
             </form>
           </div>
-        </div>
+        </Reveal>
       </section>
     </div>
   );
