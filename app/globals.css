@@ -193,3 +193,265 @@ h4 {
   font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
   user-select: none;
 }
+
+/* Hero node network (components/hero-network.tsx). Static unless motion is welcome. */
+
+/* Interaction — always on, motion preference or not. */
+.hexnet-node {
+  cursor: pointer;
+  outline: none;
+}
+.hexnet-glyph {
+  transform-box: fill-box;
+  transform-origin: center;
+  transition:
+    transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.25s ease;
+}
+.hexnet-node:hover .hexnet-glyph,
+.hexnet-node:focus-visible .hexnet-glyph {
+  transform: scale(1.07);
+}
+.hexnet-node:focus-visible .hexnet-glyph polygon:first-of-type {
+  stroke-opacity: 1;
+  stroke-width: 2.5;
+}
+.hexnet-label {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+.hexnet-node:hover .hexnet-label,
+.hexnet-node:focus-visible .hexnet-label {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* Entry: nodes burst outward from the core, connectors fade in behind them. */
+  .hexnet-emerge {
+    transform-box: view-box;
+    animation: hexnet-emerge 0.75s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  .hexnet-core-in {
+    transform-box: view-box;
+    transform-origin: 400px 340px;
+    animation: hexnet-core-in 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  .hexnet-rail {
+    animation: hexnet-fade 0.6s ease both var(--hexnet-fade-delay, 1.3s);
+  }
+  .hexnet-float {
+    animation: hexnet-float 7s ease-in-out infinite;
+  }
+  .hexnet-flow {
+    stroke-dasharray: 5 13;
+    animation:
+      hexnet-fade 0.6s ease both var(--hexnet-fade-delay, 1.3s),
+      hexnet-flow 1.9s linear infinite var(--hexnet-flow-delay, 1.9s);
+  }
+  .hexnet-pulse {
+    animation: hexnet-pulse 3.4s ease-in-out infinite;
+  }
+  .hexnet-twinkle {
+    animation: hexnet-twinkle 5s ease-in-out infinite;
+  }
+  .hexnet-core {
+    animation: hexnet-breathe 6s ease-in-out infinite;
+    transform-box: view-box;
+    transform-origin: 400px 300px;
+  }
+  .hexnet-spin,
+  .hexnet-spin-reverse {
+    transform-box: view-box;
+    transform-origin: 400px 300px;
+  }
+  .hexnet-spin {
+    animation: hexnet-spin 64s linear infinite;
+  }
+  .hexnet-spin-reverse {
+    animation: hexnet-spin 46s linear infinite reverse;
+  }
+}
+
+@keyframes hexnet-emerge {
+  from {
+    opacity: 0;
+    transform: translate(var(--hexnet-tx, 0), var(--hexnet-ty, 0)) scale(0.12);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+}
+@keyframes hexnet-core-in {
+  from {
+    opacity: 0;
+    transform: scale(0.35);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes hexnet-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes hexnet-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-9px);
+  }
+}
+@keyframes hexnet-flow {
+  to {
+    stroke-dashoffset: -36;
+  }
+}
+@keyframes hexnet-pulse {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+@keyframes hexnet-twinkle {
+  0%,
+  100% {
+    opacity: 0.12;
+  }
+  50% {
+    opacity: 0.75;
+  }
+}
+@keyframes hexnet-breathe {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.025);
+  }
+}
+@keyframes hexnet-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Scroll-reveal (components/reveal.tsx). Motion only when the user allows it. */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+      opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Rotating sticker CTA (components/call-badge.tsx). */
+/* The ring is the root <svg>, so its origin resolves in CSS pixels, not
+   viewBox units — centre it by percentage so it spins true at any size. */
+.call-badge-ring {
+  transform-origin: 50% 50%;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .call-badge-ring {
+    animation: call-badge-spin 22s linear infinite;
+  }
+  .call-badge:hover .call-badge-ring {
+    animation-duration: 7s;
+  }
+}
+@keyframes call-badge-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Contact dialog (components/contact-modal.tsx).
+   Tailwind's preflight zeroes every margin, which also kills the `margin: auto`
+   the UA stylesheet uses to centre a modal <dialog> — put it back explicitly. */
+.contact-modal {
+  margin: auto;
+}
+.contact-modal::backdrop {
+  background: rgb(10 19 23 / 0.72);
+  backdrop-filter: blur(4px);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .contact-modal[open] {
+    animation: contact-modal-in 0.24s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+}
+@keyframes contact-modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Client logo strip (components/logo-marquee.tsx).
+   The track holds the list twice, so sliding it exactly half its width lands
+   back on an identical frame and the loop is invisible. */
+.marquee {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 4rem,
+    black calc(100% - 4rem),
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 4rem,
+    black calc(100% - 4rem),
+    transparent
+  );
+}
+@media (prefers-reduced-motion: no-preference) {
+  .marquee-track {
+    animation: marquee-scroll 38s linear infinite;
+  }
+  .marquee:hover .marquee-track {
+    animation-play-state: paused;
+  }
+}
+/* Held still, the duplicate copy is redundant and the row should simply wrap. */
+@media (prefers-reduced-motion: reduce) {
+  .marquee {
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+  .marquee-track {
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  .marquee-track > *:nth-child(n + 6) {
+    display: none;
+  }
+}
+@keyframes marquee-scroll {
+  to {
+    transform: translateX(-50%);
+  }
+}

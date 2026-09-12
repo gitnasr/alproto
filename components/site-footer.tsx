@@ -1,71 +1,82 @@
 import Link from "next/link";
+import { SOLUTIONS } from "@/lib/solutions";
+import { SERVICES } from "@/lib/services";
+import { ContactTrigger } from "@/components/contact-trigger";
 
-const CAPABILITIES = [
-  { label: "Core System Architecture", href: "/services#discipline-01" },
-  { label: "Enterprise Cloud Platforms", href: "/services#discipline-02" },
-  { label: "High-Load API Frameworks", href: "/services#discipline-04" },
-  { label: "Real-Time Data Pipelines", href: "/services#discipline-03" },
-  { label: "Bespoke Frontend Platforms", href: "/architecture" },
-];
-
-const ENGAGEMENT = [
-  { label: "Client Portal", href: "/#discovery-portal" },
-  { label: "Technical Audits", href: "/services#discipline-04" },
-  { label: "Security & Compliance", href: "/services#compliance" },
+const COMPANY = [
+  { label: "Project Check", href: "/project-check" },
+  { label: "FAQ", href: "/services#faq" },
+  { label: "Case Studies", href: "/case-studies" },
+  { label: "About", href: "/about" },
   { label: "Engineering Careers", href: "/careers" },
   { label: "Open Source Registry", href: "/open-source" },
 ];
 
-const LEGAL = [
-  "Privacy Framework",
-  "Terms of Architecture",
-  "Security Protocols",
-  "Status Core",
-];
+/**
+ * Column heading that is also the way into the index page behind it. Without
+ * these the footer listed every child page and offered no route to the parent.
+ */
+function ColumnHeading({ href, children }: { href: string; children: React.ReactNode }) {
+  return (
+    <Link
+      href={href}
+      className="group inline-flex w-fit items-center gap-xxs text-body-sm-bold uppercase tracking-wider text-ink-deep transition-colors hover:text-primary"
+    >
+      {children}
+      <span
+        aria-hidden
+        className="text-primary-container opacity-0 transition-opacity group-hover:opacity-100"
+      >
+        →
+      </span>
+    </Link>
+  );
+}
 
 export function SiteFooter() {
   return (
     <footer className="w-full border-t border-hairline-soft bg-surface-soft pt-section pb-xxxl">
       <div className="mx-auto max-w-shell px-xxl">
-        <div className="grid grid-cols-1 gap-xxxl border-b border-hairline-soft pb-section-sm md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-xxxl border-b border-hairline-soft pb-section-sm md:grid-cols-2 lg:grid-cols-5">
           <div className="flex flex-col gap-base lg:col-span-2">
-            <div className="flex items-center gap-xs">
-              <span className="font-display text-heading-sm font-bold text-ink-deep">Nexus Dev</span>
-              <span className="rounded-full bg-primary/10 px-xs py-xxs text-caption-bold text-primary">
-                v4.2 PROD
-              </span>
-            </div>
+            <span className="font-display text-heading-sm font-bold text-ink-deep">Nexus Dev</span>
             <p className="max-w-[24rem] text-body-sm text-secondary">
-              High-performance digital product engineering firm. We architect, engineer, and deploy
-              mission-critical software systems for global enterprises.
+              We take unfinished software all the way to production — stalled builds, inherited
+              codebases, and migrations that never completed.
             </p>
-            <div className="mt-base flex flex-wrap items-center gap-xs">
-              <span className="text-caption-bold uppercase tracking-wider text-charcoal">
-                Stack Credentials:
-              </span>
-              {["Distributed Systems", "Next.js / Rust", "Kubernetes"].map((tag) => (
-                <span
-                  key={tag}
-                  className="rounded-full border border-hairline-soft bg-canvas px-xs py-xxs text-caption text-charcoal"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
+            <ContactTrigger
+              className="mt-base inline-flex w-fit items-center rounded-full bg-primary-container px-xl py-xs text-body-sm-bold text-on-primary transition-colors hover:bg-primary"
+            >
+              Book a 15 Minute Call
+            </ContactTrigger>
           </div>
 
           <div className="flex flex-col gap-md">
-            <span className="text-body-sm-bold uppercase tracking-wider text-ink-deep">
-              Capabilities
-            </span>
+            <ColumnHeading href="/solutions">Solutions</ColumnHeading>
             <ul className="flex flex-col gap-xs">
-              {CAPABILITIES.map((item) => (
-                <li key={item.label}>
+              {SOLUTIONS.map((s) => (
+                <li key={s.slug}>
                   <Link
-                    href={item.href}
+                    href={`/solutions/${s.slug}`}
                     className="text-body-sm text-secondary transition-colors hover:text-ink-deep"
                   >
-                    {item.label}
+                    {s.navLabel}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="flex flex-col gap-md">
+            <ColumnHeading href="/services">Services</ColumnHeading>
+            <ul className="flex flex-col gap-xs">
+              {SERVICES.map((s) => (
+                <li key={s.slug}>
+                  <Link
+                    href={`/services#${s.slug}`}
+                    className="text-body-sm text-secondary transition-colors hover:text-ink-deep"
+                  >
+                    {s.name}
                   </Link>
                 </li>
               ))}
@@ -74,10 +85,10 @@ export function SiteFooter() {
 
           <div className="flex flex-col gap-md">
             <span className="text-body-sm-bold uppercase tracking-wider text-ink-deep">
-              Engagement
+              Company
             </span>
             <ul className="flex flex-col gap-xs">
-              {ENGAGEMENT.map((item) => (
+              {COMPANY.map((item) => (
                 <li key={item.label}>
                   <Link
                     href={item.href}
@@ -91,21 +102,13 @@ export function SiteFooter() {
           </div>
         </div>
 
+        {/* Privacy Policy / Terms / Security used to sit here as grey text that
+            looked like links and went nowhere. They come back as real links when
+            there are real documents to point them at. */}
         <div className="flex flex-col items-center justify-between gap-base pt-xl md:flex-row">
           <span className="text-caption text-secondary">
             © {new Date().getFullYear()} Nexus Dev. All rights reserved.
           </span>
-          <div className="flex flex-wrap items-center justify-center gap-xl">
-            {LEGAL.map((item) => (
-              <Link
-                key={item}
-                href="#"
-                className="text-caption text-secondary transition-colors hover:text-ink-deep"
-              >
-                {item}
-              </Link>
-            ))}
-          </div>
         </div>
       </div>
     </footer>
