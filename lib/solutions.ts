@@ -17,7 +17,6 @@ export type Solution = {
   reassurance?: string;
   /** Concrete work we deliver in this domain. */
   deliverables: { icon: string; title: string; copy: string }[];
-  stack: string[];
 };
 
 export const SOLUTIONS: Solution[] = [
@@ -64,7 +63,6 @@ export const SOLUTIONS: Solution[] = [
         copy: "Runbooks, architecture notes, and paired sessions so your team owns the system with confidence.",
       },
     ],
-    stack: ["TypeScript", "Node.js", "Python", "PostgreSQL", "Docker", "GitHub Actions"],
   },
   {
     slug: "cloud-infrastructure",
@@ -107,7 +105,6 @@ export const SOLUTIONS: Solution[] = [
         copy: "Right-sizing and configuration work to bring cloud spend in line with actual usage.",
       },
     ],
-    stack: ["AWS", "Google Cloud", "Azure", "Kubernetes", "Terraform", "Docker"],
   },
   {
     slug: "ai-automation",
@@ -150,7 +147,6 @@ export const SOLUTIONS: Solution[] = [
         copy: "Repetitive internal processes replaced with reliable, observable automated workflows.",
       },
     ],
-    stack: ["Python", "PyTorch", "pgvector", "LangChain", "Claude API", "Ray"],
   },
   {
     slug: "data-platforms",
@@ -193,7 +189,6 @@ export const SOLUTIONS: Solution[] = [
         copy: "Indexing, partitioning, and query work to bring slow reads back within budget.",
       },
     ],
-    stack: ["PostgreSQL", "Apache Kafka", "dbt", "ClickHouse", "Airflow", "Debezium"],
   },
   {
     slug: "product-engineering",
@@ -236,7 +231,6 @@ export const SOLUTIONS: Solution[] = [
         copy: "Load, render, and interaction performance measured and improved against real device conditions.",
       },
     ],
-    stack: ["React", "Next.js", "TypeScript", "React Native", "Tailwind CSS", "Playwright"],
   },
 ];
 

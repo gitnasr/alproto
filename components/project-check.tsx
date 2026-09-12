@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import Link from "next/link";
 import { Icon } from "./icon";
 import { SOLUTIONS } from "@/lib/solutions";
+import { ContactTrigger } from "@/components/contact-trigger";
 
 type Symptom = { id: string; label: string; detail: string; areas: string[] };
 
@@ -298,13 +299,12 @@ export function ProjectCheck() {
 
             {count > 0 && (
               <div className="flex flex-col gap-xs pt-base">
-                <Link
-                  href="/#discovery-portal"
+                <ContactTrigger
                   className="inline-flex items-center justify-center gap-xs rounded-full bg-primary-container px-xl py-sm text-body-sm-bold text-on-primary transition-colors hover:bg-primary"
                 >
-                  Request a Project Assessment
+                  Book a 15 Minute Call
                   <Icon name="arrow_forward" size={18} />
-                </Link>
+                </ContactTrigger>
                 <button
                   type="button"
                   onClick={copySummary}

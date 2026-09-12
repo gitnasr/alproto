@@ -362,3 +362,96 @@ h4 {
     transform: none;
   }
 }
+
+/* Rotating sticker CTA (components/call-badge.tsx). */
+/* The ring is the root <svg>, so its origin resolves in CSS pixels, not
+   viewBox units — centre it by percentage so it spins true at any size. */
+.call-badge-ring {
+  transform-origin: 50% 50%;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .call-badge-ring {
+    animation: call-badge-spin 22s linear infinite;
+  }
+  .call-badge:hover .call-badge-ring {
+    animation-duration: 7s;
+  }
+}
+@keyframes call-badge-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Contact dialog (components/contact-modal.tsx).
+   Tailwind's preflight zeroes every margin, which also kills the `margin: auto`
+   the UA stylesheet uses to centre a modal <dialog> — put it back explicitly. */
+.contact-modal {
+  margin: auto;
+}
+.contact-modal::backdrop {
+  background: rgb(10 19 23 / 0.72);
+  backdrop-filter: blur(4px);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .contact-modal[open] {
+    animation: contact-modal-in 0.24s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+}
+@keyframes contact-modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Client logo strip (components/logo-marquee.tsx).
+   The track holds the list twice, so sliding it exactly half its width lands
+   back on an identical frame and the loop is invisible. */
+.marquee {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 4rem,
+    black calc(100% - 4rem),
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 4rem,
+    black calc(100% - 4rem),
+    transparent
+  );
+}
+@media (prefers-reduced-motion: no-preference) {
+  .marquee-track {
+    animation: marquee-scroll 38s linear infinite;
+  }
+  .marquee:hover .marquee-track {
+    animation-play-state: paused;
+  }
+}
+/* Held still, the duplicate copy is redundant and the row should simply wrap. */
+@media (prefers-reduced-motion: reduce) {
+  .marquee {
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+  .marquee-track {
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  .marquee-track > *:nth-child(n + 6) {
+    display: none;
+  }
+}
+@keyframes marquee-scroll {
+  to {
+    transform: translateX(-50%);
+  }
+}

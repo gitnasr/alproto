@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { Icon } from "./icon";
 import { SOLUTIONS } from "@/lib/solutions";
 import { SERVICES } from "@/lib/services";
+import { useContactModal } from "./contact-modal";
 
 type MenuItem = { href: string; label: string; desc: string; icon: string };
 type Menu = { label: string; href: string; items: MenuItem[] };
@@ -36,8 +37,6 @@ const MENUS: Menu[] = [
 const LINKS = [
   { href: "/project-check", label: "Project Check" },
   { href: "/case-studies", label: "Case Studies" },
-  { href: "/architecture", label: "Architecture" },
-  { href: "/insights", label: "Insights" },
   { href: "/about", label: "About" },
 ];
 
@@ -62,6 +61,7 @@ export function SiteHeader() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openMenu, setOpenMenu] = useState<string | null>(null);
   const [mobileSection, setMobileSection] = useState<string | null>(null);
+  const { open: openContact } = useContactModal();
 
   // Any navigation closes whatever is open.
   useEffect(() => {
@@ -147,12 +147,13 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex items-center gap-lg">
-          <Link
-            href="/#discovery-portal"
+          <button
+            type="button"
+            onClick={openContact}
             className="hidden rounded-full bg-primary-container px-xxl py-sm text-body-sm-bold text-on-primary transition-colors duration-200 hover:bg-primary sm:inline-flex"
           >
-            Start a Project
-          </Link>
+            Book a 15 Minute Call
+          </button>
           <button
             type="button"
             onClick={() => setMobileOpen((v) => !v)}
@@ -264,12 +265,16 @@ export function SiteHeader() {
             </Link>
           ))}
 
-          <Link
-            href="/#discovery-portal"
+          <button
+            type="button"
+            onClick={() => {
+              setMobileOpen(false);
+              openContact();
+            }}
             className="mt-base inline-flex w-full justify-center rounded-full bg-primary-container px-xxl py-md text-body-sm-bold text-on-primary"
           >
-            Start a Project
-          </Link>
+            Book a 15 Minute Call
+          </button>
         </nav>
       )}
     </header>

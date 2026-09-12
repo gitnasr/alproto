@@ -1,6 +1,7 @@
 import { Icon } from "./icon";
 import { Reveal } from "./reveal";
 import { FAQ } from "@/lib/faq";
+import { ContactTrigger } from "@/components/contact-trigger";
 
 /**
  * Objection-handling accordion. Built on native <details> so it works without
@@ -15,7 +16,8 @@ export function Faq({
   tone?: "soft" | "canvas";
 }) {
   const band = tone === "canvas" ? "bg-canvas" : "bg-surface-soft";
-  const card = tone === "canvas" ? "bg-surface-soft" : "bg-canvas";
+  /** Hover wash for a ruled row — the band decides which direction reads as "lift". */
+  const hover = tone === "canvas" ? "hover:bg-surface-soft" : "hover:bg-canvas";
 
   return (
     <section id={id} className={`w-full scroll-mt-24 py-section-lg ${band}`}>
@@ -34,21 +36,21 @@ export function Faq({
                 Mostly the ones that stop someone getting in touch at all. If yours is not here,
                 ask it directly — a straight answer costs you nothing.
               </p>
-              <a
-                href="/#discovery-portal"
+              <ContactTrigger
                 className="inline-flex w-fit items-center gap-xs pt-base text-body-sm-bold text-primary transition-colors hover:text-ink-deep"
               >
                 Ask us something else
                 <Icon name="arrow_forward" size={16} />
-              </a>
+              </ContactTrigger>
             </div>
           </Reveal>
 
-          <div className="flex flex-col gap-base lg:col-span-8">
+          {/* Ruled rows rather than a stack of shadowed cards */}
+          <div className="flex flex-col border-t border-ink-deep/20 lg:col-span-8">
             {FAQ.map((item, i) => (
               <Reveal key={item.question} delay={(i % 4) * 70}>
                 <details
-                  className={`group rounded-xl p-xl shadow-sm transition-shadow hover:shadow-md ${card}`}
+                  className={`group border-b border-hairline px-xs py-lg transition-colors ${hover}`}
                 >
                   <summary className="flex cursor-pointer list-none items-start justify-between gap-base text-body-md-bold text-ink-deep marker:hidden [&::-webkit-details-marker]:hidden">
                     {item.question}
@@ -58,7 +60,7 @@ export function Faq({
                       className="mt-xxs shrink-0 text-primary transition-transform duration-200 group-open:rotate-45"
                     />
                   </summary>
-                  <p className="pt-base text-body-sm leading-relaxed text-secondary">
+                  <p className="max-w-3xl pt-base text-body-sm leading-relaxed text-secondary">
                     {item.answer}
                   </p>
                 </details>

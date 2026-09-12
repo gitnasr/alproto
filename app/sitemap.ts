@@ -9,11 +9,8 @@ const ROUTES = [
   "/services",
   "/solutions",
   ...SOLUTIONS.map((s) => `/solutions/${s.slug}`),
-  "/architecture",
   "/about",
-  "/insights",
   "/case-studies",
-  "/case-studies/fintech-core-banking",
   "/careers",
   "/open-source",
 ];

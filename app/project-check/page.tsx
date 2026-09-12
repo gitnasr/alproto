@@ -4,6 +4,7 @@ import { Icon } from "@/components/icon";
 import { Reveal } from "@/components/reveal";
 import { ProjectCheck } from "@/components/project-check";
 import { Faq } from "@/components/faq";
+import { ContactTrigger } from "@/components/contact-trigger";
 
 export const metadata: Metadata = {
   title: "Project Check",
@@ -24,14 +25,7 @@ export default function ProjectCheckPage() {
         <div className="pointer-events-none absolute bottom-0 -left-24 h-[380px] w-[380px] rounded-full bg-accent-electric/10 blur-3xl" />
 
         <div className="relative mx-auto flex max-w-shell flex-col gap-xl px-xxl">
-          <Reveal>
-            <span className="inline-flex w-fit items-center gap-xs rounded-full bg-canvas/10 px-base py-xxs backdrop-blur">
-              <Icon name="fact_check" size={16} className="text-accent-electric" />
-              <span className="text-caption-bold uppercase tracking-wider text-canvas/80">
-                Project Check · Two Minutes
-              </span>
-            </span>
-          </Reveal>
+          
           <Reveal delay={100}>
             <h1 className="max-w-3xl text-display-lg-mobile font-bold tracking-tight text-canvas md:text-display-lg">
               Is your project in trouble — and{" "}
@@ -106,7 +100,7 @@ export default function ProjectCheckPage() {
       <section className="w-full bg-canvas py-section-lg">
         <div className="mx-auto max-w-shell px-xxl">
           <Reveal>
-            <div className="flex flex-col justify-between gap-xxl rounded-xl bg-surface-soft p-xxxl lg:flex-row lg:items-center">
+            <div className="flex flex-col justify-between gap-xxl border-t border-ink-deep/20 pt-xxl lg:flex-row lg:items-end">
               <div className="flex max-w-2xl flex-col gap-base">
                 <h2 className="text-heading-lg font-semibold tracking-tight text-ink-deep">
                   Rather just describe it in your own words?
@@ -116,13 +110,12 @@ export default function ProjectCheckPage() {
                   honest read on what finishing it involves.
                 </p>
               </div>
-              <Link
-                href="/#discovery-portal"
+              <ContactTrigger
                 className="inline-flex shrink-0 items-center justify-center gap-xs rounded-full bg-ink-deep px-xxxl py-base text-center text-body-md-bold text-canvas shadow-md transition-colors duration-200 hover:bg-charcoal"
               >
                 Get in Touch
                 <Icon name="arrow_forward" size={20} />
-              </Link>
+              </ContactTrigger>
             </div>
           </Reveal>
         </div>

@@ -1,20 +1,37 @@
 import Link from "next/link";
 import { SOLUTIONS } from "@/lib/solutions";
 import { SERVICES } from "@/lib/services";
+import { ContactTrigger } from "@/components/contact-trigger";
 
 const COMPANY = [
   { label: "Project Check", href: "/project-check" },
   { label: "FAQ", href: "/services#faq" },
   { label: "Case Studies", href: "/case-studies" },
   { label: "About", href: "/about" },
-  { label: "Insights", href: "/insights" },
-  { label: "Architecture & Stack", href: "/architecture" },
   { label: "Engineering Careers", href: "/careers" },
   { label: "Open Source Registry", href: "/open-source" },
 ];
 
-/** Legal pages aren't written yet — the labels stay, the links wait for real documents. */
-const LEGAL = ["Privacy Policy", "Terms of Service", "Security"];
+/**
+ * Column heading that is also the way into the index page behind it. Without
+ * these the footer listed every child page and offered no route to the parent.
+ */
+function ColumnHeading({ href, children }: { href: string; children: React.ReactNode }) {
+  return (
+    <Link
+      href={href}
+      className="group inline-flex w-fit items-center gap-xxs text-body-sm-bold uppercase tracking-wider text-ink-deep transition-colors hover:text-primary"
+    >
+      {children}
+      <span
+        aria-hidden
+        className="text-primary-container opacity-0 transition-opacity group-hover:opacity-100"
+      >
+        →
+      </span>
+    </Link>
+  );
+}
 
 export function SiteFooter() {
   return (
@@ -27,18 +44,15 @@ export function SiteFooter() {
               We take unfinished software all the way to production — stalled builds, inherited
               codebases, and migrations that never completed.
             </p>
-            <Link
-              href="/#discovery-portal"
+            <ContactTrigger
               className="mt-base inline-flex w-fit items-center rounded-full bg-primary-container px-xl py-xs text-body-sm-bold text-on-primary transition-colors hover:bg-primary"
             >
-              Request a Project Assessment
-            </Link>
+              Book a 15 Minute Call
+            </ContactTrigger>
           </div>
 
           <div className="flex flex-col gap-md">
-            <span className="text-body-sm-bold uppercase tracking-wider text-ink-deep">
-              Solutions
-            </span>
+            <ColumnHeading href="/solutions">Solutions</ColumnHeading>
             <ul className="flex flex-col gap-xs">
               {SOLUTIONS.map((s) => (
                 <li key={s.slug}>
@@ -54,9 +68,7 @@ export function SiteFooter() {
           </div>
 
           <div className="flex flex-col gap-md">
-            <span className="text-body-sm-bold uppercase tracking-wider text-ink-deep">
-              Services
-            </span>
+            <ColumnHeading href="/services">Services</ColumnHeading>
             <ul className="flex flex-col gap-xs">
               {SERVICES.map((s) => (
                 <li key={s.slug}>
@@ -90,17 +102,13 @@ export function SiteFooter() {
           </div>
         </div>
 
+        {/* Privacy Policy / Terms / Security used to sit here as grey text that
+            looked like links and went nowhere. They come back as real links when
+            there are real documents to point them at. */}
         <div className="flex flex-col items-center justify-between gap-base pt-xl md:flex-row">
           <span className="text-caption text-secondary">
             © {new Date().getFullYear()} Nexus Dev. All rights reserved.
           </span>
-          <div className="flex flex-wrap items-center justify-center gap-xl">
-            {LEGAL.map((item) => (
-              <span key={item} className="text-caption text-stone">
-                {item}
-              </span>
-            ))}
-          </div>
         </div>
       </div>
     </footer>

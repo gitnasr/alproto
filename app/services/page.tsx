@@ -5,6 +5,7 @@ import { Reveal } from "@/components/reveal";
 import { Faq } from "@/components/faq";
 import { SERVICES } from "@/lib/services";
 import { SOLUTIONS } from "@/lib/solutions";
+import { ContactTrigger } from "@/components/contact-trigger";
 
 export const metadata: Metadata = {
   title: "Services",
@@ -18,56 +19,51 @@ function Dot() {
 
 const WHY = [
   {
-    icon: "visibility",
+    n: "01",
     tag: "Clarity",
     title: "An honest starting position",
     copy: "Before commitments are made, you get a candid assessment of what exists and what finishing it actually requires.",
   },
   {
-    icon: "assignment_turned_in",
+    n: "02",
     tag: "Accountability",
     title: "One team owns the outcome",
     copy: "A named delivery lead is responsible for scope, schedule, and communication for the life of the engagement.",
   },
   {
-    icon: "published_with_changes",
+    n: "03",
     tag: "Momentum",
     title: "Working software every cycle",
     copy: "Progress is demonstrated in running software on a fixed cadence, not described in status decks.",
   },
   {
-    icon: "menu_book",
+    n: "04",
     tag: "Independence",
     title: "You own it afterwards",
     copy: "Documentation, runbooks, and paired sessions so your team can run and extend the system without us.",
   },
 ];
 
-const MODELS = [
+/** The one most engagements start as — given its own block rather than a middle column. */
+const LEAD_MODEL = {
+  tag: "Most common",
+  title: "Full Completion Engagement",
+  copy: "We take ownership of the remaining build and carry it through to production. Best when the project has stalled and needs a team that will finish it rather than advise on it.",
+  list: [
+    "Assessment, roadmap, and delivery to launch",
+    "Deployment pipeline and rehearsed cutover",
+    "Documentation and team handover",
+  ],
+  footKey: "Accountability",
+  footValue: "End-to-end delivery",
+  cta: "Discuss a Completion",
+};
+
+const OTHER_MODELS = [
   {
-    tag: "Most Common",
-    tagTone: "bg-primary-container text-on-primary",
-    glow: true,
-    title: "Full Completion Engagement",
-    copy: "We take ownership of the remaining build and carry it through to production. Best when the project has stalled and needs a team that will finish it rather than advise on it.",
-    listLabel: "Includes:",
-    list: [
-      "Assessment, roadmap, and delivery to launch",
-      "Deployment pipeline and rehearsed cutover",
-      "Documentation and team handover",
-    ],
-    footKey: "Accountability",
-    footValue: "End-to-end delivery",
-    footValueTone: "text-status-success",
-    cta: "Discuss a Completion",
-    ctaTone: "bg-primary-container hover:bg-primary",
-  },
-  {
-    tag: "Fixed Scope",
-    tagTone: "bg-canvas text-ink-deep shadow-sm",
+    tag: "Fixed scope",
     title: "Assessment & Roadmap",
     copy: "A bounded review of the codebase, infrastructure, and remaining scope, producing a written completion plan with estimates. Yours to keep — whether or not we do the build.",
-    listLabel: "Includes:",
     list: [
       "Architecture, code, and security review",
       "Risk register with severity and effort",
@@ -75,16 +71,12 @@ const MODELS = [
     ],
     footKey: "Output",
     footValue: "Written plan you own",
-    footValueTone: "text-ink-deep",
     cta: "Commission an Assessment",
-    ctaTone: "bg-ink-deep hover:bg-charcoal",
   },
   {
-    tag: "Alongside Your Team",
-    tagTone: "bg-canvas text-ink-deep shadow-sm",
+    tag: "Alongside your team",
     title: "Embedded Support",
     copy: "We work inside your existing process on an agreed slice of the remaining work, while your team keeps ownership of the whole. Suited to teams who need capacity, not a takeover.",
-    listLabel: "Includes:",
     list: [
       "Agreed workstream with clear boundaries",
       "Your tooling, your review process",
@@ -92,9 +84,7 @@ const MODELS = [
     ],
     footKey: "Ownership",
     footValue: "Stays with your team",
-    footValueTone: "text-ink-deep",
     cta: "Talk About Capacity",
-    ctaTone: "bg-ink-deep hover:bg-charcoal",
   },
 ];
 
@@ -127,23 +117,19 @@ const COMPARISON: [string, string, string, string][] = [
 
 const GOVERNANCE = [
   {
-    icon: "shield",
-    title: "Security-First Delivery",
+    title: "Security-first delivery",
     copy: "Threat modeling and least-privilege access on every engagement.",
   },
   {
-    icon: "enhanced_encryption",
-    title: "Encryption by Default",
+    title: "Encryption by default",
     copy: "Data encrypted in transit and at rest across every system we deliver.",
   },
   {
-    icon: "fact_check",
-    title: "Audit-Ready Logging",
+    title: "Audit-ready logging",
     copy: "Traceable change history and observability built into delivery.",
   },
   {
-    icon: "policy",
-    title: "Compliance-Aware Builds",
+    title: "Compliance-aware builds",
     copy: "Architectures designed to support your SOC 2, PCI, or HIPAA program.",
   },
 ];
@@ -157,15 +143,6 @@ export default function ServicesPage() {
         <div className="pointer-events-none absolute bottom-0 -left-24 h-[380px] w-[380px] rounded-full bg-accent-electric/10 blur-3xl" />
 
         <div className="relative mx-auto flex max-w-shell flex-col gap-xl px-xxl">
-          <Reveal>
-            <span className="inline-flex w-fit items-center gap-xs rounded-full bg-canvas/10 px-base py-xxs backdrop-blur">
-              <span className="h-2 w-2 animate-pulse rounded-full bg-status-success" />
-              <span className="text-caption-bold uppercase tracking-wider text-canvas/80">
-                The Engagement Arc
-              </span>
-            </span>
-          </Reveal>
-
           <div className="grid grid-cols-1 items-end gap-xxl lg:grid-cols-12">
             <Reveal delay={100} className="lg:col-span-7">
               <h1 className="text-display-lg-mobile font-bold tracking-tight text-canvas md:text-display-lg lg:text-hero-display">
@@ -212,35 +189,44 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Why a completion partner */}
+      {/* Why a completion partner — a sticky premise against a flowing list */}
       <section className="w-full bg-surface-soft py-section-lg">
         <div className="mx-auto max-w-shell px-xxl">
-          <Reveal>
-            <div className="mb-section-sm flex max-w-2xl flex-col gap-xs">
-              <span className="text-caption-bold uppercase tracking-widest text-primary">
-                Why It Works
-              </span>
-              <h2 className="text-heading-lg font-semibold tracking-tight text-ink-deep">
-                What a completion partner has to get right
-                <Dot />
-              </h2>
-            </div>
-          </Reveal>
-          <div className="grid grid-cols-1 gap-base sm:grid-cols-2 lg:grid-cols-4">
-            {WHY.map((w, i) => (
-              <Reveal key={w.tag} delay={i * 100}>
-                <div className="flex h-full flex-col gap-xs rounded-xl bg-canvas p-xxl shadow-sm transition-shadow hover:shadow-md">
-                  <div className="flex items-center justify-between">
-                    <Icon name={w.icon} size={24} className="text-primary" />
-                    <span className="text-caption-bold uppercase text-primary">{w.tag}</span>
+          <div className="grid grid-cols-1 gap-xxxl lg:grid-cols-12">
+            <Reveal className="lg:col-span-4">
+              <div className="flex flex-col gap-xs lg:sticky lg:top-32">
+                <span className="text-caption-bold uppercase tracking-widest text-primary">
+                  Why It Works
+                </span>
+                <h2 className="text-heading-lg font-semibold tracking-tight text-ink-deep">
+                  What a completion partner has to get right
+                  <Dot />
+                </h2>
+              </div>
+            </Reveal>
+
+            <div className="flex flex-col lg:col-span-8">
+              {WHY.map((w, i) => (
+                <Reveal key={w.tag} delay={i * 90}>
+                  <div
+                    className={`grid grid-cols-1 gap-xs py-xl sm:grid-cols-12 sm:gap-xl ${
+                      i > 0 ? "border-t border-hairline" : "lg:pt-0"
+                    }`}
+                  >
+                    <div className="sm:col-span-3">
+                      <span className="font-display text-body-md-bold text-stone">{w.n}</span>
+                      <p className="text-caption-bold uppercase tracking-widest text-primary">
+                        {w.tag}
+                      </p>
+                    </div>
+                    <div className="sm:col-span-9">
+                      <h3 className="text-heading-sm font-bold text-ink-deep">{w.title}</h3>
+                      <p className="mt-xs text-body-md leading-relaxed text-secondary">{w.copy}</p>
+                    </div>
                   </div>
-                  <span className="mt-xs font-display text-heading-sm font-semibold text-ink-deep">
-                    {w.title}
-                  </span>
-                  <p className="text-body-sm text-secondary">{w.copy}</p>
-                </div>
-              </Reveal>
-            ))}
+                </Reveal>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -261,23 +247,19 @@ export default function ServicesPage() {
                 <div className="grid grid-cols-1 items-start gap-xxxl lg:grid-cols-12">
                   <Reveal className={`lg:col-span-5 ${dark ? "lg:order-2" : ""}`}>
                     <div className="flex flex-col gap-base lg:sticky lg:top-32">
+                      {/* The step number carries the hierarchy; an icon tile beside it
+                          would only decorate what the number already says. */}
                       <div className="flex items-center gap-base">
                         <span
-                          className={`flex h-14 w-14 items-center justify-center rounded-md ${
-                            dark
-                              ? "bg-accent-electric/15 text-accent-electric"
-                              : "bg-primary-container/10 text-primary-container"
-                          }`}
-                        >
-                          <Icon name={s.icon} size={28} />
-                        </span>
-                        <span
                           className={`font-display text-display-lg font-bold ${
-                            dark ? "text-canvas/15" : "text-surface-container-high"
+                            dark ? "text-canvas/20" : "text-surface-container-high"
                           }`}
                         >
                           {s.step}
                         </span>
+                        <span
+                          className={`h-px flex-1 ${dark ? "bg-canvas/15" : "bg-hairline"}`}
+                        />
                       </div>
                       <h2
                         className={`text-heading-lg font-semibold tracking-tight ${
@@ -297,10 +279,7 @@ export default function ServicesPage() {
                     </div>
                   </Reveal>
 
-                  <Reveal
-                    delay={120}
-                    className={`lg:col-span-7 ${dark ? "lg:order-1" : ""}`}
-                  >
+                  <Reveal delay={120} className={`lg:col-span-7 ${dark ? "lg:order-1" : ""}`}>
                     <div className="flex flex-col gap-xl">
                       <p
                         className={`text-body-md leading-relaxed ${
@@ -310,21 +289,26 @@ export default function ServicesPage() {
                         {s.copy}
                       </p>
 
-                      <ul className="flex flex-col gap-base">
-                        {s.points.map((p) => (
+                      {/* Ruled rows, not tinted boxes with tick marks. */}
+                      <ul className="flex flex-col">
+                        {s.points.map((p, pi) => (
                           <li
                             key={p}
-                            className={`flex items-start gap-base rounded-lg p-base ${
-                              dark ? "bg-canvas/5" : "bg-surface-soft"
+                            className={`flex items-baseline gap-base py-sm ${
+                              pi > 0
+                                ? dark
+                                  ? "border-t border-canvas/10"
+                                  : "border-t border-hairline-soft"
+                                : ""
                             }`}
                           >
-                            <Icon
-                              name="check_circle"
-                              size={20}
-                              className={`mt-xxs shrink-0 ${
-                                dark ? "text-accent-electric" : "text-primary"
+                            <span
+                              className={`shrink-0 text-caption-bold tabular-nums ${
+                                dark ? "text-canvas/35" : "text-stone"
                               }`}
-                            />
+                            >
+                              {String(pi + 1).padStart(2, "0")}
+                            </span>
                             <span
                               className={`text-body-sm ${dark ? "text-canvas/85" : "text-ink-body"}`}
                             >
@@ -335,8 +319,8 @@ export default function ServicesPage() {
                       </ul>
 
                       <div
-                        className={`flex flex-wrap items-center justify-between gap-base rounded-lg p-xl ${
-                          dark ? "bg-canvas/5" : "bg-surface-container-low"
+                        className={`flex flex-wrap items-end justify-between gap-base border-t pt-base ${
+                          dark ? "border-canvas/15" : "border-ink-deep/15"
                         }`}
                       >
                         <div className="flex flex-col">
@@ -353,17 +337,16 @@ export default function ServicesPage() {
                             {s.deliverable}
                           </span>
                         </div>
-                        <Link
-                          href="/#discovery-portal"
-                          className={`inline-flex items-center gap-xs rounded-full px-xl py-xs text-body-sm-bold transition-colors ${
+                        <ContactTrigger
+                          className={`inline-flex items-center gap-xs text-body-sm-bold transition-colors ${
                             dark
-                              ? "bg-canvas/10 text-canvas hover:bg-canvas/20"
-                              : "bg-ink-deep text-canvas hover:bg-charcoal"
+                              ? "text-accent-electric hover:text-canvas"
+                              : "text-primary-container hover:text-primary"
                           }`}
                         >
                           Start Here
                           <Icon name="arrow_forward" size={16} />
-                        </Link>
+                        </ContactTrigger>
                       </div>
                     </div>
                   </Reveal>
@@ -374,7 +357,7 @@ export default function ServicesPage() {
         })}
       </section>
 
-      {/* Engagement models */}
+      {/* Engagement models — one lead, two alternatives, deliberately unequal */}
       <section className="w-full bg-surface-soft py-section-lg">
         <div className="mx-auto flex max-w-shell flex-col gap-xxxl px-xxl">
           <Reveal>
@@ -392,77 +375,110 @@ export default function ServicesPage() {
             </div>
           </Reveal>
 
-          <div className="grid grid-cols-1 gap-xxl md:grid-cols-3">
-            {MODELS.map((m, i) => (
-              <Reveal key={m.title} delay={i * 120}>
-                <div className="relative flex h-full flex-col justify-between gap-xl overflow-hidden rounded-xl bg-canvas p-xxl shadow-sm">
-                  {m.glow && (
-                    <div className="pointer-events-none absolute top-0 right-0 h-32 w-32 rounded-full bg-primary/5 blur-2xl" />
-                  )}
-                  <div className="relative flex flex-col gap-base">
-                    <span
-                      className={`self-start rounded-full px-sm py-xxs text-caption-bold uppercase ${m.tagTone}`}
-                    >
-                      {m.tag}
-                    </span>
-                    <h3 className="text-heading-sm font-semibold text-ink-deep">{m.title}</h3>
-                    <p className="text-body-sm text-charcoal">{m.copy}</p>
-                    <div className="flex flex-col gap-xs pt-base">
-                      <span className="text-caption-bold uppercase tracking-wider text-ink-deep">
-                        {m.listLabel}
-                      </span>
-                      <ul className="flex flex-col gap-xs text-body-sm text-secondary">
-                        {m.list.map((item) => (
-                          <li key={item} className="flex items-start gap-xs">
-                            <Icon name="check_circle" className="mt-0.5 shrink-0 text-primary" />
-                            {item}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
+          {/* The one most people want, given the weight to match */}
+          <Reveal>
+            <article className="relative overflow-hidden rounded-xl bg-ink-deep p-xxl text-canvas lg:p-xxxl">
+              <div className="pointer-events-none absolute -top-24 -right-16 h-72 w-72 rounded-full bg-primary-container/20 blur-3xl" />
+              <div className="relative grid grid-cols-1 gap-xxl lg:grid-cols-12">
+                <div className="flex flex-col gap-base lg:col-span-7">
+                  <span className="text-caption-bold uppercase tracking-widest text-accent-electric">
+                    {LEAD_MODEL.tag}
+                  </span>
+                  <h3 className="text-heading-lg font-semibold tracking-tight text-canvas">
+                    {LEAD_MODEL.title}
+                  </h3>
+                  <p className="max-w-2xl text-body-md leading-relaxed text-stone">
+                    {LEAD_MODEL.copy}
+                  </p>
+                  <ContactTrigger className="mt-xs inline-flex w-fit items-center gap-xs rounded-full bg-primary-container px-xxl py-sm text-body-sm-bold text-on-primary transition-colors hover:bg-primary">
+                    {LEAD_MODEL.cta}
+                    <Icon name="arrow_forward" size={18} />
+                  </ContactTrigger>
+                </div>
 
-                  <div className="relative flex flex-col gap-sm pt-base">
-                    <div className="flex flex-wrap items-center justify-between gap-xs rounded-md bg-surface-soft p-base">
-                      <span className="text-caption-bold uppercase text-secondary">{m.footKey}</span>
-                      <span className={`text-caption-bold uppercase ${m.footValueTone}`}>
-                        {m.footValue}
-                      </span>
-                    </div>
-                    <Link
-                      href="/#discovery-portal"
-                      className={`inline-flex w-full items-center justify-center rounded-full px-xl py-sm text-center text-body-sm-bold text-on-primary transition-colors duration-200 ${m.ctaTone}`}
+                <div className="flex flex-col lg:col-span-5">
+                  {LEAD_MODEL.list.map((item, i) => (
+                    <p
+                      key={item}
+                      className={`py-sm text-body-sm text-canvas/85 ${
+                        i > 0 ? "border-t border-canvas/10" : ""
+                      }`}
                     >
-                      {m.cta}
-                    </Link>
-                  </div>
+                      {item}
+                    </p>
+                  ))}
+                  <p className="mt-base border-t border-canvas/15 pt-base text-caption-bold uppercase tracking-wider text-canvas/50">
+                    {LEAD_MODEL.footKey}
+                    <span className="ml-xs text-accent-electric">{LEAD_MODEL.footValue}</span>
+                  </p>
+                </div>
+              </div>
+            </article>
+          </Reveal>
+
+          {/* The alternatives — split by a rule rather than boxed up */}
+          <div className="grid grid-cols-1 md:grid-cols-2">
+            {OTHER_MODELS.map((m, i) => (
+              <Reveal key={m.title} delay={i * 120}>
+                <div
+                  className={`flex h-full flex-col gap-base py-xl md:py-0 ${
+                    i === 0
+                      ? "border-b border-hairline md:border-r md:border-b-0 md:pr-xxxl"
+                      : "md:pl-xxxl"
+                  }`}
+                >
+                  <span className="text-caption-bold uppercase tracking-widest text-steel">
+                    {m.tag}
+                  </span>
+                  <h3 className="text-heading-sm font-bold text-ink-deep">{m.title}</h3>
+                  <p className="text-body-md leading-relaxed text-secondary">{m.copy}</p>
+                  <ul className="flex flex-col">
+                    {m.list.map((item, li) => (
+                      <li
+                        key={item}
+                        className={`py-xs text-body-sm text-charcoal ${
+                          li > 0 ? "border-t border-hairline-soft" : ""
+                        }`}
+                      >
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="text-caption-bold uppercase tracking-wider text-steel">
+                    {m.footKey}
+                    <span className="ml-xs text-ink-deep">{m.footValue}</span>
+                  </p>
+                  <ContactTrigger className="mt-auto inline-flex w-fit items-center gap-xs pt-xs text-body-sm-bold text-primary-container transition-colors hover:text-primary">
+                    {m.cta}
+                    <Icon name="arrow_forward" size={16} />
+                  </ContactTrigger>
                 </div>
               </Reveal>
             ))}
           </div>
 
           <Reveal>
-            <div className="w-full rounded-xl bg-canvas p-xxl shadow-sm">
-              <span className="block pb-base text-caption-bold uppercase tracking-wider text-ink-deep">
+            <div>
+              <span className="block pb-base text-caption-bold uppercase tracking-wider text-steel">
                 Engagement Model Comparison
               </span>
               <div className="overflow-x-auto">
                 <table className="w-full min-w-[720px] border-collapse text-left">
                   <thead>
-                    <tr className="text-caption-bold uppercase tracking-wider text-charcoal">
-                      <th className="py-base pr-base">Dimension</th>
+                    <tr className="border-b border-ink-deep/20 text-caption-bold uppercase tracking-wider text-charcoal">
+                      <th className="py-base pr-base font-normal">Dimension</th>
                       <th className="px-base py-base text-primary">Full Completion</th>
-                      <th className="px-base py-base">Assessment & Roadmap</th>
-                      <th className="py-base pl-base">Embedded Support</th>
+                      <th className="px-base py-base font-normal">Assessment &amp; Roadmap</th>
+                      <th className="py-base pl-base font-normal">Embedded Support</th>
                     </tr>
                   </thead>
                   <tbody className="text-body-sm">
                     {COMPARISON.map(([dim, a, b, c]) => (
-                      <tr key={dim} className="transition-colors hover:bg-surface-soft/60">
+                      <tr key={dim} className="border-b border-hairline-soft align-top">
                         <td className="py-base pr-base text-body-sm-bold text-ink-deep">{dim}</td>
-                        <td className="px-base py-base text-charcoal">{a}</td>
-                        <td className="px-base py-base text-charcoal">{b}</td>
-                        <td className="py-base pl-base text-charcoal">{c}</td>
+                        <td className="px-base py-base text-ink-body">{a}</td>
+                        <td className="px-base py-base text-secondary">{b}</td>
+                        <td className="py-base pl-base text-secondary">{c}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -473,11 +489,11 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Solutions cross-link */}
+      {/* Solutions cross-link — an index, not five tiles */}
       <section className="w-full bg-canvas py-section-lg">
         <div className="mx-auto max-w-shell px-xxl">
           <Reveal>
-            <div className="mb-section-sm flex flex-col justify-between gap-base md:flex-row md:items-end">
+            <div className="mb-xxl flex flex-col justify-between gap-base md:flex-row md:items-end">
               <div className="flex max-w-2xl flex-col gap-xs">
                 <span className="text-caption-bold uppercase tracking-widest text-primary">
                   Solution Areas
@@ -496,18 +512,23 @@ export default function ServicesPage() {
               </Link>
             </div>
           </Reveal>
-          <div className="grid grid-cols-1 gap-base sm:grid-cols-2 lg:grid-cols-5">
+
+          <div className="flex flex-col border-t border-hairline">
             {SOLUTIONS.map((s, i) => (
-              <Reveal key={s.slug} delay={i * 80}>
+              <Reveal key={s.slug} delay={i * 70}>
                 <Link
                   href={`/solutions/${s.slug}`}
-                  className="group flex h-full flex-col gap-xs rounded-xl bg-surface-soft p-xl transition-colors hover:bg-surface-container-low"
+                  className="group grid grid-cols-1 items-baseline gap-xxs border-b border-hairline py-lg transition-colors hover:bg-surface-soft sm:grid-cols-12 sm:gap-xl"
                 >
-                  <span className="flex h-10 w-10 items-center justify-center rounded-md bg-primary-container/10 text-primary-container">
-                    <Icon name={s.icon} size={20} />
+                  <span className="font-display text-body-sm text-stone sm:col-span-1">
+                    {String(i + 1).padStart(2, "0")}
                   </span>
-                  <span className="mt-xs text-body-md-bold text-ink-deep transition-colors group-hover:text-primary">
+                  <span className="text-heading-sm font-bold text-ink-deep transition-colors group-hover:text-primary sm:col-span-5">
                     {s.name}
+                  </span>
+                  <span className="text-body-sm text-secondary sm:col-span-5">{s.tagline}</span>
+                  <span className="hidden justify-self-end text-primary-container sm:col-span-1 sm:block">
+                    <Icon name="arrow_forward" size={18} />
                   </span>
                 </Link>
               </Reveal>
@@ -518,9 +539,9 @@ export default function ServicesPage() {
 
       {/* Governance */}
       <section id="compliance" className="w-full scroll-mt-24 bg-surface-soft py-section-lg">
-        <div className="mx-auto grid max-w-shell grid-cols-1 items-center gap-xxxl px-xxl lg:grid-cols-12">
+        <div className="mx-auto grid max-w-shell grid-cols-1 items-start gap-xxxl px-xxl lg:grid-cols-12">
           <Reveal className="lg:col-span-6">
-            <div className="flex flex-col gap-base">
+            <div className="flex flex-col gap-base lg:sticky lg:top-32">
               <span className="text-caption-bold uppercase tracking-widest text-primary">
                 Governance
               </span>
@@ -528,43 +549,41 @@ export default function ServicesPage() {
                 Security and IP custody, handled properly
                 <Dot />
               </h2>
-              <p className="text-body-md text-charcoal">
+              <p className="text-body-md leading-relaxed text-charcoal">
                 Taking over someone else&rsquo;s codebase means being trusted with it. Access is
                 scoped and time-bound, work happens under a mutual NDA, and everything we write
                 belongs to you from the first commit.
               </p>
-              <div className="flex flex-col gap-xs pt-xs">
+              <dl className="flex flex-col gap-base pt-xs">
                 {[
                   {
-                    icon: "lock",
                     title: "Mutual NDA before any code review",
                     copy: "Signed before we look at a repository, a diagram, or a credential.",
                   },
                   {
-                    icon: "fingerprint",
                     title: "100% clean IP assignment",
                     copy: "All code, schemas, and configuration belong to your organization from day one.",
                   },
                 ].map((row) => (
-                  <div key={row.title} className="flex items-start gap-xs">
-                    <Icon name={row.icon} size={20} className="mt-xxs shrink-0 text-status-success" />
-                    <div>
-                      <span className="text-body-sm-bold text-ink-deep">{row.title}</span>
-                      <p className="text-caption text-secondary">{row.copy}</p>
-                    </div>
+                  <div key={row.title} className="border-l-2 border-status-success pl-base">
+                    <dt className="text-body-sm-bold text-ink-deep">{row.title}</dt>
+                    <dd className="text-caption text-secondary">{row.copy}</dd>
                   </div>
                 ))}
-              </div>
+              </dl>
             </div>
           </Reveal>
 
-          <div className="grid grid-cols-1 gap-base sm:grid-cols-2 lg:col-span-6">
+          <div className="flex flex-col lg:col-span-6">
             {GOVERNANCE.map((c, i) => (
-              <Reveal key={c.title} delay={i * 100}>
-                <div className="flex h-full flex-col gap-xs rounded-xl bg-canvas p-xxl shadow-sm transition-shadow hover:shadow-md">
-                  <Icon name={c.icon} size={32} className="text-primary" />
+              <Reveal key={c.title} delay={i * 90}>
+                <div
+                  className={`flex flex-col gap-xxs py-base ${
+                    i > 0 ? "border-t border-hairline" : ""
+                  }`}
+                >
                   <span className="text-body-md-bold text-ink-deep">{c.title}</span>
-                  <span className="text-caption text-secondary">{c.copy}</span>
+                  <span className="text-body-sm leading-relaxed text-secondary">{c.copy}</span>
                 </div>
               </Reveal>
             ))}
@@ -581,10 +600,6 @@ export default function ServicesPage() {
           <Reveal>
             <div className="flex flex-col justify-between gap-xxl lg:flex-row lg:items-center">
               <div className="flex max-w-2xl flex-col gap-base">
-                <span className="inline-flex w-fit items-center gap-xs rounded-full bg-canvas/10 px-md py-xxs text-caption-bold uppercase text-canvas/70">
-                  <span className="h-2 w-2 animate-ping rounded-full bg-accent-electric" />
-                  Technical Office Hours Open
-                </span>
                 <h2 className="text-display-lg-mobile font-semibold tracking-tight text-canvas md:text-display-lg">
                   Stuck somewhere between started and shipped?
                 </h2>
@@ -593,13 +608,10 @@ export default function ServicesPage() {
                   including if the honest answer is that you do not need us.
                 </p>
               </div>
-              <Link
-                href="/#discovery-portal"
-                className="inline-flex shrink-0 items-center justify-center gap-xs rounded-full bg-primary-container px-xxxl py-base text-center text-body-md-bold text-on-primary shadow-md transition-colors duration-200 hover:bg-primary"
-              >
-                Request a Project Assessment
+              <ContactTrigger className="inline-flex shrink-0 items-center justify-center gap-xs rounded-full bg-primary-container px-xxxl py-base text-center text-body-md-bold text-on-primary shadow-md transition-colors duration-200 hover:bg-primary">
+                Book a 15 Minute Call
                 <Icon name="arrow_forward" size={20} />
-              </Link>
+              </ContactTrigger>
             </div>
           </Reveal>
         </div>

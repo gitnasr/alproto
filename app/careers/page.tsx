@@ -2,11 +2,12 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Icon } from "@/components/icon";
 import { Reveal } from "@/components/reveal";
+import { ContactTrigger } from "@/components/contact-trigger";
 
 export const metadata: Metadata = {
   title: "Engineering Careers",
   description:
-    "Join a pod of Staff-level engineers shipping mission-critical systems. Learn how we hire, what we value, and how to introduce yourself.",
+    "Join a small team of Staff-level engineers shipping mission-critical systems. Learn how we hire, what we value, and how to introduce yourself.",
 };
 
 function Dot() {
@@ -15,22 +16,18 @@ function Dot() {
 
 const VALUES = [
   {
-    icon: "workspace_premium",
     title: "Staff-Caliber Bar",
     copy: "We hire experienced engineers who have owned systems in production. Depth over headcount, always.",
   },
   {
-    icon: "public",
     title: "Distributed by Design",
-    copy: "Pods collaborate across time zones with async RFCs, recorded design reviews, and deep-work-first calendars.",
+    copy: "We collaborate across time zones with async RFCs, recorded design reviews, and deep-work-first calendars.",
   },
   {
-    icon: "handyman",
     title: "Production Ownership",
     copy: "You architect it, you ship it, you run it. Every engineer carries their work through to verified runbooks.",
   },
   {
-    icon: "school",
     title: "Compounding Craft",
     copy: "Paired architecture sessions, internal tech talks, and a budget for the tools and learning that sharpen you.",
   },
@@ -50,7 +47,7 @@ const HIRING_STEPS = [
   {
     n: "03",
     title: "Working Session",
-    copy: "A collaborative architecture exercise with the pod you would join. No puzzles, no whiteboard trivia.",
+    copy: "A collaborative architecture exercise with the team you would join. No puzzles, no whiteboard trivia.",
   },
   {
     n: "04",
@@ -68,14 +65,7 @@ export default function CareersPage() {
         <div className="pointer-events-none absolute bottom-0 -left-24 h-[380px] w-[380px] rounded-full bg-accent-electric/10 blur-3xl" />
 
         <div className="relative mx-auto flex max-w-shell flex-col gap-xl px-xxl">
-          <Reveal>
-            <span className="inline-flex w-fit items-center gap-xs rounded-full bg-canvas/10 px-base py-xxs backdrop-blur">
-              <span className="h-2 w-2 animate-pulse rounded-full bg-status-success" />
-              <span className="text-caption-bold uppercase tracking-wider text-canvas/80">
-                Engineering Careers
-              </span>
-            </span>
-          </Reveal>
+          
           <Reveal delay={100}>
             <h1 className="max-w-3xl text-display-lg-mobile font-bold tracking-tight text-canvas md:text-display-lg">
               Build the systems everything else{" "}
@@ -85,7 +75,7 @@ export default function CareersPage() {
           </Reveal>
           <Reveal delay={200}>
             <p className="max-w-2xl text-subtitle-md leading-relaxed text-stone">
-              We assemble small pods of experienced engineers and point them at high-consequence
+              We put small teams of experienced engineers onto high-consequence
               problems: core transaction systems, legacy cutovers, and real-time inference
               infrastructure. If that is the work you want, we want to hear from you.
             </p>
@@ -107,15 +97,17 @@ export default function CareersPage() {
               </h2>
             </div>
           </Reveal>
-          <div className="grid grid-cols-1 gap-base sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-1 gap-xxl sm:grid-cols-2 lg:grid-cols-4">
             {VALUES.map((v, i) => (
               <Reveal key={v.title} delay={i * 100}>
-                <div className="flex h-full flex-col gap-xs rounded-xl bg-canvas p-xxl shadow-sm transition-shadow duration-200 hover:shadow-md">
-                  <Icon name={v.icon} size={28} className="text-primary" />
-                  <span className="mt-xs font-display text-heading-sm font-semibold text-ink-deep">
+                <div className="flex h-full flex-col gap-xs border-l-2 border-hairline pl-xl">
+                  <span className="font-display text-heading-lg font-bold text-surface-container-high">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span className="font-display text-heading-sm font-semibold text-ink-deep">
                     {v.title}
                   </span>
-                  <p className="text-body-sm text-secondary">{v.copy}</p>
+                  <p className="text-body-sm leading-relaxed text-secondary">{v.copy}</p>
                 </div>
               </Reveal>
             ))}
@@ -144,15 +136,21 @@ export default function CareersPage() {
               </Reveal>
             </div>
 
-            <div className="grid grid-cols-1 gap-base sm:grid-cols-2 lg:col-span-8">
+            <div className="flex flex-col lg:col-span-8">
               {HIRING_STEPS.map((s, i) => (
-                <Reveal key={s.n} delay={(i % 2) * 120}>
-                  <div className="flex h-full flex-col gap-base rounded-xl border border-canvas/10 bg-canvas/5 p-xxl transition-colors duration-200 hover:bg-canvas/10">
-                    <span className="flex h-9 w-9 items-center justify-center rounded-full bg-accent-electric/15 text-body-sm-bold text-accent-electric">
+                <Reveal key={s.n} delay={i * 90}>
+                  <div
+                    className={`grid grid-cols-1 gap-xs py-xl sm:grid-cols-12 sm:gap-xl ${
+                      i > 0 ? "border-t border-canvas/10" : "lg:pt-0"
+                    }`}
+                  >
+                    <span className="font-display text-body-md-bold text-canvas/30 sm:col-span-1">
                       {s.n}
                     </span>
-                    <h3 className="text-heading-sm font-semibold text-canvas">{s.title}</h3>
-                    <p className="text-body-sm text-stone">{s.copy}</p>
+                    <h3 className="text-heading-sm font-semibold text-canvas sm:col-span-4">
+                      {s.title}
+                    </h3>
+                    <p className="text-body-sm leading-relaxed text-stone sm:col-span-7">{s.copy}</p>
                   </div>
                 </Reveal>
               ))}
@@ -165,7 +163,7 @@ export default function CareersPage() {
       <section className="w-full bg-canvas py-section-lg">
         <div className="mx-auto max-w-shell px-xxl">
           <Reveal>
-            <div className="flex flex-col justify-between gap-xxl rounded-xl bg-surface-soft p-xxxl lg:flex-row lg:items-center">
+            <div className="flex flex-col justify-between gap-xxl border-t border-ink-deep/20 pt-xxl lg:flex-row lg:items-end">
               <div className="flex max-w-2xl flex-col gap-base">
                 <h2 className="text-heading-lg font-semibold tracking-tight text-ink-deep">
                   No open listing that fits? Introduce yourself anyway
@@ -173,16 +171,15 @@ export default function CareersPage() {
                 </h2>
                 <p className="text-body-md leading-relaxed text-secondary">
                   Roles open as new engagements are commissioned. Tell us about the hardest system
-                  you have shipped and we will keep you on the radar for the next pod.
+                  you have shipped and we will keep you on the radar for the next engagement.
                 </p>
               </div>
-              <Link
-                href="/#discovery-portal"
+              <ContactTrigger
                 className="inline-flex shrink-0 items-center justify-center gap-xs rounded-full bg-ink-deep px-xxxl py-base text-center text-body-md-bold text-canvas shadow-md transition-colors duration-200 hover:bg-charcoal"
               >
                 Get in Touch
                 <Icon name="arrow_forward" size={20} />
-              </Link>
+              </ContactTrigger>
             </div>
           </Reveal>
         </div>
