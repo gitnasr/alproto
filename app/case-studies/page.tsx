@@ -212,7 +212,7 @@ export default function CaseStudiesPage() {
             <div className="flex flex-col lg:col-span-8">
               <Reveal>
                 <p className="text-heading-sm font-normal leading-relaxed text-ink-deep lg:pt-0">
-                  The same work, inside a regulated environment.
+                  Unfinished platform work, inside a regulated environment.
                 </p>
               </Reveal>
               <Reveal delay={90}>
