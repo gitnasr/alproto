@@ -155,84 +155,110 @@ export default function CaseStudiesPage() {
         </div>
       </section>
 
-      {/* The paired engagement — one shape, two clients */}
+      {/* Unilever — its own band, the client pinned while the account scrolls */}
       <section className="relative w-full overflow-hidden bg-ink-deep py-section-lg text-canvas">
         <div className="pointer-events-none absolute -top-24 right-0 h-[420px] w-[420px] rounded-full bg-primary-container/10 blur-3xl" />
-        <div className="relative mx-auto flex max-w-shell flex-col gap-xxxl px-xxl">
-          <Reveal>
-            <div className="flex flex-col gap-base">
-              <h2 className="max-w-3xl text-heading-lg font-semibold tracking-tight text-canvas">
-                The same engagement, run twice
-                <Dot />
-              </h2>
-              <p className="max-w-2xl text-body-md leading-relaxed text-stone">
-                Platform work started and left mid-flight, at two enterprises with very different
-                tolerances for risk. Same stack, same shape, different constraints.
-              </p>
-            </div>
-          </Reveal>
-
-          <div className="grid grid-cols-1 gap-0 md:grid-cols-2">
-            {[
-              {
-                logo: "/logos/unilever.svg",
-                name: "Unilever",
-                sector: "Consumer goods",
-                copy: "Our specialists took ownership of the client's ServiceNow and Azure workstreams — running the queues, finishing the configuration, and keeping delivery moving — so the work reached a finished state instead of waiting on capacity that never arrived.",
-              },
-              {
-                logo: "/logos/astrazeneca.png",
-                name: "AstraZeneca",
-                sector: "Pharmaceuticals",
-                copy: "The same work inside a regulated environment, where access control, change process, and audit trails apply to every step of it. We carried the unfinished workstreams forward under the client's own governance rather than importing ours.",
-              },
-            ].map((c, i) => (
-              <Reveal key={c.name} delay={i * 120}>
-                <div
-                  className={`flex h-full flex-col gap-base py-xxl md:py-0 ${
-                    i === 0
-                      ? "border-b border-canvas/10 md:border-r md:border-b-0 md:pr-xxxl"
-                      : "md:pl-xxxl"
-                  }`}
-                >
+        <div className="relative mx-auto max-w-shell px-xxl">
+          <div className="grid grid-cols-1 gap-xxxl lg:grid-cols-12">
+            <Reveal className="lg:col-span-4">
+              <div className="flex flex-col gap-base lg:sticky lg:top-32">
+                <h2>
                   <img
-                    src={c.logo}
-                    alt={c.name}
-                    className="h-7 w-auto self-start opacity-80 brightness-0 invert"
+                    src="/logos/unilever.svg"
+                    alt="Unilever"
+                    className="h-12 w-auto brightness-0 invert"
                   />
-                  <p className="text-caption-bold uppercase tracking-wider text-canvas/40">
-                    {c.sector}
-                  </p>
-                  <p className="text-body-md leading-relaxed text-stone">{c.copy}</p>
-                </div>
+                </h2>
+                <p className="text-caption-bold uppercase tracking-widest text-canvas/40">
+                  Consumer goods
+                </p>
+              </div>
+            </Reveal>
+
+            <div className="flex flex-col lg:col-span-8">
+              <Reveal>
+                <p className="text-heading-sm font-normal leading-relaxed text-canvas lg:pt-0">
+                  Platform work started and left mid-flight.
+                </p>
               </Reveal>
-            ))}
+              <Reveal delay={90}>
+                <p className="mt-xxl max-w-2xl border-t border-canvas/10 pt-xxl text-subtitle-md leading-relaxed text-stone">
+                  Our specialists took ownership of the client&rsquo;s ServiceNow and Azure
+                  workstreams — running the queues, finishing the configuration, and keeping delivery
+                  moving — so the work reached a finished state instead of waiting on capacity that
+                  never arrived.
+                </p>
+              </Reveal>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* The one-off, offset rather than centred so the page does not settle */}
-      <section className="w-full bg-surface-soft py-section-lg">
+      {/* AstraZeneca — same shape, light band */}
+      <section className="w-full bg-canvas py-section-lg">
         <div className="mx-auto max-w-shell px-xxl">
-          <Reveal>
-            <article className="grid grid-cols-1 gap-xl lg:grid-cols-12">
-              <div className="lg:col-span-7 lg:col-start-4">
-                <p className="mb-xs text-caption-bold uppercase tracking-widest text-primary">
-                  Education technology
+          <div className="grid grid-cols-1 gap-xxxl lg:grid-cols-12">
+            <Reveal className="lg:col-span-4">
+              <div className="flex flex-col gap-base lg:sticky lg:top-32">
+                <h2>
+                  <img src="/logos/astrazeneca.png" alt="AstraZeneca" className="h-12 w-auto" />
+                </h2>
+                <p className="text-caption-bold uppercase tracking-widest text-primary">
+                  Pharmaceuticals
                 </p>
-                <h2 className="text-heading-lg font-semibold tracking-tight text-ink-deep">
+              </div>
+            </Reveal>
+
+            <div className="flex flex-col lg:col-span-8">
+              <Reveal>
+                <p className="text-heading-sm font-normal leading-relaxed text-ink-deep lg:pt-0">
+                  The same work, inside a regulated environment.
+                </p>
+              </Reveal>
+              <Reveal delay={90}>
+                <p className="mt-xxl max-w-2xl border-t border-hairline-soft pt-xxl text-subtitle-md leading-relaxed text-secondary">
+                  Access control, change process, and audit trails apply to every step of it. We
+                  carried the unfinished workstreams forward under the client&rsquo;s own governance
+                  rather than importing ours.
+                </p>
+              </Reveal>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Gravity Lab — the one-off, dark band */}
+      <section className="relative w-full overflow-hidden bg-ink-deep py-section-lg text-canvas">
+        <div className="pointer-events-none absolute -bottom-24 left-0 h-[380px] w-[380px] rounded-full bg-accent-electric/10 blur-3xl" />
+        <div className="relative mx-auto max-w-shell px-xxl">
+          <div className="grid grid-cols-1 gap-xxxl lg:grid-cols-12">
+            <Reveal className="lg:col-span-4">
+              <div className="flex flex-col gap-base lg:sticky lg:top-32">
+                <h2 className="text-heading-lg font-semibold tracking-tight text-canvas">
                   Gravity Lab
                   <Dot />
                 </h2>
-                <p className="mt-base text-body-md leading-relaxed text-secondary">
-                  An interactive learning platform built around doing rather than reading: guided
-                  exercises, hands-on lessons, and progress tracking, with the interactive content
-                  treated as a first-class part of the product instead of media bolted onto a course
-                  list.
+                <p className="text-caption-bold uppercase tracking-widest text-canvas/40">
+                  Education technology
                 </p>
               </div>
-            </article>
-          </Reveal>
+            </Reveal>
+
+            <div className="flex flex-col lg:col-span-8">
+              <Reveal>
+                <p className="text-heading-sm font-normal leading-relaxed text-canvas lg:pt-0">
+                  A learning platform built around doing rather than reading.
+                </p>
+              </Reveal>
+              <Reveal delay={90}>
+                <p className="mt-xxl max-w-2xl border-t border-canvas/10 pt-xxl text-subtitle-md leading-relaxed text-stone">
+                  Guided exercises, hands-on lessons, and progress tracking, with the interactive
+                  content treated as a first-class part of the product instead of media bolted onto a
+                  course list.
+                </p>
+              </Reveal>
+            </div>
+          </div>
         </div>
       </section>
 
