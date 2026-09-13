@@ -6,7 +6,7 @@ import { ContactTrigger } from "@/components/contact-trigger";
 export const metadata: Metadata = {
   title: "Case Studies",
   description:
-    "Selected engagements: CRM integration, process automation, applied ML, and ServiceNow and Azure platform delivery.",
+    "Selected engagements: CRM integration, process automation, digital transformation, and ServiceNow and Azure platform delivery.",
 };
 
 function Dot() {
@@ -14,7 +14,7 @@ function Dot() {
 }
 
 /* ---------------------------------------------------------------------------
-   Diagrams. These describe the actual mechanism of two engagements, which is
+   Diagram. This describes the actual mechanism of the engagement, which is
    what an icon in a rounded square cannot do. Inline SVG, no data invented.
 --------------------------------------------------------------------------- */
 
@@ -47,38 +47,6 @@ function SyncDiagram() {
           <path d="M0 0 L7 3.5 L0 7 z" className="fill-primary-container" />
         </marker>
       </defs>
-    </svg>
-  );
-}
-
-/** Breaks placed where the content allows one, not on a fixed clock. */
-function BreakTimeline() {
-  const bars = [12, 22, 34, 28, 41, 18, 9, 26, 38, 44, 30, 15, 11, 33, 46, 24, 13, 8, 29, 37, 20, 10, 35, 42, 16];
-  const breaks = [6, 13, 20];
-  return (
-    <svg viewBox="0 0 380 150" className="h-auto w-full" role="img" aria-label="A video timeline with advertising breaks placed at natural pauses rather than fixed intervals">
-      <text x="0" y="14" className="fill-secondary" fontSize="10" fontWeight="700">CONTENT</text>
-      {bars.map((h, i) => (
-        <rect
-          key={i}
-          x={i * 15 + 2}
-          y={78 - h}
-          width="8"
-          height={h}
-          rx="2"
-          className={breaks.includes(i) ? "fill-primary-container" : "fill-hairline"}
-        />
-      ))}
-      <line x1="0" y1="82" x2="380" y2="82" className="stroke-hairline" strokeWidth="1" />
-
-      {breaks.map((b) => (
-        <g key={b}>
-          <path d={`M${b * 15 + 6} 82 V 104`} className="stroke-primary-container" strokeWidth="1.5" strokeDasharray="3 3" />
-          <circle cx={b * 15 + 6} cy="108" r="4" className="fill-primary-container" />
-        </g>
-      ))}
-      <text x="0" y="132" className="fill-primary" fontSize="10" fontWeight="700">RECOMMENDED BREAKS</text>
-      <text x="0" y="146" className="fill-secondary" fontSize="9">placed at pauses in the content, not on a fixed clock</text>
     </svg>
   );
 }
@@ -124,8 +92,8 @@ export default function CaseStudiesPage() {
             {/* An index rather than a paragraph — it tells you what is here at a glance. */}
             <dl className="flex flex-col gap-xs border-t border-canvas/10 pt-lg text-body-sm sm:flex-row sm:flex-wrap sm:gap-xxxl">
               {[
-                ["Sectors", "Non-profit · Media · Education · Consumer goods · Pharma"],
-                ["Work", "Integration · Automation · Applied ML · Platform delivery"],
+                ["Sectors", "Non-profit · Education · Consumer goods · Pharma"],
+                ["Work", "Integration · Automation · Transformation · Platform delivery"],
               ].map(([k, v]) => (
                 <div key={k} className="flex flex-col gap-xxs">
                   <dt className="text-caption-bold uppercase tracking-widest text-canvas/40">{k}</dt>
@@ -243,44 +211,20 @@ export default function CaseStudiesPage() {
         </div>
       </section>
 
-      {/* Two one-offs, deliberately unequal */}
+      {/* The one-off, offset rather than centred so the page does not settle */}
       <section className="w-full bg-surface-soft py-section-lg">
-        <div className="mx-auto flex max-w-shell flex-col gap-section-sm px-xxl">
-          {/* The feature */}
+        <div className="mx-auto max-w-shell px-xxl">
           <Reveal>
-            <article className="grid grid-cols-1 items-center gap-xxxl rounded-xl bg-canvas p-xxl shadow-sm lg:grid-cols-12 lg:p-xxxl">
-              <div className="flex flex-col gap-base lg:col-span-6">
-                <img
-                  src="/logos/etg.svg"
-                  alt="Everything To Gain"
-                  className="h-8 w-auto self-start"
-                />
-                <h2 className="text-heading-lg font-semibold tracking-tight text-ink-deep">
-                  YouTube Ad Break Recommender
-                </h2>
-                <p className="text-body-md leading-relaxed text-secondary">
-                  A recommender that works out where advertising breaks belong inside a video,
-                  rather than dropping them at fixed intervals. The engineering problem is treating
-                  &ldquo;a natural break&rdquo; as something you can define, measure, and evaluate —
-                  then showing the recommendations hold up against real content rather than a
-                  curated sample.
-                </p>
-              </div>
-              <div className="lg:col-span-6">
-                <BreakTimeline />
-              </div>
-            </article>
-          </Reveal>
-
-          {/* The smaller one, offset so the row is not symmetrical */}
-          <Reveal delay={100}>
             <article className="grid grid-cols-1 gap-xl lg:grid-cols-12">
-              <div className="lg:col-span-5 lg:col-start-4">
+              <div className="lg:col-span-7 lg:col-start-4">
                 <p className="mb-xs text-caption-bold uppercase tracking-widest text-primary">
                   Education technology
                 </p>
-                <h2 className="text-heading-sm font-bold text-ink-deep">Gravity Lab</h2>
-                <p className="mt-xs text-body-md leading-relaxed text-secondary">
+                <h2 className="text-heading-lg font-semibold tracking-tight text-ink-deep">
+                  Gravity Lab
+                  <Dot />
+                </h2>
+                <p className="mt-base text-body-md leading-relaxed text-secondary">
                   An interactive learning platform built around doing rather than reading: guided
                   exercises, hands-on lessons, and progress tracking, with the interactive content
                   treated as a first-class part of the product instead of media bolted onto a course

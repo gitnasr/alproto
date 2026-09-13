@@ -25,7 +25,6 @@ type Client = {
 
 const CLIENTS: Client[] = [
   { name: "Better Business Bureau", src: "/logos/bbb.svg", height: "h-16" },
-  { name: "Everything To Gain", src: "/logos/etg.svg", height: "h-9" },
   { name: "Unilever", src: "/logos/unilever.svg", height: "h-7" },
   { name: "AstraZeneca", src: "/logos/astrazeneca.png", height: "h-7" },
   { name: "Skillsoft", src: "/logos/skillsoft.svg", height: "h-10" },
