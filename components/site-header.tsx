@@ -87,11 +87,11 @@ export function SiteHeader() {
       onMouseLeave={() => setOpenMenu(null)}
     >
       <div className="mx-auto flex h-20 max-w-shell items-center justify-between px-xxl">
-        <Link href="/" className="flex items-center gap-base" aria-label="Nexus Dev home">
+        <Link href="/" className="flex items-center gap-base" aria-label="Silo-Dev home">
           <Logo />
-          <span className="flex items-center gap-xs">
+          <span className="flex items-center">
             <span className="font-display text-heading-sm font-semibold tracking-tight text-ink-deep">
-              Nexus
+              Silo-
             </span>
             <span className="font-display text-heading-sm font-medium tracking-tight text-primary">
               Dev

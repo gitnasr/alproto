@@ -91,7 +91,7 @@ const OTHER_MODELS = [
 const COMPARISON: [string, string, string, string][] = [
   [
     "Who owns delivery",
-    "Nexus Dev, end to end",
+    "Silo-Dev, end to end",
     "No build — advisory output only",
     "Your team, we take a slice",
   ],
