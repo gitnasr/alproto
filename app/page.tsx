@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Icon } from "@/components/icon";
 import { Reveal } from "@/components/reveal";
-import { HeroNetwork } from "@/components/hero-network";
+import { HeroOrbit } from "@/components/hero-orbit";
 import { CallBadge } from "@/components/call-badge";
 import { LogoMarquee } from "@/components/logo-marquee";
 import { SOLUTIONS } from "@/lib/solutions";
@@ -81,10 +81,10 @@ export default function HomePage() {
               </Reveal>
             </div>
 
-            {/* Animated capability network */}
+            {/* Draggable capability sphere — one disc per solution domain. */}
             <div className="relative lg:col-span-6">
-              <div className="mx-auto h-[380px] w-full max-w-[560px] sm:h-[460px] lg:h-[560px] lg:max-w-none">
-                <HeroNetwork />
+              <div className="mx-auto h-[300px] w-full max-w-[420px] sm:h-[340px] lg:h-[400px]">
+                <HeroOrbit />
               </div>
               {/* One instance: centred under the diagram on narrow screens,
                   overlapping its lower-left corner from large ones up. */}
