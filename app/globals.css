@@ -1,69 +1,84 @@
 @import "tailwindcss";
 
-/* Studio Engineering System — tokens lifted verbatim from DESIGN.md */
+/* Studio Engineering System — type, spacing and radius tokens from DESIGN.md.
+   Colors are a re-theme drawn from the Nahjj logo: espresso brown, rust and sand
+   over champagne, replacing the original blue-on-white ramp. Token NAMES are unchanged, so every
+   component keeps working; only the values moved. */
 @theme {
-  /* --- Colors --- */
-  --color-surface: #f7f9ff;
-  --color-surface-dim: #ccdced;
-  --color-surface-bright: #f7f9ff;
+  /* --- Colors ---
+     Brand anchors, sampled from the logo artwork: Espresso #402018, Rust #B05030,
+     Sand #E8C489, over a Champagne #F8E7C9 ground. */
+  --color-surface: #fdf8f0;
+  --color-surface-dim: #ebd9b8;
+  --color-surface-bright: #fffdf9;
   --color-surface-container-lowest: #ffffff;
-  --color-surface-container-low: #ecf4ff;
-  --color-surface-container: #e2efff;
-  --color-surface-container-high: #daeafc;
-  --color-surface-container-highest: #d5e4f6;
-  --color-on-surface: #0e1d29;
-  --color-on-surface-variant: #424754;
-  --color-inverse-surface: #23323f;
-  --color-inverse-on-surface: #e7f2ff;
-  --color-outline: #727786;
-  --color-outline-variant: #c2c6d6;
-  --color-surface-tint: #0059c8;
-  --color-primary: #004db0;
-  --color-on-primary: #ffffff;
-  --color-primary-container: #0064e0;
-  --color-on-primary-container: #e6ebff;
-  --color-inverse-primary: #afc6ff;
-  --color-secondary: #566065;
+  --color-surface-container-low: #fdf5e8;
+  --color-surface-container: #fbeedb;
+  --color-surface-container-high: #f8e7c9;
+  --color-surface-container-highest: #f3dcb5;
+  --color-on-surface: #2a1610;
+  --color-on-surface-variant: #4f413a;
+  --color-inverse-surface: #3a2a22;
+  --color-inverse-on-surface: #fbf0e2;
+  --color-outline: #857568;
+  --color-outline-variant: #cfc3b0;
+  --color-surface-tint: #b85434;
+  --color-primary: #8a3a20;
+  --color-on-primary: #fdf8f0;
+  --color-primary-container: #b85434;
+  --color-on-primary-container: #fdeee0;
+  --color-inverse-primary: #f0b48a;
+  --color-secondary: #6b5a50;
   --color-on-secondary: #ffffff;
-  --color-secondary-container: #dae4ea;
-  --color-on-secondary-container: #5c666b;
-  --color-tertiary: #004cb4;
+  --color-secondary-container: #ece0d2;
+  --color-on-secondary-container: #6b5a50;
+  --color-tertiary: #8a6a1f;
   --color-on-tertiary: #ffffff;
-  --color-tertiary-container: #2264d8;
-  --color-on-tertiary-container: #e6ebff;
+  --color-tertiary-container: #a9852f;
+  --color-on-tertiary-container: #fff6e3;
   --color-error: #ba1a1a;
   --color-on-error: #ffffff;
   --color-error-container: #ffdad6;
   --color-on-error-container: #93000a;
-  --color-primary-fixed: #d9e2ff;
-  --color-primary-fixed-dim: #afc6ff;
-  --color-on-primary-fixed: #001944;
-  --color-on-primary-fixed-variant: #004299;
-  --color-secondary-fixed: #dae4ea;
-  --color-secondary-fixed-dim: #bec8cd;
-  --color-on-secondary-fixed: #141d21;
-  --color-on-secondary-fixed-variant: #3f484d;
-  --color-tertiary-fixed: #d9e2ff;
-  --color-tertiary-fixed-dim: #b1c6ff;
-  --color-on-tertiary-fixed: #001946;
-  --color-on-tertiary-fixed-variant: #00419d;
-  --color-background: #f7f9ff;
-  --color-on-background: #0e1d29;
-  --color-surface-variant: #d5e4f6;
-  --color-canvas: #ffffff;
-  --color-surface-soft: #f1f4f7;
-  --color-ink-deep: #0a1317;
-  --color-ink-body: #1c1e21;
-  --color-charcoal: #444950;
-  --color-steel: #5d6c7b;
-  --color-stone: #8595a4;
-  --color-hairline: #ced0d4;
-  --color-hairline-soft: #dee3e9;
-  --color-accent-electric: #0091ff;
-  --color-accent-purple: #a121ce;
-  --color-status-success: #31a24c;
-  --color-status-warning: #f2a918;
-  --color-status-critical: #e41e3f;
+  --color-primary-fixed: #fbddc8;
+  --color-primary-fixed-dim: #f0b48a;
+  --color-on-primary-fixed: #2a0c02;
+  --color-on-primary-fixed-variant: #7a3018;
+  --color-secondary-fixed: #ece0d2;
+  --color-secondary-fixed-dim: #d4c6b6;
+  --color-on-secondary-fixed: #241a14;
+  --color-on-secondary-fixed-variant: #4f413a;
+  --color-tertiary-fixed: #f8e7c9;
+  --color-tertiary-fixed-dim: #e8c489;
+  --color-on-tertiary-fixed: #2a1e00;
+  --color-on-tertiary-fixed-variant: #6b5210;
+  --color-background: #fdf8f0;
+  --color-on-background: #2a1610;
+  --color-surface-variant: #f3dcb5;
+  --color-canvas: #fdf8f0;
+  --color-surface-soft: #f8e7c9;
+  --color-ink-deep: #2a1610;
+  --color-ink-body: #3a2a22;
+  --color-charcoal: #4a3a32;
+  --color-steel: #6b5a50;
+  --color-stone: #a09288;
+  --color-hairline: #e0d2be;
+  --color-hairline-soft: #efe4d4;
+  --color-accent-electric: #e8c489;
+  --color-accent-purple: #a9852f;
+  --color-status-success: #3f7d58;
+  --color-status-warning: #b07d12;
+  --color-status-critical: #b3382c;
+
+  /* Brand literals, for the places that want Champagne by name rather than
+     via a surface role (highlights on the dark Emerald Ink sections). */
+  --color-espresso: #402018;
+  --color-champagne: #f8e7c9;
+  --color-champagne-dim: #e8c489;
+  --color-champagne-soft: #fbeedb;
+  /* Rust reads on BOTH the champagne light ground and the espresso dark sections,
+     so it carries the accent period (see Dot()). */
+  --color-rust: #b05030;
 
   /* --- Type families --- */
   --font-display: var(--font-hanken), ui-sans-serif, system-ui, sans-serif;
@@ -390,7 +405,7 @@ h4 {
   margin: auto;
 }
 .contact-modal::backdrop {
-  background: rgb(10 19 23 / 0.72);
+  background: rgb(42 22 16 / 0.72);
   backdrop-filter: blur(4px);
 }
 @media (prefers-reduced-motion: no-preference) {

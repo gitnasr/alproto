@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { SOLUTIONS } from "@/lib/solutions";
 import { SERVICES } from "@/lib/services";
@@ -39,7 +40,16 @@ export function SiteFooter() {
       <div className="mx-auto max-w-shell px-xxl">
         <div className="grid grid-cols-1 gap-xxxl border-b border-hairline-soft pb-section-sm md:grid-cols-2 lg:grid-cols-5">
           <div className="flex flex-col gap-base lg:col-span-2">
-            <span className="font-display text-heading-sm font-bold text-ink-deep">Silo-Dev</span>
+            <span className="flex items-center gap-md">
+              <Image
+                src="/logos/nahjj-mark.png"
+                alt=""
+                width={256}
+                height={235}
+                className="h-10 w-auto shrink-0"
+              />
+              <span className="font-display text-heading-sm font-bold text-ink-deep">Nahjj</span>
+            </span>
             <p className="max-w-[24rem] text-body-sm text-secondary">
               We take unfinished software all the way to production — stalled builds, inherited
               codebases, and migrations that never completed.
@@ -107,7 +117,7 @@ export function SiteFooter() {
             there are real documents to point them at. */}
         <div className="flex flex-col items-center justify-between gap-base pt-xl md:flex-row">
           <span className="text-caption text-secondary">
-            © {new Date().getFullYear()} Silo-Dev. All rights reserved.
+            © {new Date().getFullYear()} Nahjj. All rights reserved.
           </span>
         </div>
       </div>

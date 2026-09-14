@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -40,19 +41,22 @@ const LINKS = [
   { href: "/about", label: "About" },
 ];
 
+/**
+ * The Nahjj emblem: the two-tone N with the dune curves and the Arabic نهج set
+ * into its right stem. Raster rather than inline SVG because the artwork is a
+ * painted illustration, not flat geometry — so it cannot follow the colour
+ * tokens the way the old drawn mark did. Sized 2x its display box for retina.
+ */
 function Logo() {
   return (
-    <svg viewBox="0 0 40 40" className="h-8 w-8 shrink-0" fill="none" aria-hidden>
-      <rect width="36" height="36" y="2" rx="10" fill="#0A1317" />
-      <path
-        d="M12 20L18 14M12 20L18 26M24 14L18 20M24 26L18 20"
-        stroke="#0064E0"
-        strokeWidth="2.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <circle cx="20" cy="20" r="2.5" fill="#0064E0" />
-    </svg>
+    <Image
+      src="/logos/nahjj-mark.png"
+      alt=""
+      width={256}
+      height={235}
+      priority
+      className="h-9 w-auto shrink-0"
+    />
   );
 }
 
@@ -87,15 +91,10 @@ export function SiteHeader() {
       onMouseLeave={() => setOpenMenu(null)}
     >
       <div className="mx-auto flex h-20 max-w-shell items-center justify-between px-xxl">
-        <Link href="/" className="flex items-center gap-base" aria-label="Silo-Dev home">
+        <Link href="/" className="flex items-center gap-base" aria-label="Nahjj home">
           <Logo />
-          <span className="flex items-center">
-            <span className="font-display text-heading-sm font-semibold tracking-tight text-ink-deep">
-              Silo-
-            </span>
-            <span className="font-display text-heading-sm font-medium tracking-tight text-primary">
-              Dev
-            </span>
+          <span className="font-display text-heading-sm font-semibold tracking-tight text-ink-deep">
+            Nahjj
           </span>
         </Link>
 

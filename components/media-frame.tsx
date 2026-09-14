@@ -26,7 +26,7 @@ export function MediaFrame({
   return (
     <div
       title={label}
-      className={`absolute inset-0 flex flex-col items-center justify-center gap-xs bg-linear-to-br from-ink-deep via-[#12283a] to-[#0b3f7a] p-xl text-center ${className}`}
+      className={`absolute inset-0 flex flex-col items-center justify-center gap-xs bg-linear-to-br from-ink-deep via-[#5a2a18] to-[#b05030] p-xl text-center ${className}`}
     >
       <Icon name={icon} size={28} className="text-accent-electric" />
       <span className="line-clamp-3 max-w-[24rem] text-caption text-canvas/55">{label}</span>

@@ -7,11 +7,11 @@ import { ContactTrigger } from "@/components/contact-trigger";
 export const metadata: Metadata = {
   title: "Open Source Registry",
   description:
-    "How Silo-Dev engages with open source: upstream-first contributions, responsible disclosure, and tooling we release from client-funded work.",
+    "How Nahjj engages with open source: upstream-first contributions, responsible disclosure, and tooling we release from client-funded work.",
 };
 
 function Dot() {
-  return <span className="text-accent-electric">.</span>;
+  return <span className="text-rust">.</span>;
 }
 
 const PRINCIPLES = [

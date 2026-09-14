@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 function Dot() {
-  return <span className="text-accent-electric">.</span>;
+  return <span className="text-rust">.</span>;
 }
 
 export default async function SolutionPage({ params }: Props) {
