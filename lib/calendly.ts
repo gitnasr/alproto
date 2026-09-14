@@ -4,7 +4,7 @@
  * The "Book a 15 Minute Call" flow hands off to a hosted Calendly event rather
  * than posting a lead into an inbox: the visitor picks a slot and the call is on
  * both calendars before anyone reads an email. Set NEXT_PUBLIC_CALENDLY_URL to
- * the event link — e.g. https://calendly.com/nexus-dev/15min — and the contact
+ * the event link — e.g. https://calendly.com/nahjj/15min — and the contact
  * dialog switches from the fallback form to live availability.
  *
  * Anything we want to ask (industry, company size, what needs finishing) belongs

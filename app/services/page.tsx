@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 };
 
 function Dot() {
-  return <span className="text-accent-electric">.</span>;
+  return <span className="text-rust">.</span>;
 }
 
 const WHY = [
@@ -91,7 +91,7 @@ const OTHER_MODELS = [
 const COMPARISON: [string, string, string, string][] = [
   [
     "Who owns delivery",
-    "Silo-Dev, end to end",
+    "Nahjj, end to end",
     "No build — advisory output only",
     "Your team, we take a slice",
   ],

@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 };
 
 function Dot() {
-  return <span className="text-accent-electric">.</span>;
+  return <span className="text-rust">.</span>;
 }
 
 export default function ProjectCheckPage() {
