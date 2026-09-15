@@ -3,7 +3,7 @@
 /**
  * SpecularButton — reactbits.dev (JavaScript + CSS variant), vendored.
  *
- * Kept close to upstream so it stays re-syncable. Deviations marked NAHJJ:
+ * Kept close to upstream so it stays re-syncable. Deviations marked SILOSAGE:
  *   1. "use client" — App Router, and this is all hooks and WebGL.
  *   2. An `href` escape hatch. Upstream only ever renders a <button>, but half
  *      the calls to action on this site are links. With `href` it renders a
@@ -105,8 +105,8 @@ const SpecularButton = ({
   onClick,
   className = "",
   type = "button",
-  href, // NAHJJ
-  ariaLabel, // NAHJJ
+  href, // SILOSAGE
+  ariaLabel, // SILOSAGE
   ...rest
 }) => {
   const btnRef = useRef(null);
@@ -212,7 +212,7 @@ const SpecularButton = ({
     };
     window.addEventListener("pointermove", onPointerMove);
 
-    /* NAHJJ: every instance owns a GL context and a render loop, so idle
+    /* SILOSAGE: every instance owns a GL context and a render loop, so idle
        off-screen buttons must stop drawing rather than burn a frame each. */
     let onScreen = true;
     const io = new IntersectionObserver(
@@ -238,7 +238,7 @@ const SpecularButton = ({
 
     const update = (now) => {
       if (!onScreen) {
-        raf = 0; /* NAHJJ: park until the observer says it is back */
+        raf = 0; /* SILOSAGE: park until the observer says it is back */
         return;
       }
       raf = requestAnimationFrame(update);
@@ -275,7 +275,7 @@ const SpecularButton = ({
     return () => {
       cancelAnimationFrame(raf);
       ro.disconnect();
-      io.disconnect(); /* NAHJJ */
+      io.disconnect(); /* SILOSAGE */
       window.removeEventListener("pointermove", onPointerMove);
       if (gl.canvas.parentNode === fx) fx.removeChild(gl.canvas);
       // Safe here, unlike a shared canvas: the renderer made this one itself
@@ -305,7 +305,7 @@ const SpecularButton = ({
     </>
   );
 
-  /* NAHJJ: a link renders as a link. */
+  /* SILOSAGE: a link renders as a link. */
   if (href) {
     return (
       <Link href={href} {...shared} {...rest}>

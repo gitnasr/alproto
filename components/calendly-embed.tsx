@@ -132,7 +132,7 @@ export function CalendlyEmbed({ url }: { url: string }) {
             href={url}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-primary-container underline underline-offset-4 hover:text-primary"
+            className="text-canvas underline underline-offset-4 hover:text-primary"
           >
             the booking page directly
           </a>{" "}

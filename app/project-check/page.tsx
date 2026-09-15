@@ -21,13 +21,13 @@ export default function ProjectCheckPage() {
     <div className="flex w-full flex-col">
       {/* Hero */}
       <section className="relative w-full overflow-hidden bg-ink-deep py-section-lg text-canvas">
-        <div className="pointer-events-none absolute -top-32 right-1/4 h-[520px] w-[520px] rounded-full bg-primary-container/15 blur-3xl" />
-        <div className="pointer-events-none absolute bottom-0 -left-24 h-[380px] w-[380px] rounded-full bg-accent-electric/10 blur-3xl" />
+        <div className="pointer-events-none absolute -top-32 right-1/4 h-[520px] w-[520px] rounded-full bg-canvas/[0.06] blur-3xl" />
+        <div className="pointer-events-none absolute bottom-0 -left-24 h-[380px] w-[380px] rounded-full bg-canvas/[0.04] blur-3xl" />
 
         <div className="relative mx-auto flex max-w-shell flex-col gap-xl px-xxl">
           
           <Reveal delay={100}>
-            <h1 className="max-w-3xl text-display-lg-mobile font-bold tracking-tight text-canvas md:text-display-lg">
+            <h1 className="max-w-3xl text-display-lg-mobile text-canvas md:text-display-lg">
               Is your project in trouble — and{" "}
               <span className="text-accent-electric">what kind</span>
               <Dot />
@@ -66,14 +66,14 @@ export default function ProjectCheckPage() {
 
       {/* Reassurance */}
       <section className="relative w-full overflow-hidden bg-ink-deep py-section-lg text-canvas">
-        <div className="pointer-events-none absolute -top-24 right-0 h-[420px] w-[420px] rounded-full bg-primary-container/10 blur-3xl" />
+        <div className="pointer-events-none absolute -top-24 right-0 h-[420px] w-[420px] rounded-full bg-canvas/[0.05] blur-3xl" />
         <div className="relative mx-auto max-w-shell px-xxl">
           <Reveal>
             <div className="flex max-w-3xl flex-col gap-base">
               <span className="text-caption-bold uppercase tracking-widest text-accent-electric">
                 For What It&rsquo;s Worth
               </span>
-              <h2 className="text-heading-lg font-semibold tracking-tight text-canvas">
+              <h2 className="text-heading-lg text-canvas">
                 Projects rarely go wrong for interesting reasons
                 <Dot />
               </h2>
@@ -102,7 +102,7 @@ export default function ProjectCheckPage() {
           <Reveal>
             <div className="flex flex-col justify-between gap-xxl border-t border-canvas/15 pt-xxl lg:flex-row lg:items-end">
               <div className="flex max-w-2xl flex-col gap-base">
-                <h2 className="text-heading-lg font-semibold tracking-tight text-canvas">
+                <h2 className="text-heading-lg text-canvas">
                   Rather just describe it in your own words?
                 </h2>
                 <p className="text-body-md leading-relaxed text-secondary">

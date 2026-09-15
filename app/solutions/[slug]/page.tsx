@@ -38,8 +38,8 @@ export default async function SolutionPage({ params }: Props) {
     <div className="flex w-full flex-col">
       {/* Hero */}
       <section className="relative w-full overflow-hidden bg-ink-deep py-section-lg text-canvas">
-        <div className="pointer-events-none absolute -top-32 right-1/4 h-[520px] w-[520px] rounded-full bg-primary-container/15 blur-3xl" />
-        <div className="pointer-events-none absolute bottom-0 -left-24 h-[380px] w-[380px] rounded-full bg-accent-electric/10 blur-3xl" />
+        <div className="pointer-events-none absolute -top-32 right-1/4 h-[520px] w-[520px] rounded-full bg-canvas/[0.06] blur-3xl" />
+        <div className="pointer-events-none absolute bottom-0 -left-24 h-[380px] w-[380px] rounded-full bg-canvas/[0.04] blur-3xl" />
 
         <div className="relative mx-auto max-w-shell px-xxl">
           <Reveal>
@@ -58,7 +58,7 @@ export default async function SolutionPage({ params }: Props) {
           <div className="grid grid-cols-1 items-start gap-xxxl lg:grid-cols-12">
             <div className="flex flex-col gap-base lg:col-span-8">
               <Reveal delay={100}>
-                <h1 className="text-display-lg-mobile font-bold tracking-tight text-canvas md:text-display-lg">
+                <h1 className="text-display-lg-mobile text-canvas md:text-display-lg">
                   {solution.name}
                   <Dot />
                 </h1>
@@ -108,10 +108,10 @@ export default async function SolutionPage({ params }: Props) {
           <div className="grid grid-cols-1 gap-xxxl lg:grid-cols-12">
             <Reveal className="lg:col-span-5">
               <div className="flex flex-col gap-base lg:sticky lg:top-32">
-                <span className="text-caption-bold uppercase tracking-widest text-primary">
+                <span className="text-caption-bold uppercase text-kicker">
                   When Teams Call Us
                 </span>
-                <h2 className="text-heading-lg font-semibold tracking-tight text-canvas">
+                <h2 className="text-heading-lg text-canvas">
                   The signals that bring this work to us
                   <Dot />
                 </h2>
@@ -174,7 +174,7 @@ export default async function SolutionPage({ params }: Props) {
 
       {/* Deliverables — numbered rows on dark, no tiles */}
       <section className="relative w-full overflow-hidden bg-ink-deep py-section-lg text-canvas">
-        <div className="pointer-events-none absolute -top-24 right-0 h-[420px] w-[420px] rounded-full bg-primary-container/10 blur-3xl" />
+        <div className="pointer-events-none absolute -top-24 right-0 h-[420px] w-[420px] rounded-full bg-canvas/[0.05] blur-3xl" />
         <div className="relative mx-auto max-w-shell px-xxl">
           <div className="grid grid-cols-1 gap-xxxl lg:grid-cols-12">
             <Reveal className="lg:col-span-4">
@@ -182,7 +182,7 @@ export default async function SolutionPage({ params }: Props) {
                 <span className="text-caption-bold uppercase tracking-widest text-accent-electric">
                   What We Deliver
                 </span>
-                <h2 className="text-heading-lg font-semibold tracking-tight text-canvas">
+                <h2 className="text-heading-lg text-canvas">
                   Concrete work, not a capability list
                   <Dot />
                 </h2>
@@ -200,7 +200,7 @@ export default async function SolutionPage({ params }: Props) {
                     <span className="font-display text-body-md-bold text-canvas/30 sm:col-span-1">
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <h3 className="text-heading-sm font-bold text-canvas sm:col-span-4">
+                    <h3 className="text-heading-sm text-canvas sm:col-span-4">
                       {d.title}
                     </h3>
                     <p className="text-body-md leading-relaxed text-stone sm:col-span-7">
@@ -220,17 +220,17 @@ export default async function SolutionPage({ params }: Props) {
           <Reveal>
             <div className="mb-xxl flex flex-col justify-between gap-base md:flex-row md:items-end">
               <div className="flex max-w-2xl flex-col gap-xs">
-                <span className="text-caption-bold uppercase tracking-widest text-primary">
+                <span className="text-caption-bold uppercase text-kicker">
                   How It Runs
                 </span>
-                <h2 className="text-heading-lg font-semibold tracking-tight text-canvas">
+                <h2 className="text-heading-lg text-canvas">
                   The same arc, whatever the domain
                   <Dot />
                 </h2>
               </div>
               <Link
                 href="/services"
-                className="inline-flex items-center gap-xs text-body-sm-bold text-primary-container transition-colors hover:text-primary"
+                className="inline-flex items-center gap-xs text-body-sm-bold text-canvas transition-colors hover:text-primary"
               >
                 See the Full Process
                 <Icon name="arrow_forward" />
@@ -246,7 +246,7 @@ export default async function SolutionPage({ params }: Props) {
                   href={`/services#${s.slug}`}
                   className="group flex flex-col gap-xxs border-l border-hairline pl-base transition-colors hover:border-primary"
                 >
-                  <span className="text-caption-bold text-primary">{s.step}</span>
+                  <span className="text-caption-bold text-stone">{s.step}</span>
                   <span className="text-body-sm-bold text-canvas transition-colors group-hover:text-primary">
                     {s.name}
                   </span>
@@ -261,7 +261,7 @@ export default async function SolutionPage({ params }: Props) {
       <section className="w-full bg-surface-soft py-section-lg">
         <div className="mx-auto max-w-shell px-xxl">
           <Reveal>
-            <h2 className="mb-xxl text-heading-lg font-semibold tracking-tight text-canvas">
+            <h2 className="mb-xxl text-heading-lg text-canvas">
               Other solution areas
               <Dot />
             </h2>
@@ -273,11 +273,11 @@ export default async function SolutionPage({ params }: Props) {
                   href={`/solutions/${s.slug}`}
                   className="group grid grid-cols-1 items-baseline gap-xxs border-b border-hairline py-lg transition-colors hover:bg-page sm:grid-cols-12 sm:gap-xl"
                 >
-                  <span className="text-heading-sm font-bold text-canvas transition-colors group-hover:text-primary sm:col-span-5">
+                  <span className="text-heading-sm text-canvas transition-colors group-hover:text-primary sm:col-span-5">
                     {s.name}
                   </span>
                   <span className="text-body-sm text-secondary sm:col-span-6">{s.tagline}</span>
-                  <span className="hidden justify-self-end text-primary-container sm:col-span-1 sm:block">
+                  <span className="hidden justify-self-end text-canvas sm:col-span-1 sm:block">
                     <Icon name="arrow_forward" size={18} />
                   </span>
                 </Link>

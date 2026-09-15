@@ -7,7 +7,7 @@ import { ContactTrigger } from "@/components/contact-trigger";
 export const metadata: Metadata = {
   title: "Open Source Registry",
   description:
-    "How Nahjj engages with open source: upstream-first contributions, responsible disclosure, and tooling we release from client-funded work.",
+    "How Silosage engages with open source: upstream-first contributions, responsible disclosure, and tooling we release from client-funded work.",
 };
 
 function Dot() {
@@ -56,13 +56,13 @@ export default function OpenSourcePage() {
     <div className="flex w-full flex-col">
       {/* Hero */}
       <section className="relative w-full overflow-hidden bg-ink-deep py-section-lg text-canvas">
-        <div className="pointer-events-none absolute -top-32 left-1/4 h-[520px] w-[520px] rounded-full bg-accent-electric/10 blur-3xl" />
-        <div className="pointer-events-none absolute -bottom-24 right-0 h-[380px] w-[380px] rounded-full bg-primary-container/15 blur-3xl" />
+        <div className="pointer-events-none absolute -top-32 left-1/4 h-[520px] w-[520px] rounded-full bg-canvas/[0.04] blur-3xl" />
+        <div className="pointer-events-none absolute -bottom-24 right-0 h-[380px] w-[380px] rounded-full bg-canvas/[0.06] blur-3xl" />
 
         <div className="relative mx-auto flex max-w-shell flex-col gap-xl px-xxl">
           
           <Reveal delay={100}>
-            <h1 className="max-w-3xl text-display-lg-mobile font-bold tracking-tight text-canvas md:text-display-lg">
+            <h1 className="max-w-3xl text-display-lg-mobile text-canvas md:text-display-lg">
               We build on open source.{" "}
               <span className="text-accent-electric">We build it back</span>
               <Dot />
@@ -84,10 +84,10 @@ export default function OpenSourcePage() {
           <div className="grid grid-cols-1 gap-xxxl lg:grid-cols-12">
             <Reveal className="lg:col-span-4">
               <div className="flex flex-col gap-xs lg:sticky lg:top-32">
-                <span className="text-caption-bold uppercase tracking-widest text-primary">
+                <span className="text-caption-bold uppercase text-kicker">
                   Engagement Principles
                 </span>
-                <h2 className="text-heading-lg font-semibold text-canvas">
+                <h2 className="text-heading-lg text-canvas">
                   How we participate
                   <Dot />
                 </h2>
@@ -105,7 +105,7 @@ export default function OpenSourcePage() {
                     <span className="font-display text-body-md-bold text-stone sm:col-span-1">
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <span className="font-display text-heading-sm font-semibold text-canvas sm:col-span-4">
+                    <span className="font-display text-heading-sm text-canvas sm:col-span-4">
                       {p.title}
                     </span>
                     <p className="text-body-md leading-relaxed text-secondary sm:col-span-7">
@@ -121,7 +121,7 @@ export default function OpenSourcePage() {
 
       {/* Focus areas — dark */}
       <section className="relative w-full overflow-hidden bg-ink-deep py-section-lg text-canvas">
-        <div className="pointer-events-none absolute -top-24 right-0 h-[420px] w-[420px] rounded-full bg-primary-container/10 blur-3xl" />
+        <div className="pointer-events-none absolute -top-24 right-0 h-[420px] w-[420px] rounded-full bg-canvas/[0.05] blur-3xl" />
         <div className="relative mx-auto flex max-w-shell flex-col gap-xxxl px-xxl">
           <Reveal>
             <div className="flex flex-col justify-between gap-base md:flex-row md:items-end">
@@ -129,7 +129,7 @@ export default function OpenSourcePage() {
                 <span className="text-caption-bold uppercase tracking-widest text-accent-electric">
                   Release Pipeline
                 </span>
-                <h2 className="text-heading-lg font-semibold tracking-tight text-canvas">
+                <h2 className="text-heading-lg text-canvas">
                   Tooling focus areas
                   <Dot />
                 </h2>
@@ -149,7 +149,7 @@ export default function OpenSourcePage() {
                     <span className="text-caption-bold uppercase tracking-widest text-accent-electric">
                       {f.tag}
                     </span>
-                    <h3 className="text-heading-sm font-semibold text-canvas">{f.title}</h3>
+                    <h3 className="text-heading-sm text-canvas">{f.title}</h3>
                   </div>
                   <p className="text-body-md leading-relaxed text-stone md:col-span-8">{f.copy}</p>
                 </article>
@@ -165,7 +165,7 @@ export default function OpenSourcePage() {
           <Reveal>
             <div className="flex flex-col justify-between gap-xxl border-t border-canvas/15 pt-xxl lg:flex-row lg:items-end">
               <div className="flex max-w-2xl flex-col gap-base">
-                <h2 className="text-heading-lg font-semibold tracking-tight text-canvas">
+                <h2 className="text-heading-lg text-canvas">
                   Maintain a project we should be supporting?
                 </h2>
                 <p className="text-body-md leading-relaxed text-secondary">

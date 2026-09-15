@@ -49,13 +49,9 @@ export function SiteFooter() {
             height={235}
             className="h-12 w-auto shrink-0"
           />
-          <p className="mt-lg font-display text-display-lg-mobile font-bold leading-none tracking-tight text-canvas md:text-display-lg lg:text-hero-display">
-            Nahjj
+          <p className="mt-lg font-display text-display-lg-mobile leading-none text-canvas md:text-display-lg lg:text-hero-display">
+            Silosage
           </p>
-          <p className="mt-xs font-display text-heading-sm font-bold tracking-tight text-canvas">
-            software engineering
-          </p>
-
           {/* --- Two actions, dash-separated, the way the reference pairs them --- */}
           <div className="mt-xxl flex items-center gap-base text-caption-bold uppercase tracking-widest">
             <Cta size="sm">Book a call</Cta>
@@ -111,7 +107,7 @@ export function SiteFooter() {
         {/* --- Copyright left, studio meta right-aligned, as in the reference --- */}
         <div className="flex flex-col items-center gap-lg pt-xl sm:flex-row sm:items-start sm:justify-between">
           <span className="text-caption text-secondary">
-            © {new Date().getFullYear()} Nahjj. All rights reserved.
+            © {new Date().getFullYear()} Silosage. All rights reserved.
           </span>
           {/* Privacy Policy / Terms / Security are still absent on purpose —
               they were grey text that looked like links and went nowhere. */}

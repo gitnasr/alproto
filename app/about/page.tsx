@@ -57,13 +57,13 @@ export default function AboutPage() {
     <div className="flex w-full flex-col">
       {/* Hero */}
       <section className="relative w-full overflow-hidden bg-ink-deep px-xxl py-section-lg text-canvas">
-        <div className="pointer-events-none absolute -top-32 right-1/4 h-[520px] w-[520px] rounded-full bg-primary-container/15 blur-3xl" />
-        <div className="pointer-events-none absolute bottom-0 -left-24 h-[380px] w-[380px] rounded-full bg-accent-electric/10 blur-3xl" />
+        <div className="pointer-events-none absolute -top-32 right-1/4 h-[520px] w-[520px] rounded-full bg-canvas/[0.06] blur-3xl" />
+        <div className="pointer-events-none absolute bottom-0 -left-24 h-[380px] w-[380px] rounded-full bg-canvas/[0.04] blur-3xl" />
 
         <div className="relative mx-auto grid max-w-shell grid-cols-1 items-center gap-xxxl lg:grid-cols-12">
           <div className="flex flex-col gap-lg lg:col-span-7">
             <Reveal>
-              <h1 className="text-display-lg-mobile font-bold tracking-tight text-canvas md:text-display-lg lg:text-hero-display">
+              <h1 className="text-display-lg-mobile text-canvas md:text-display-lg lg:text-hero-display">
                 Led by engineers.{" "}
                 <span className="text-accent-electric">Built to finish things</span>
                 <Dot />
@@ -101,10 +101,10 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 gap-xxxl lg:grid-cols-12">
             <Reveal className="lg:col-span-4">
               <div className="flex flex-col gap-xs lg:sticky lg:top-32">
-                <span className="text-caption-bold uppercase tracking-widest text-primary">
+                <span className="text-caption-bold uppercase text-kicker">
                   The Team
                 </span>
-                <h2 className="text-heading-lg font-semibold tracking-tight text-canvas">
+                <h2 className="text-heading-lg text-canvas">
                   Small on purpose
                   <Dot />
                 </h2>
@@ -125,7 +125,7 @@ export default function AboutPage() {
                       i > 0 ? "border-t border-hairline" : "lg:pt-0"
                     }`}
                   >
-                    <h3 className="text-heading-sm font-semibold text-canvas">{d.title}</h3>
+                    <h3 className="text-heading-sm text-canvas">{d.title}</h3>
                     <p className="text-body-md leading-relaxed text-secondary">{d.copy}</p>
                   </div>
                 </Reveal>
@@ -144,10 +144,10 @@ export default function AboutPage() {
 
       {/* How we work */}
       <section className="relative w-full overflow-hidden bg-ink-deep px-xxl py-section-lg text-canvas">
-        <div className="pointer-events-none absolute -top-24 right-0 h-[420px] w-[420px] rounded-full bg-primary-container/10 blur-3xl" />
+        <div className="pointer-events-none absolute -top-24 right-0 h-[420px] w-[420px] rounded-full bg-canvas/[0.05] blur-3xl" />
         <div className="relative mx-auto flex max-w-shell flex-col gap-xxxl">
           <Reveal>
-            <h2 className="max-w-2xl text-heading-lg font-semibold tracking-tight text-canvas">
+            <h2 className="max-w-2xl text-heading-lg text-canvas">
               Three things we hold to
               <Dot />
             </h2>
@@ -157,10 +157,10 @@ export default function AboutPage() {
             {HOW.map((h, i) => (
               <Reveal key={h.title} delay={i * 100}>
                 <div className="flex h-full flex-col gap-xs border-t border-canvas/25 pt-base">
-                  <span className="font-display text-heading-lg font-bold text-canvas/40">
+                  <span className="font-display text-heading-lg text-canvas/40">
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <h3 className="text-heading-sm font-semibold text-canvas">{h.title}</h3>
+                  <h3 className="text-heading-sm text-canvas">{h.title}</h3>
                   <p className="text-body-sm leading-relaxed text-stone">{h.copy}</p>
                 </div>
               </Reveal>
@@ -175,7 +175,7 @@ export default function AboutPage() {
           <Reveal>
             <div className="flex flex-col justify-between gap-xxl border-t border-canvas/15 pt-xxl lg:flex-row lg:items-end">
               <div className="flex max-w-2xl flex-col gap-base">
-                <h2 className="text-heading-lg font-semibold tracking-tight text-canvas">
+                <h2 className="text-heading-lg text-canvas">
                   Want to talk to one of us?
                 </h2>
                 <p className="text-body-md leading-relaxed text-secondary">

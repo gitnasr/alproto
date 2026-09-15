@@ -99,7 +99,7 @@ export function ContactModalProvider({ children }: { children: ReactNode }) {
             <>
               <h2
                 id={TITLE_ID}
-                className="pr-xxxl text-heading-lg font-semibold tracking-tight text-canvas"
+                className="pr-xxxl text-heading-lg text-canvas"
               >
                 Book a 15 minute call
               </h2>

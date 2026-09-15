@@ -56,7 +56,7 @@ export function HeroWheel() {
              still showing two domains either side of it. */
           loop
           /* Page scroll stays with the page; drag, click and arrows drive the
-             wheel. See the NAHJJ note in option-wheel.jsx. */
+             wheel. See the SILOSAGE note in option-wheel.jsx. */
           captureScroll={false}
           /* Explicit even though it is the default: the tick sound stays off,
              so playTick() returns before it ever constructs an Audio. */

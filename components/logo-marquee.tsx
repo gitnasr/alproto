@@ -32,13 +32,12 @@ const CLIENTS: Client[] = [
 
 /**
  * At rest each mark is flattened to white: every logo here is dark brand
- * colour drawn for a light page (#13213C, #1F36C7, #005F86), so on the black
- * ground they would otherwise disappear.
+ * colour drawn for a light page (#13213C, #1F36C7, #005F86), so on the void
+ * they would otherwise disappear entirely.
  *
- * Hover restores the real colours — but those colours measure 1.17:1
- * (Skillsoft) to 2.65:1 (BBB) against the page, so on their own they would
- * vanish on hover rather than resolve. The light plate appears with them and
- * gives them something to sit on. Its padding is constant, not added on
+ * Hover restores the real colours over a light plate. Those colours measure
+ * 1.2:1 to 2.7:1 against black, so without the plate they would vanish on
+ * hover rather than resolve. Its padding is constant rather than added on
  * hover, so nothing reflows inside the marquee track.
  */
 function Mark({ client }: { client: Client }) {
@@ -48,12 +47,12 @@ function Mark({ client }: { client: Client }) {
       <img
         src={client.src}
         alt={client.name}
-        className={`${client.height ?? "h-8"} w-auto shrink-0 rounded-md object-contain px-sm py-xxs opacity-70 brightness-0 invert transition-[opacity,background-color,filter] duration-300 hover:bg-canvas hover:opacity-100 hover:brightness-100 hover:invert-0`}
+        className={`${client.height ?? "h-8"} w-auto shrink-0 rounded-md object-contain px-sm py-xxs opacity-60 brightness-0 invert transition-[opacity,background-color,filter] duration-300 hover:bg-bone-white hover:opacity-100 hover:brightness-100 hover:invert-0`}
       />
     );
   }
   return (
-    <span className="font-display text-heading-sm font-semibold tracking-wide whitespace-nowrap text-stone transition-colors duration-300 hover:text-canvas">
+    <span className="font-display text-heading-sm tracking-wide whitespace-nowrap text-stone transition-colors duration-300 hover:text-canvas">
       {client.name}
     </span>
   );
