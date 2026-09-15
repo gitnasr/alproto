@@ -198,7 +198,7 @@ export default function ServicesPage() {
                 <span className="text-caption-bold uppercase tracking-widest text-primary">
                   Why It Works
                 </span>
-                <h2 className="text-heading-lg font-semibold tracking-tight text-ink-deep">
+                <h2 className="text-heading-lg font-semibold tracking-tight text-canvas">
                   What a completion partner has to get right
                   <Dot />
                 </h2>
@@ -220,7 +220,7 @@ export default function ServicesPage() {
                       </p>
                     </div>
                     <div className="sm:col-span-9">
-                      <h3 className="text-heading-sm font-bold text-ink-deep">{w.title}</h3>
+                      <h3 className="text-heading-sm font-bold text-canvas">{w.title}</h3>
                       <p className="mt-xs text-body-md leading-relaxed text-secondary">{w.copy}</p>
                     </div>
                   </div>
@@ -232,7 +232,7 @@ export default function ServicesPage() {
       </section>
 
       {/* The six stages — alternating editorial blocks */}
-      <section className="w-full bg-canvas">
+      <section className="w-full bg-page">
         {SERVICES.map((s, i) => {
           const dark = i % 2 === 1;
           return (
@@ -240,7 +240,7 @@ export default function ServicesPage() {
               key={s.slug}
               id={s.slug}
               className={`w-full scroll-mt-24 py-section-lg ${
-                dark ? "bg-ink-deep text-canvas" : "bg-canvas"
+                dark ? "bg-ink-deep text-canvas" : "bg-page"
               }`}
             >
               <div className="mx-auto max-w-shell px-xxl">
@@ -252,7 +252,7 @@ export default function ServicesPage() {
                       <div className="flex items-center gap-base">
                         <span
                           className={`font-display text-display-lg font-bold ${
-                            dark ? "text-canvas/20" : "text-surface-container-high"
+                            "text-canvas/40"
                           }`}
                         >
                           {s.step}
@@ -263,7 +263,7 @@ export default function ServicesPage() {
                       </div>
                       <h2
                         className={`text-heading-lg font-semibold tracking-tight ${
-                          dark ? "text-canvas" : "text-ink-deep"
+                          dark ? "text-canvas" : "text-canvas"
                         }`}
                       >
                         {s.name}
@@ -320,7 +320,7 @@ export default function ServicesPage() {
 
                       <div
                         className={`flex flex-wrap items-end justify-between gap-base border-t pt-base ${
-                          dark ? "border-canvas/15" : "border-ink-deep/15"
+                          dark ? "border-canvas/15" : "border-canvas/15"
                         }`}
                       >
                         <div className="flex flex-col">
@@ -332,7 +332,7 @@ export default function ServicesPage() {
                             Stage Deliverable
                           </span>
                           <span
-                            className={`text-body-md-bold ${dark ? "text-canvas" : "text-ink-deep"}`}
+                            className={`text-body-md-bold ${dark ? "text-canvas" : "text-canvas"}`}
                           >
                             {s.deliverable}
                           </span>
@@ -365,7 +365,7 @@ export default function ServicesPage() {
               <span className="text-caption-bold uppercase tracking-widest text-primary">
                 Engagement Models
               </span>
-              <h2 className="text-heading-lg font-semibold text-ink-deep">
+              <h2 className="text-heading-lg font-semibold text-canvas">
                 Three ways to bring us in
                 <Dot />
               </h2>
@@ -430,7 +430,7 @@ export default function ServicesPage() {
                   <span className="text-caption-bold uppercase tracking-widest text-steel">
                     {m.tag}
                   </span>
-                  <h3 className="text-heading-sm font-bold text-ink-deep">{m.title}</h3>
+                  <h3 className="text-heading-sm font-bold text-canvas">{m.title}</h3>
                   <p className="text-body-md leading-relaxed text-secondary">{m.copy}</p>
                   <ul className="flex flex-col">
                     {m.list.map((item, li) => (
@@ -446,7 +446,7 @@ export default function ServicesPage() {
                   </ul>
                   <p className="text-caption-bold uppercase tracking-wider text-steel">
                     {m.footKey}
-                    <span className="ml-xs text-ink-deep">{m.footValue}</span>
+                    <span className="ml-xs text-canvas">{m.footValue}</span>
                   </p>
                   <ContactTrigger className="mt-auto inline-flex w-fit items-center gap-xs pt-xs text-body-sm-bold text-primary-container transition-colors hover:text-primary">
                     {m.cta}
@@ -465,7 +465,7 @@ export default function ServicesPage() {
               <div className="overflow-x-auto">
                 <table className="w-full min-w-[720px] border-collapse text-left">
                   <thead>
-                    <tr className="border-b border-ink-deep/20 text-caption-bold uppercase tracking-wider text-charcoal">
+                    <tr className="border-b border-canvas/15 text-caption-bold uppercase tracking-wider text-charcoal">
                       <th className="py-base pr-base font-normal">Dimension</th>
                       <th className="px-base py-base text-primary">Full Completion</th>
                       <th className="px-base py-base font-normal">Assessment &amp; Roadmap</th>
@@ -475,7 +475,7 @@ export default function ServicesPage() {
                   <tbody className="text-body-sm">
                     {COMPARISON.map(([dim, a, b, c]) => (
                       <tr key={dim} className="border-b border-hairline-soft align-top">
-                        <td className="py-base pr-base text-body-sm-bold text-ink-deep">{dim}</td>
+                        <td className="py-base pr-base text-body-sm-bold text-canvas">{dim}</td>
                         <td className="px-base py-base text-ink-body">{a}</td>
                         <td className="px-base py-base text-secondary">{b}</td>
                         <td className="py-base pl-base text-secondary">{c}</td>
@@ -490,7 +490,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Solutions cross-link — an index, not five tiles */}
-      <section className="w-full bg-canvas py-section-lg">
+      <section className="w-full bg-page py-section-lg">
         <div className="mx-auto max-w-shell px-xxl">
           <Reveal>
             <div className="mb-xxl flex flex-col justify-between gap-base md:flex-row md:items-end">
@@ -498,7 +498,7 @@ export default function ServicesPage() {
                 <span className="text-caption-bold uppercase tracking-widest text-primary">
                   Solution Areas
                 </span>
-                <h2 className="text-heading-lg font-semibold tracking-tight text-ink-deep">
+                <h2 className="text-heading-lg font-semibold tracking-tight text-canvas">
                   The domains this process runs in
                   <Dot />
                 </h2>
@@ -523,7 +523,7 @@ export default function ServicesPage() {
                   <span className="font-display text-body-sm text-stone sm:col-span-1">
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <span className="text-heading-sm font-bold text-ink-deep transition-colors group-hover:text-primary sm:col-span-5">
+                  <span className="text-heading-sm font-bold text-canvas transition-colors group-hover:text-primary sm:col-span-5">
                     {s.name}
                   </span>
                   <span className="text-body-sm text-secondary sm:col-span-5">{s.tagline}</span>
@@ -545,7 +545,7 @@ export default function ServicesPage() {
               <span className="text-caption-bold uppercase tracking-widest text-primary">
                 Governance
               </span>
-              <h2 className="text-heading-lg font-semibold text-ink-deep">
+              <h2 className="text-heading-lg font-semibold text-canvas">
                 Security and IP custody, handled properly
                 <Dot />
               </h2>
@@ -566,7 +566,7 @@ export default function ServicesPage() {
                   },
                 ].map((row) => (
                   <div key={row.title} className="border-l-2 border-status-success pl-base">
-                    <dt className="text-body-sm-bold text-ink-deep">{row.title}</dt>
+                    <dt className="text-body-sm-bold text-canvas">{row.title}</dt>
                     <dd className="text-caption text-secondary">{row.copy}</dd>
                   </div>
                 ))}
@@ -582,7 +582,7 @@ export default function ServicesPage() {
                     i > 0 ? "border-t border-hairline" : ""
                   }`}
                 >
-                  <span className="text-body-md-bold text-ink-deep">{c.title}</span>
+                  <span className="text-body-md-bold text-canvas">{c.title}</span>
                   <span className="text-body-sm leading-relaxed text-secondary">{c.copy}</span>
                 </div>
               </Reveal>

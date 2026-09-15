@@ -125,7 +125,7 @@ export function CalendlyEmbed({ url }: { url: string }) {
         <span className="flex h-11 w-11 items-center justify-center rounded-full bg-status-warning/10 text-status-warning">
           <Icon name="error" size={24} />
         </span>
-        <p className="text-body-md text-ink-deep">The scheduler didn&rsquo;t load.</p>
+        <p className="text-body-md text-canvas">The scheduler didn&rsquo;t load.</p>
         <p className="text-body-sm leading-relaxed text-secondary">
           An ad blocker or a flaky connection will do that. Open{" "}
           <a

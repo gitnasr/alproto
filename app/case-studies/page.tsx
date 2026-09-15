@@ -106,7 +106,7 @@ export default function CaseStudiesPage() {
       </section>
 
       {/* One client, three projects — told as a relationship, not three cards */}
-      <section className="w-full bg-canvas py-section-lg">
+      <section className="w-full bg-page py-section-lg">
         <div className="mx-auto max-w-shell px-xxl">
           <div className="grid grid-cols-1 gap-xxxl lg:grid-cols-12">
             <Reveal className="lg:col-span-4">
@@ -116,7 +116,7 @@ export default function CaseStudiesPage() {
                   alt="Better Business Bureau"
                   className="h-20 w-auto self-start"
                 />
-                <h2 className="text-heading-lg font-semibold tracking-tight text-ink-deep">
+                <h2 className="text-heading-lg font-semibold tracking-tight text-canvas">
                   Better Business Bureau
                   <Dot />
                 </h2>
@@ -136,10 +136,10 @@ export default function CaseStudiesPage() {
                     }`}
                   >
                     <div className="flex items-baseline gap-base">
-                      <span className="font-display text-heading-lg font-bold text-surface-container-high">
+                      <span className="font-display text-heading-lg font-bold text-canvas/40">
                         {p.n}
                       </span>
-                      <h3 className="text-heading-sm font-bold text-ink-deep">{p.title}</h3>
+                      <h3 className="text-heading-sm font-bold text-canvas">{p.title}</h3>
                     </div>
                     <p className="max-w-2xl text-body-md leading-relaxed text-secondary">{p.copy}</p>
                     {p.diagram && (
@@ -195,7 +195,7 @@ export default function CaseStudiesPage() {
       </section>
 
       {/* AstraZeneca — same shape, light band */}
-      <section className="w-full bg-canvas py-section-lg">
+      <section className="w-full bg-page py-section-lg">
         <div className="mx-auto max-w-shell px-xxl">
           <div className="grid grid-cols-1 gap-xxxl lg:grid-cols-12">
             <Reveal className="lg:col-span-4">
@@ -211,7 +211,7 @@ export default function CaseStudiesPage() {
 
             <div className="flex flex-col lg:col-span-8">
               <Reveal>
-                <p className="text-heading-sm font-normal leading-relaxed text-ink-deep lg:pt-0">
+                <p className="text-heading-sm font-normal leading-relaxed text-canvas lg:pt-0">
                   Unfinished platform work, inside a regulated environment.
                 </p>
               </Reveal>
@@ -263,11 +263,11 @@ export default function CaseStudiesPage() {
       </section>
 
       {/* Close */}
-      <section className="w-full bg-canvas py-section-lg">
+      <section className="w-full bg-page py-section-lg">
         <div className="mx-auto max-w-shell px-xxl">
           <Reveal>
             <div className="flex flex-col justify-between gap-xl border-t border-hairline-soft pt-xxl lg:flex-row lg:items-end">
-              <p className="max-w-2xl text-heading-sm leading-relaxed font-normal text-ink-deep">
+              <p className="max-w-2xl text-heading-sm leading-relaxed font-normal text-canvas">
                 Longer write-ups get published once the client is happy for us to, which takes rather
                 longer than the work did. If one of these resembles your situation, ask about it
                 directly — we can usually say more in a call than in public

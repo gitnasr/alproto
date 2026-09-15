@@ -104,7 +104,7 @@ export default function AboutPage() {
                 <span className="text-caption-bold uppercase tracking-widest text-primary">
                   The Team
                 </span>
-                <h2 className="text-heading-lg font-semibold tracking-tight text-ink-deep">
+                <h2 className="text-heading-lg font-semibold tracking-tight text-canvas">
                   Small on purpose
                   <Dot />
                 </h2>
@@ -125,7 +125,7 @@ export default function AboutPage() {
                       i > 0 ? "border-t border-hairline" : "lg:pt-0"
                     }`}
                   >
-                    <h3 className="text-heading-sm font-semibold text-ink-deep">{d.title}</h3>
+                    <h3 className="text-heading-sm font-semibold text-canvas">{d.title}</h3>
                     <p className="text-body-md leading-relaxed text-secondary">{d.copy}</p>
                   </div>
                 </Reveal>
@@ -157,7 +157,7 @@ export default function AboutPage() {
             {HOW.map((h, i) => (
               <Reveal key={h.title} delay={i * 100}>
                 <div className="flex h-full flex-col gap-xs border-t border-canvas/25 pt-base">
-                  <span className="font-display text-heading-lg font-bold text-canvas/20">
+                  <span className="font-display text-heading-lg font-bold text-canvas/40">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <h3 className="text-heading-sm font-semibold text-canvas">{h.title}</h3>
@@ -170,12 +170,12 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="w-full bg-canvas px-xxl py-section-lg">
+      <section className="w-full bg-page px-xxl py-section-lg">
         <div className="mx-auto max-w-shell">
           <Reveal>
-            <div className="flex flex-col justify-between gap-xxl border-t border-ink-deep/20 pt-xxl lg:flex-row lg:items-end">
+            <div className="flex flex-col justify-between gap-xxl border-t border-canvas/15 pt-xxl lg:flex-row lg:items-end">
               <div className="flex max-w-2xl flex-col gap-base">
-                <h2 className="text-heading-lg font-semibold tracking-tight text-ink-deep">
+                <h2 className="text-heading-lg font-semibold tracking-tight text-canvas">
                   Want to talk to one of us?
                 </h2>
                 <p className="text-body-md leading-relaxed text-secondary">

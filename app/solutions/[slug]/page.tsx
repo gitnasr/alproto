@@ -111,7 +111,7 @@ export default async function SolutionPage({ params }: Props) {
                 <span className="text-caption-bold uppercase tracking-widest text-primary">
                   When Teams Call Us
                 </span>
-                <h2 className="text-heading-lg font-semibold tracking-tight text-ink-deep">
+                <h2 className="text-heading-lg font-semibold tracking-tight text-canvas">
                   The signals that bring this work to us
                   <Dot />
                 </h2>
@@ -150,10 +150,10 @@ export default async function SolutionPage({ params }: Props) {
               <Reveal delay={160}>
                 <Link
                   href="/project-check"
-                  className="group mt-xl flex items-baseline justify-between gap-base border-t border-ink-deep/20 pt-base transition-colors hover:border-primary"
+                  className="group mt-xl flex items-baseline justify-between gap-base border-t border-canvas/15 pt-base transition-colors hover:border-primary"
                 >
                   <span className="flex flex-col gap-xxs">
-                    <span className="text-body-sm-bold text-ink-deep transition-colors group-hover:text-primary">
+                    <span className="text-body-sm-bold text-canvas transition-colors group-hover:text-primary">
                       Not sure how far along this is?
                     </span>
                     <span className="text-caption text-secondary">
@@ -215,7 +215,7 @@ export default async function SolutionPage({ params }: Props) {
       </section>
 
       {/* Process strip — the same rail the services hero uses */}
-      <section className="w-full bg-canvas py-section-lg">
+      <section className="w-full bg-page py-section-lg">
         <div className="mx-auto max-w-shell px-xxl">
           <Reveal>
             <div className="mb-xxl flex flex-col justify-between gap-base md:flex-row md:items-end">
@@ -223,7 +223,7 @@ export default async function SolutionPage({ params }: Props) {
                 <span className="text-caption-bold uppercase tracking-widest text-primary">
                   How It Runs
                 </span>
-                <h2 className="text-heading-lg font-semibold tracking-tight text-ink-deep">
+                <h2 className="text-heading-lg font-semibold tracking-tight text-canvas">
                   The same arc, whatever the domain
                   <Dot />
                 </h2>
@@ -247,7 +247,7 @@ export default async function SolutionPage({ params }: Props) {
                   className="group flex flex-col gap-xxs border-l border-hairline pl-base transition-colors hover:border-primary"
                 >
                   <span className="text-caption-bold text-primary">{s.step}</span>
-                  <span className="text-body-sm-bold text-ink-deep transition-colors group-hover:text-primary">
+                  <span className="text-body-sm-bold text-canvas transition-colors group-hover:text-primary">
                     {s.name}
                   </span>
                 </Link>
@@ -261,7 +261,7 @@ export default async function SolutionPage({ params }: Props) {
       <section className="w-full bg-surface-soft py-section-lg">
         <div className="mx-auto max-w-shell px-xxl">
           <Reveal>
-            <h2 className="mb-xxl text-heading-lg font-semibold tracking-tight text-ink-deep">
+            <h2 className="mb-xxl text-heading-lg font-semibold tracking-tight text-canvas">
               Other solution areas
               <Dot />
             </h2>
@@ -271,9 +271,9 @@ export default async function SolutionPage({ params }: Props) {
               <Reveal key={s.slug} delay={i * 70}>
                 <Link
                   href={`/solutions/${s.slug}`}
-                  className="group grid grid-cols-1 items-baseline gap-xxs border-b border-hairline py-lg transition-colors hover:bg-canvas sm:grid-cols-12 sm:gap-xl"
+                  className="group grid grid-cols-1 items-baseline gap-xxs border-b border-hairline py-lg transition-colors hover:bg-page sm:grid-cols-12 sm:gap-xl"
                 >
-                  <span className="text-heading-sm font-bold text-ink-deep transition-colors group-hover:text-primary sm:col-span-5">
+                  <span className="text-heading-sm font-bold text-canvas transition-colors group-hover:text-primary sm:col-span-5">
                     {s.name}
                   </span>
                   <span className="text-body-sm text-secondary sm:col-span-6">{s.tagline}</span>

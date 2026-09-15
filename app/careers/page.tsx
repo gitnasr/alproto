@@ -91,7 +91,7 @@ export default function CareersPage() {
               <span className="text-caption-bold uppercase tracking-widest text-primary">
                 How We Work
               </span>
-              <h2 className="text-heading-lg font-semibold text-ink-deep">
+              <h2 className="text-heading-lg font-semibold text-canvas">
                 What you can expect
                 <Dot />
               </h2>
@@ -101,10 +101,10 @@ export default function CareersPage() {
             {VALUES.map((v, i) => (
               <Reveal key={v.title} delay={i * 100}>
                 <div className="flex h-full flex-col gap-xs border-l-2 border-hairline pl-xl">
-                  <span className="font-display text-heading-lg font-bold text-surface-container-high">
+                  <span className="font-display text-heading-lg font-bold text-canvas/40">
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <span className="font-display text-heading-sm font-semibold text-ink-deep">
+                  <span className="font-display text-heading-sm font-semibold text-canvas">
                     {v.title}
                   </span>
                   <p className="text-body-sm leading-relaxed text-secondary">{v.copy}</p>
@@ -160,12 +160,12 @@ export default function CareersPage() {
       </section>
 
       {/* CTA */}
-      <section className="w-full bg-canvas py-section-lg">
+      <section className="w-full bg-page py-section-lg">
         <div className="mx-auto max-w-shell px-xxl">
           <Reveal>
-            <div className="flex flex-col justify-between gap-xxl border-t border-ink-deep/20 pt-xxl lg:flex-row lg:items-end">
+            <div className="flex flex-col justify-between gap-xxl border-t border-canvas/15 pt-xxl lg:flex-row lg:items-end">
               <div className="flex max-w-2xl flex-col gap-base">
-                <h2 className="text-heading-lg font-semibold tracking-tight text-ink-deep">
+                <h2 className="text-heading-lg font-semibold tracking-tight text-canvas">
                   No open listing that fits? Introduce yourself anyway
                   <Dot />
                 </h2>

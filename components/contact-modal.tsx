@@ -79,7 +79,7 @@ export function ContactModalProvider({ children }: { children: ReactNode }) {
           // A click that lands on the dialog itself is a backdrop click.
           if (e.target === dialogRef.current) close();
         }}
-        className={`contact-modal rounded-xl bg-canvas p-0 text-ink-deep shadow-2xl ${
+        className={`contact-modal rounded-xl bg-page p-0 text-canvas shadow-2xl ${
           // Calendly renders a single centred column once its event-type panel is
           // hidden, so a wide dialog just buys empty gutters.
           calendlyUrl ? "w-[min(34rem,calc(100vw-2rem))]" : "w-[min(40rem,calc(100vw-2rem))]"
@@ -90,7 +90,7 @@ export function ContactModalProvider({ children }: { children: ReactNode }) {
             type="button"
             onClick={close}
             aria-label="Close"
-            className="absolute top-base right-base z-10 flex h-9 w-9 items-center justify-center rounded-full text-steel transition-colors hover:bg-surface-soft hover:text-ink-deep"
+            className="absolute top-base right-base z-10 flex h-9 w-9 items-center justify-center rounded-full text-steel transition-colors hover:bg-surface-soft hover:text-canvas"
           >
             <Icon name="close" size={22} />
           </button>
@@ -99,7 +99,7 @@ export function ContactModalProvider({ children }: { children: ReactNode }) {
             <>
               <h2
                 id={TITLE_ID}
-                className="pr-xxxl text-heading-lg font-semibold tracking-tight text-ink-deep"
+                className="pr-xxxl text-heading-lg font-semibold tracking-tight text-canvas"
               >
                 Book a 15 minute call
               </h2>

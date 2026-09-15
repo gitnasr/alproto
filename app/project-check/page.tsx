@@ -58,7 +58,7 @@ export default function ProjectCheckPage() {
       </section>
 
       {/* The checklist */}
-      <section className="w-full bg-canvas py-section-lg">
+      <section className="w-full bg-page py-section-lg">
         <div className="mx-auto max-w-shell px-xxl">
           <ProjectCheck />
         </div>
@@ -97,12 +97,12 @@ export default function ProjectCheckPage() {
       <Faq />
 
       {/* CTA */}
-      <section className="w-full bg-canvas py-section-lg">
+      <section className="w-full bg-page py-section-lg">
         <div className="mx-auto max-w-shell px-xxl">
           <Reveal>
-            <div className="flex flex-col justify-between gap-xxl border-t border-ink-deep/20 pt-xxl lg:flex-row lg:items-end">
+            <div className="flex flex-col justify-between gap-xxl border-t border-canvas/15 pt-xxl lg:flex-row lg:items-end">
               <div className="flex max-w-2xl flex-col gap-base">
-                <h2 className="text-heading-lg font-semibold tracking-tight text-ink-deep">
+                <h2 className="text-heading-lg font-semibold tracking-tight text-canvas">
                   Rather just describe it in your own words?
                 </h2>
                 <p className="text-body-md leading-relaxed text-secondary">

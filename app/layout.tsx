@@ -3,6 +3,7 @@ import { Hanken_Grotesk, Inter } from "next/font/google";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { ContactModalProvider } from "@/components/contact-modal";
+import { AmbientSnow } from "@/components/ambient-snow";
 import "./globals.css";
 
 const hanken = Hanken_Grotesk({
@@ -51,8 +52,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <ContactModalProvider>
           <SiteHeader />
-          <main className="w-full bg-canvas pt-20">{children}</main>
+          <main className="w-full bg-page pt-28">{children}</main>
           <SiteFooter />
+          <AmbientSnow />
         </ContactModalProvider>
       </body>
     </html>
