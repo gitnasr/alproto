@@ -2,8 +2,7 @@
 
 /* Studio Engineering System — type, spacing and radius tokens from DESIGN.md.
    Colours are the Dala re-theme: a pure #000000 void carrying white type, with
-   one saturated violet reserved for filled actions and a warm amber for
-   emphasis. Token NAMES are unchanged, so every component keeps working; only
+   one saturated violet carrying every action and every emphasis. Token NAMES are unchanged, so every component keeps working; only
    the values moved.
 
    The polarity that governed the previous light theme is gone rather than
@@ -15,8 +14,9 @@
 @theme {
   /* --- Colors ---
      Anchors: Void #000000, Bone White #FFFFFF, Ash #9A9A9A, Silver Mist
-     #BDBDBD, Electric Iris #8052FF for filled actions only, Saffron Spark
-     #FFB829 for emphasis, Deep Verdant #15846E in the brand gradient. */
+     #BDBDBD, Electric Iris #8052FF as the single accent — filled actions,
+     emphasis and labels alike. Saffron survives only as the warning status,
+     where amber still has to mean "warning" rather than "brand". */
   --color-surface: #000000;
   --color-surface-dim: #000000;
   --color-surface-bright: #000000;
@@ -35,8 +35,8 @@
   --color-outline-variant: rgb(255 255 255 / 0.12);
   --color-surface-tint: #8052ff;
 
-  /* The filled action. Violet is a button colour and nothing else: never a
-     section ground, never a large block, never body text. */
+  /* The filled action, and now the accent everywhere else too. Still never a
+     section ground and never a large block: the void stays the surface. */
   --color-primary-container: #8052ff;
   --color-on-primary: #ffffff;
   --color-on-primary-container: #ffffff;
@@ -47,7 +47,7 @@
   --color-on-secondary: #000000;
   --color-secondary-container: rgb(255 255 255 / 0.06);
   --color-on-secondary-container: #bdbdbd;
-  --color-tertiary: #ffb829;
+  --color-tertiary: #8052ff;
   --color-on-tertiary: #000000;
   --color-tertiary-container: #15846e;
   --color-on-tertiary-container: #ffffff;
@@ -64,7 +64,7 @@
   --color-on-secondary-fixed: #ffffff;
   --color-on-secondary-fixed-variant: #bdbdbd;
   --color-tertiary-fixed: #ffe4ad;
-  --color-tertiary-fixed-dim: #ffb829;
+  --color-tertiary-fixed-dim: #9470ff;
   --color-on-tertiary-fixed: #2a1c00;
   --color-on-tertiary-fixed-variant: #a67512;
   --color-background: #000000;
@@ -89,10 +89,10 @@
   --color-hairline: rgb(255 255 255 / 0.1);
   --color-hairline-soft: rgb(255 255 255 / 0.06);
 
-  /* Emphasis. Amber is the type accent — highlight spans, the accent period,
-     section labels — and is deliberately not the violet, which stays on
-     buttons. */
-  --color-accent-electric: #ffb829;
+  /* Emphasis — highlight spans, hover states, the accent period, section
+     labels. All the same violet as the buttons now, so the site reads as one
+     colour rather than two competing ones. */
+  --color-accent-electric: #8052ff;
   --color-accent-purple: #8052ff;
   --color-status-success: #35c79a;
   --color-status-warning: #ffb829;
@@ -101,10 +101,9 @@
   /* The page ground. */
   --color-page: #000000;
   /* The accent period that closes each heading (see Dot()). */
-  --color-rust: #ffb829;
-  /* The small uppercase label above a heading — amber, per the reference's
-     section headline block. */
-  --color-kicker: #ffb829;
+  --color-rust: #8052ff;
+  /* The small uppercase label above a heading. */
+  --color-kicker: #8052ff;
 
   /* Dala literals, in the reference's own token names so its snippets drop in
      unaltered. */
