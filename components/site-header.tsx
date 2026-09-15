@@ -47,19 +47,23 @@ const FOCUS =
   "outline-none focus-visible:ring-[3px] focus-visible:ring-primary/50 focus-visible:ring-offset-2 focus-visible:ring-offset-ink-deep";
 
 /**
- * The brand mark. Still the old Nahjj artwork — a painted N — because the
- * Silosage mark has not been drawn yet. Swap the file at the path below when
- * it arrives; nothing else here has to change, and the box it renders into is
- * sized 2x for retina.
+ * The Silosage mark: the folded ribbon in bone white over an Electric Iris
+ * chevron — the same #8052FF the filled actions use.
+ *
+ * `unoptimized` because the source is an SVG. Next's image optimizer refuses
+ * to process SVG unless `dangerouslyAllowSVG` is turned on globally — which
+ * would relax it for every remote image too — and there is nothing to
+ * optimize in two vector paths anyway, so it is served as authored.
  */
 function Logo() {
   return (
     <Image
-      src="/logos/nahjj-mark.png"
+      src="/logos/silosage-mark.svg"
       alt=""
-      width={256}
-      height={235}
+      width={175}
+      height={190}
       priority
+      unoptimized
       className="h-9 w-auto shrink-0"
     />
   );

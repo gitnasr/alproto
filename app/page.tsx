@@ -186,27 +186,23 @@ export default function HomePage() {
               </Reveal>
             </div>
 
+            {/* Term over definition, divided by a hairline and given room to
+                breathe. The numerals and the corner arrow are gone: they were
+                furniture around the entry rather than part of it, and the rule
+                already does the separating. */}
             <div className="flex flex-col lg:col-span-8">
               {SOLUTIONS.map((s, i) => (
                 <Reveal key={s.slug} delay={(i % 2) * 100}>
                   <Link
                     href={`/solutions/${s.slug}`}
-                    className="group flex items-baseline gap-xl border-b border-canvas/10 py-xl transition-colors hover:border-accent-electric/40"
+                    className="group block border-b border-canvas/10 py-xxl transition-colors hover:border-canvas/30"
                   >
-                    <span className="shrink-0 font-display text-body-md-bold text-canvas/30 transition-colors group-hover:text-accent-electric">
-                      {String(i + 1).padStart(2, "0")}
+                    <span className="block font-display text-heading-sm text-canvas transition-colors group-hover:text-accent-electric">
+                      {s.name}
                     </span>
-                    <span className="flex flex-1 flex-col gap-xxs">
-                      <span className="font-display text-heading-sm text-canvas transition-colors group-hover:text-accent-electric">
-                        {s.name}
-                      </span>
-                      <span className="text-body-sm text-stone">{s.tagline}</span>
+                    <span className="mt-xs block max-w-[52ch] text-body-sm text-stone">
+                      {s.tagline}
                     </span>
-                    <Icon
-                      name="arrow_outward"
-                      size={22}
-                      className="shrink-0 text-canvas/35 transition-colors group-hover:text-accent-electric"
-                    />
                   </Link>
                 </Reveal>
               ))}
@@ -231,7 +227,7 @@ export default function HomePage() {
               </div>
               <Link
                 href="/services"
-                className="inline-flex items-center gap-xs text-body-sm-bold text-canvas transition-colors hover:text-primary"
+                className="inline-flex shrink-0 items-center gap-xs whitespace-nowrap text-body-sm-bold text-canvas transition-colors hover:text-primary"
               >
                 See the Full Process
                 <Icon name="arrow_forward" />
@@ -239,24 +235,30 @@ export default function HomePage() {
             </div>
           </Reveal>
 
-          {/* The arc as a numbered rail — six stages, not six tiles */}
-          <div className="grid grid-cols-1 gap-xxl sm:grid-cols-2 lg:grid-cols-3">
+          {/* The arc as six ruled entries rather than six tiles. Each stage is
+              a term over its definition, with what the stage ends in raised
+              beside the name as a small qualifier — the boxes, the left rails
+              and the oversized numerals are all gone. */}
+          <div className="flex flex-col">
             {SERVICES.map((s, i) => (
-              <Reveal key={s.slug} delay={(i % 3) * 100}>
+              <Reveal key={s.slug} delay={(i % 3) * 80}>
                 <Link
                   href={`/services#${s.slug}`}
-                  className="group flex h-full flex-col gap-xs border-l-2 border-hairline pl-xl transition-colors hover:border-primary"
+                  className="group block border-b border-hairline py-xxl transition-colors hover:border-canvas/30"
                 >
-                  <span className="font-display text-heading-lg text-canvas/40 transition-colors group-hover:text-canvas">
-                    {s.step}
-                  </span>
-                  <h3 className="text-heading-sm text-canvas transition-colors group-hover:text-primary">
-                    {s.name}
-                  </h3>
-                  <p className="text-body-sm leading-relaxed text-secondary">{s.tagline}</p>
-                  <p className="mt-auto pt-base text-caption-bold uppercase tracking-wider text-steel">
-                    Ends with
-                    <span className="ml-xs normal-case text-canvas">{s.deliverable}</span>
+                  <div className="flex flex-col gap-xs sm:flex-row sm:items-baseline sm:justify-between sm:gap-xxl">
+                    <h3 className="font-display text-heading-sm text-canvas transition-colors group-hover:text-primary">
+                      {s.name}
+                    </h3>
+                    {/* The deliverable, set as a raised note rather than a
+                        footer line — it qualifies the stage, it is not a
+                        second fact about it. */}
+                    <p className="shrink-0 text-caption text-steel sm:text-right">
+                      <span className="align-super text-accent-electric">+</span> {s.deliverable}
+                    </p>
+                  </div>
+                  <p className="mt-xs max-w-[52ch] text-body-sm leading-relaxed text-secondary">
+                    {s.tagline}
                   </p>
                 </Link>
               </Reveal>

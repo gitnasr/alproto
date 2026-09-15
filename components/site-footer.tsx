@@ -43,10 +43,11 @@ export function SiteFooter() {
         {/* --- Centred brand stack --- */}
         <div className="flex flex-col items-center text-center">
           <Image
-            src="/logos/nahjj-mark.png"
+            src="/logos/silosage-mark.svg"
             alt=""
-            width={256}
-            height={235}
+            width={175}
+            height={190}
+            unoptimized
             className="h-12 w-auto shrink-0"
           />
           <p className="mt-lg font-display text-display-lg-mobile leading-none text-canvas md:text-display-lg lg:text-hero-display">
