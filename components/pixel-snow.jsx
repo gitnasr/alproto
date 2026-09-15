@@ -150,7 +150,7 @@ void main() {
         vec2 testUV = abs(vec2(testX, testY));
 
         float depth = dot(flakePos - camPos, camK);
-        // NAHJJ: upstream only floors the on-screen size, so a flake keeps
+        // SILOSAGE: upstream only floors the on-screen size, so a flake keeps
         // growing as it nears the camera (apparent size ~ uFlakeSize / depth).
         // The second clamp is a ceiling in the same screen-pixel units, so
         // setting uMaxFlakeSize equal to uMinFlakeSize pins every flake to
@@ -195,7 +195,7 @@ export default function PixelSnow({
   color = "#ffffff",
   flakeSize = 0.01,
   minFlakeSize = 1.25,
-  maxFlakeSize = 1e4 /* NAHJJ: inert by default */,
+  maxFlakeSize = 1e4 /* SILOSAGE: inert by default */,
   pixelResolution = 200,
   speed = 1.25,
   depthFade = 8,
@@ -205,7 +205,7 @@ export default function PixelSnow({
   density = 0.3,
   variant = "square",
   direction = 125,
-  maxPixelRatio = 2 /* NAHJJ */,
+  maxPixelRatio = 2 /* SILOSAGE */,
   className = "",
   style = {},
 }) {
@@ -277,7 +277,7 @@ export default function PixelSnow({
       depth: false,
     });
 
-    /* NAHJJ: the drawing buffer size is the whole cost of this effect — the
+    /* SILOSAGE: the drawing buffer size is the whole cost of this effect — the
        raymarch runs once per fragment, not once per quantised block — so on a
        high-DPR screen the default 2 burns 4x the work for a picture the shader
        is about to quantise anyway. Capped from the outside instead. */

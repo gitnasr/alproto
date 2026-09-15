@@ -21,26 +21,32 @@ import { useContactModal } from "./contact-modal";
  * the calls to action that matter, not on every button on a page.
  */
 
+/* `primary` is the reference's one filled pill: Electric Iris violet with a
+   white label. Violet appears nowhere else — not as a surface, not as type —
+   which is what keeps it reading as "the action" against the void.
+   `secondary` is the ghost form beside it: no fill, white label.
+   Both are flat. The reference carries no shadows and no gradients on UI, so
+   the specular sweep is only a whisper of rim, not a gloss. */
 const PRESETS = {
   primary: {
-    tint: "#f0601e",
+    tint: "#8052ff",
     tintOpacity: 1,
-    textColor: "#150e08",
-    lineColor: "#ffd7c0",
-    baseColor: "#8a3208",
-    intensity: 1.15,
-    shineSize: 12,
-    shineFade: 38,
+    textColor: "#ffffff",
+    lineColor: "#d9caff",
+    baseColor: "#5a2fd6",
+    intensity: 0.4,
+    shineSize: 10,
+    shineFade: 46,
   },
   secondary: {
-    tint: "#f5f5f7",
-    tintOpacity: 0.03,
-    textColor: "#f5f5f7",
-    lineColor: "#ff8a4c",
-    baseColor: "#2c2c36",
-    intensity: 1,
+    tint: "#ffffff",
+    tintOpacity: 0.04,
+    textColor: "#ffffff",
+    lineColor: "#ffffff",
+    baseColor: "#3f3f46",
+    intensity: 0.35,
     shineSize: 10,
-    shineFade: 40,
+    shineFade: 46,
   },
 } as const;
 

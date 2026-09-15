@@ -34,9 +34,9 @@ export type SpecularButtonProps = {
   onClick?: MouseEventHandler<HTMLElement>;
   className?: string;
   type?: "button" | "submit" | "reset";
-  /** NAHJJ: renders a next/link instead of a <button>. */
+  /** SILOSAGE: renders a next/link instead of a <button>. */
   href?: string;
-  /** NAHJJ: accessible name, for buttons whose label is an icon or shorthand. */
+  /** SILOSAGE: accessible name, for buttons whose label is an icon or shorthand. */
   ariaLabel?: string;
 };
 

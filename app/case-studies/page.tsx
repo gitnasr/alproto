@@ -79,11 +79,11 @@ export default function CaseStudiesPage() {
     <div className="flex w-full flex-col">
       {/* Hero */}
       <section className="relative w-full overflow-hidden bg-ink-deep py-section-lg text-canvas">
-        <div className="pointer-events-none absolute -top-32 right-1/4 h-[520px] w-[520px] rounded-full bg-primary-container/15 blur-3xl" />
+        <div className="pointer-events-none absolute -top-32 right-1/4 h-[520px] w-[520px] rounded-full bg-canvas/[0.06] blur-3xl" />
 
         <div className="relative mx-auto flex max-w-shell flex-col gap-xl px-xxl">
           <Reveal>
-            <h1 className="max-w-3xl text-display-lg-mobile font-bold tracking-tight text-canvas md:text-display-lg">
+            <h1 className="max-w-3xl text-display-lg-mobile text-canvas md:text-display-lg">
               Projects taken to <span className="text-accent-electric">production</span>
               <Dot />
             </h1>
@@ -116,7 +116,7 @@ export default function CaseStudiesPage() {
                   alt="Better Business Bureau"
                   className="h-20 w-auto self-start"
                 />
-                <h2 className="text-heading-lg font-semibold tracking-tight text-canvas">
+                <h2 className="text-heading-lg text-canvas">
                   Better Business Bureau
                   <Dot />
                 </h2>
@@ -136,10 +136,10 @@ export default function CaseStudiesPage() {
                     }`}
                   >
                     <div className="flex items-baseline gap-base">
-                      <span className="font-display text-heading-lg font-bold text-canvas/40">
+                      <span className="font-display text-heading-lg text-canvas/40">
                         {p.n}
                       </span>
-                      <h3 className="text-heading-sm font-bold text-canvas">{p.title}</h3>
+                      <h3 className="text-heading-sm text-canvas">{p.title}</h3>
                     </div>
                     <p className="max-w-2xl text-body-md leading-relaxed text-secondary">{p.copy}</p>
                     {p.diagram && (
@@ -157,7 +157,7 @@ export default function CaseStudiesPage() {
 
       {/* Unilever — its own band, the client pinned while the account scrolls */}
       <section className="relative w-full overflow-hidden bg-ink-deep py-section-lg text-canvas">
-        <div className="pointer-events-none absolute -top-24 right-0 h-[420px] w-[420px] rounded-full bg-primary-container/10 blur-3xl" />
+        <div className="pointer-events-none absolute -top-24 right-0 h-[420px] w-[420px] rounded-full bg-canvas/[0.05] blur-3xl" />
         <div className="relative mx-auto max-w-shell px-xxl">
           <div className="grid grid-cols-1 gap-xxxl lg:grid-cols-12">
             <Reveal className="lg:col-span-4">
@@ -203,7 +203,7 @@ export default function CaseStudiesPage() {
                 <h2>
                   <img src="/logos/astrazeneca.png" alt="AstraZeneca" className="h-12 w-auto" />
                 </h2>
-                <p className="text-caption-bold uppercase tracking-widest text-primary">
+                <p className="text-caption-bold uppercase text-kicker">
                   Pharmaceuticals
                 </p>
               </div>
@@ -229,12 +229,12 @@ export default function CaseStudiesPage() {
 
       {/* Gravity Lab — the one-off, dark band */}
       <section className="relative w-full overflow-hidden bg-ink-deep py-section-lg text-canvas">
-        <div className="pointer-events-none absolute -bottom-24 left-0 h-[380px] w-[380px] rounded-full bg-accent-electric/10 blur-3xl" />
+        <div className="pointer-events-none absolute -bottom-24 left-0 h-[380px] w-[380px] rounded-full bg-canvas/[0.04] blur-3xl" />
         <div className="relative mx-auto max-w-shell px-xxl">
           <div className="grid grid-cols-1 gap-xxxl lg:grid-cols-12">
             <Reveal className="lg:col-span-4">
               <div className="flex flex-col gap-base lg:sticky lg:top-32">
-                <h2 className="text-heading-lg font-semibold tracking-tight text-canvas">
+                <h2 className="text-heading-lg text-canvas">
                   Gravity Lab
                   <Dot />
                 </h2>

@@ -178,7 +178,7 @@ export function ProjectCheck() {
       {/* Checklist */}
       <div className="flex flex-col gap-base lg:col-span-7">
         <div className="flex items-center justify-between gap-base">
-          <span className="text-caption-bold uppercase tracking-widest text-primary">
+          <span className="text-caption-bold uppercase text-kicker">
             Tick anything that sounds familiar
           </span>
           {count > 0 && (
@@ -241,7 +241,7 @@ export function ProjectCheck() {
               <span className="text-caption-bold uppercase tracking-widest text-canvas/50">
                 Your read
               </span>
-              <span className="font-display text-heading-sm font-bold text-canvas">
+              <span className="font-display text-heading-sm text-canvas">
                 {count}
                 <span className="text-canvas/40">/{SYMPTOMS.length}</span>
               </span>
@@ -258,13 +258,13 @@ export function ProjectCheck() {
               <>
                 <div className="flex items-start gap-xs pt-xs">
                   <Icon name={band.icon} size={22} className="mt-xxs shrink-0 text-accent-electric" />
-                  <h2 className="text-heading-sm font-semibold text-canvas">{band.title}</h2>
+                  <h2 className="text-heading-sm text-canvas">{band.title}</h2>
                 </div>
                 <p className="text-body-sm leading-relaxed text-stone">{band.copy}</p>
               </>
             ) : (
               <>
-                <h2 className="pt-xs text-heading-sm font-semibold text-canvas">
+                <h2 className="pt-xs text-heading-sm text-canvas">
                   Nothing ticked yet
                 </h2>
                 <p className="text-body-sm leading-relaxed text-stone">

@@ -91,7 +91,7 @@ const OTHER_MODELS = [
 const COMPARISON: [string, string, string, string][] = [
   [
     "Who owns delivery",
-    "Nahjj, end to end",
+    "Silosage, end to end",
     "No build — advisory output only",
     "Your team, we take a slice",
   ],
@@ -139,13 +139,13 @@ export default function ServicesPage() {
     <div className="flex w-full flex-col">
       {/* Hero */}
       <section className="relative w-full overflow-hidden bg-ink-deep py-section-lg text-canvas">
-        <div className="pointer-events-none absolute -top-32 right-1/4 h-[520px] w-[520px] rounded-full bg-primary-container/15 blur-3xl" />
-        <div className="pointer-events-none absolute bottom-0 -left-24 h-[380px] w-[380px] rounded-full bg-accent-electric/10 blur-3xl" />
+        <div className="pointer-events-none absolute -top-32 right-1/4 h-[520px] w-[520px] rounded-full bg-canvas/[0.06] blur-3xl" />
+        <div className="pointer-events-none absolute bottom-0 -left-24 h-[380px] w-[380px] rounded-full bg-canvas/[0.04] blur-3xl" />
 
         <div className="relative mx-auto flex max-w-shell flex-col gap-xl px-xxl">
           <div className="grid grid-cols-1 items-end gap-xxl lg:grid-cols-12">
             <Reveal delay={100} className="lg:col-span-7">
-              <h1 className="text-display-lg-mobile font-bold tracking-tight text-canvas md:text-display-lg lg:text-hero-display">
+              <h1 className="text-display-lg-mobile text-canvas md:text-display-lg lg:text-hero-display">
                 How a stalled project becomes a{" "}
                 <span className="text-accent-electric">delivered one</span>
                 <Dot />
@@ -195,10 +195,10 @@ export default function ServicesPage() {
           <div className="grid grid-cols-1 gap-xxxl lg:grid-cols-12">
             <Reveal className="lg:col-span-4">
               <div className="flex flex-col gap-xs lg:sticky lg:top-32">
-                <span className="text-caption-bold uppercase tracking-widest text-primary">
+                <span className="text-caption-bold uppercase text-kicker">
                   Why It Works
                 </span>
-                <h2 className="text-heading-lg font-semibold tracking-tight text-canvas">
+                <h2 className="text-heading-lg text-canvas">
                   What a completion partner has to get right
                   <Dot />
                 </h2>
@@ -215,12 +215,12 @@ export default function ServicesPage() {
                   >
                     <div className="sm:col-span-3">
                       <span className="font-display text-body-md-bold text-stone">{w.n}</span>
-                      <p className="text-caption-bold uppercase tracking-widest text-primary">
+                      <p className="text-caption-bold uppercase text-kicker">
                         {w.tag}
                       </p>
                     </div>
                     <div className="sm:col-span-9">
-                      <h3 className="text-heading-sm font-bold text-canvas">{w.title}</h3>
+                      <h3 className="text-heading-sm text-canvas">{w.title}</h3>
                       <p className="mt-xs text-body-md leading-relaxed text-secondary">{w.copy}</p>
                     </div>
                   </div>
@@ -269,13 +269,10 @@ export default function ServicesPage() {
                         {s.name}
                         <Dot />
                       </h2>
-                      <p
-                        className={`text-subtitle-md ${
-                          dark ? "text-accent-electric" : "text-primary"
-                        }`}
-                      >
-                        {s.tagline}
-                      </p>
+                      {/* The accent is rationed to fills and the accent
+                          period, so the tagline is muted copy on both bands —
+                          `secondary` re-scopes itself inside the dark one. */}
+                      <p className="text-subtitle-md text-secondary">{s.tagline}</p>
                     </div>
                   </Reveal>
 
@@ -341,7 +338,7 @@ export default function ServicesPage() {
                           className={`inline-flex items-center gap-xs text-body-sm-bold transition-colors ${
                             dark
                               ? "text-accent-electric hover:text-canvas"
-                              : "text-primary-container hover:text-primary"
+                              : "text-canvas hover:text-primary"
                           }`}
                         >
                           Start Here
@@ -362,10 +359,10 @@ export default function ServicesPage() {
         <div className="mx-auto flex max-w-shell flex-col gap-xxxl px-xxl">
           <Reveal>
             <div className="flex max-w-2xl flex-col gap-xs">
-              <span className="text-caption-bold uppercase tracking-widest text-primary">
+              <span className="text-caption-bold uppercase text-kicker">
                 Engagement Models
               </span>
-              <h2 className="text-heading-lg font-semibold text-canvas">
+              <h2 className="text-heading-lg text-canvas">
                 Three ways to bring us in
                 <Dot />
               </h2>
@@ -378,13 +375,13 @@ export default function ServicesPage() {
           {/* The one most people want, given the weight to match */}
           <Reveal>
             <article className="relative overflow-hidden rounded-xl bg-ink-deep p-xxl text-canvas lg:p-xxxl">
-              <div className="pointer-events-none absolute -top-24 -right-16 h-72 w-72 rounded-full bg-primary-container/20 blur-3xl" />
+              <div className="pointer-events-none absolute -top-24 -right-16 h-72 w-72 rounded-full bg-canvas/[0.07] blur-3xl" />
               <div className="relative grid grid-cols-1 gap-xxl lg:grid-cols-12">
                 <div className="flex flex-col gap-base lg:col-span-7">
                   <span className="text-caption-bold uppercase tracking-widest text-accent-electric">
                     {LEAD_MODEL.tag}
                   </span>
-                  <h3 className="text-heading-lg font-semibold tracking-tight text-canvas">
+                  <h3 className="text-heading-lg text-canvas">
                     {LEAD_MODEL.title}
                   </h3>
                   <p className="max-w-2xl text-body-md leading-relaxed text-stone">
@@ -430,7 +427,7 @@ export default function ServicesPage() {
                   <span className="text-caption-bold uppercase tracking-widest text-steel">
                     {m.tag}
                   </span>
-                  <h3 className="text-heading-sm font-bold text-canvas">{m.title}</h3>
+                  <h3 className="text-heading-sm text-canvas">{m.title}</h3>
                   <p className="text-body-md leading-relaxed text-secondary">{m.copy}</p>
                   <ul className="flex flex-col">
                     {m.list.map((item, li) => (
@@ -448,7 +445,7 @@ export default function ServicesPage() {
                     {m.footKey}
                     <span className="ml-xs text-canvas">{m.footValue}</span>
                   </p>
-                  <ContactTrigger className="mt-auto inline-flex w-fit items-center gap-xs pt-xs text-body-sm-bold text-primary-container transition-colors hover:text-primary">
+                  <ContactTrigger className="mt-auto inline-flex w-fit items-center gap-xs pt-xs text-body-sm-bold text-canvas transition-colors hover:text-primary">
                     {m.cta}
                     <Icon name="arrow_forward" size={16} />
                   </ContactTrigger>
@@ -467,7 +464,7 @@ export default function ServicesPage() {
                   <thead>
                     <tr className="border-b border-canvas/15 text-caption-bold uppercase tracking-wider text-charcoal">
                       <th className="py-base pr-base font-normal">Dimension</th>
-                      <th className="px-base py-base text-primary">Full Completion</th>
+                      <th className="px-base py-base text-canvas">Full Completion</th>
                       <th className="px-base py-base font-normal">Assessment &amp; Roadmap</th>
                       <th className="py-base pl-base font-normal">Embedded Support</th>
                     </tr>
@@ -495,17 +492,17 @@ export default function ServicesPage() {
           <Reveal>
             <div className="mb-xxl flex flex-col justify-between gap-base md:flex-row md:items-end">
               <div className="flex max-w-2xl flex-col gap-xs">
-                <span className="text-caption-bold uppercase tracking-widest text-primary">
+                <span className="text-caption-bold uppercase text-kicker">
                   Solution Areas
                 </span>
-                <h2 className="text-heading-lg font-semibold tracking-tight text-canvas">
+                <h2 className="text-heading-lg text-canvas">
                   The domains this process runs in
                   <Dot />
                 </h2>
               </div>
               <Link
                 href="/solutions"
-                className="inline-flex items-center gap-xs text-body-sm-bold text-primary-container transition-colors hover:text-primary"
+                className="inline-flex items-center gap-xs text-body-sm-bold text-canvas transition-colors hover:text-primary"
               >
                 Explore All Solutions
                 <Icon name="arrow_forward" />
@@ -523,11 +520,11 @@ export default function ServicesPage() {
                   <span className="font-display text-body-sm text-stone sm:col-span-1">
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <span className="text-heading-sm font-bold text-canvas transition-colors group-hover:text-primary sm:col-span-5">
+                  <span className="text-heading-sm text-canvas transition-colors group-hover:text-primary sm:col-span-5">
                     {s.name}
                   </span>
                   <span className="text-body-sm text-secondary sm:col-span-5">{s.tagline}</span>
-                  <span className="hidden justify-self-end text-primary-container sm:col-span-1 sm:block">
+                  <span className="hidden justify-self-end text-canvas sm:col-span-1 sm:block">
                     <Icon name="arrow_forward" size={18} />
                   </span>
                 </Link>
@@ -542,10 +539,10 @@ export default function ServicesPage() {
         <div className="mx-auto grid max-w-shell grid-cols-1 items-start gap-xxxl px-xxl lg:grid-cols-12">
           <Reveal className="lg:col-span-6">
             <div className="flex flex-col gap-base lg:sticky lg:top-32">
-              <span className="text-caption-bold uppercase tracking-widest text-primary">
+              <span className="text-caption-bold uppercase text-kicker">
                 Governance
               </span>
-              <h2 className="text-heading-lg font-semibold text-canvas">
+              <h2 className="text-heading-lg text-canvas">
                 Security and IP custody, handled properly
                 <Dot />
               </h2>
@@ -595,12 +592,12 @@ export default function ServicesPage() {
 
       {/* CTA */}
       <section className="relative w-full overflow-hidden bg-ink-deep py-hero text-canvas">
-        <div className="pointer-events-none absolute -right-24 -bottom-24 h-96 w-96 rounded-full bg-primary-container/20 blur-3xl" />
+        <div className="pointer-events-none absolute -right-24 -bottom-24 h-96 w-96 rounded-full bg-canvas/[0.07] blur-3xl" />
         <div className="relative mx-auto max-w-shell px-xxl">
           <Reveal>
             <div className="flex flex-col justify-between gap-xxl lg:flex-row lg:items-center">
               <div className="flex max-w-2xl flex-col gap-base">
-                <h2 className="text-display-lg-mobile font-semibold tracking-tight text-canvas md:text-display-lg">
+                <h2 className="text-display-lg-mobile text-canvas md:text-display-lg">
                   Stuck somewhere between started and shipped?
                 </h2>
                 <p className="text-subtitle-md leading-relaxed text-stone">

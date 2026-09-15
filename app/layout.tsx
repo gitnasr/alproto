@@ -1,21 +1,18 @@
 import type { Metadata } from "next";
-import { Hanken_Grotesk, Inter } from "next/font/google";
+import { Inter } from "next/font/google";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { ContactModalProvider } from "@/components/contact-modal";
-import { AmbientSnow } from "@/components/ambient-snow";
+import { AmbientField } from "@/components/ambient-field";
 import "./globals.css";
 
-const hanken = Hanken_Grotesk({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-hanken",
-  display: "swap",
-});
-
+/* PPNeueMontreal is proprietary; Inter is the reference's named substitute.
+   One typeface carries every context here — there is no second face. 200 is
+   loaded because the ultra-light body setting is half the brand's signature,
+   and 600 because the uppercase labels are the only place weight climbs. */
 const inter = Inter({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["200", "400", "600", "700"],
   variable: "--font-inter",
   display: "swap",
 });
@@ -23,15 +20,15 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:5000"),
   title: {
-    default: "Nahjj — Mission-critical software engineering",
-    template: "%s · Nahjj",
+    default: "Silosage — Mission-critical software engineering",
+    template: "%s · Silosage",
   },
   description:
     "High-performance digital product engineering firm. We architect, engineer, and deploy mission-critical software systems for global enterprises.",
   openGraph: {
-    siteName: "Nahjj",
+    siteName: "Silosage",
     type: "website",
-    title: "Nahjj — Mission-critical software engineering",
+    title: "Silosage — Mission-critical software engineering",
     description:
       "High-performance digital product engineering firm. We architect, engineer, and deploy mission-critical software systems for global enterprises.",
   },
@@ -42,7 +39,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${hanken.variable} ${inter.variable}`}>
+    <html lang="en" className={inter.variable}>
       <head>
         <link
           rel="stylesheet"
@@ -54,7 +51,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <SiteHeader />
           <main className="w-full bg-page pt-28">{children}</main>
           <SiteFooter />
-          <AmbientSnow />
+          <AmbientField />
         </ContactModalProvider>
       </body>
     </html>

@@ -69,7 +69,7 @@ export function CallBadge({
         className={`call-badge-face flex h-[76%] w-[76%] flex-col items-center justify-center gap-xxs rounded-full text-center leading-none transition-transform duration-300 group-hover:scale-[1.06] ${face}`}
       >
         <span className={`text-caption-bold uppercase tracking-widest ${lead}`}>Book a</span>
-        <span className="font-display text-subtitle-lg leading-none text-primary-container">
+        <span className="font-display text-subtitle-lg leading-none text-canvas">
           15-Min Call
         </span>
       </span>

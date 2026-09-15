@@ -27,9 +27,10 @@
   border-radius: var(--sb-radius);
   backdrop-filter: blur(var(--sb-blur));
   -webkit-backdrop-filter: blur(var(--sb-blur));
-  box-shadow:
-    inset 0 1px 0 rgb(255 255 255 / 0.05),
-    0 8px 24px rgb(0 0 0 / 0.35);
+  /* SILOSAGE: the reference's pill carries no drop shadow and relies on colour
+     contrast alone, so upstream's 24px cast is gone and only the faint inset
+     top light remains. */
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.06);
   cursor: pointer;
   outline: none;
   transition: transform 0.15s ease, background 0.2s ease;
@@ -54,19 +55,22 @@
   transform: none;
 }
 
+/* SILOSAGE: sizes follow the reference's pill — a 15px label at the smaller two
+   and 17px at the largest, over roughly 15px of vertical and 24–32px of
+   horizontal padding. */
 .specular-button--sm {
-  font-size: 0.8125rem;
-  padding: 10px 22px;
+  font-size: 0.9375rem;
+  padding: 11px 24px;
 }
 
 .specular-button--md {
-  font-size: 0.875rem;
-  padding: 13px 28px;
+  font-size: 0.9375rem;
+  padding: 14px 28px;
 }
 
 .specular-button--lg {
-  font-size: 1rem;
-  padding: 16px 36px;
+  font-size: 1.0625rem;
+  padding: 15px 32px;
 }
 
 /* Canvas extends past the button so the rim glow can bleed outside the edge */

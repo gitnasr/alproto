@@ -47,10 +47,10 @@ const FOCUS =
   "outline-none focus-visible:ring-[3px] focus-visible:ring-primary/50 focus-visible:ring-offset-2 focus-visible:ring-offset-ink-deep";
 
 /**
- * The Nahjj emblem: the two-tone N with the dune curves and the Arabic نهج set
- * into its right stem. Raster rather than inline SVG because the artwork is a
- * painted illustration, not flat geometry — so it cannot follow the colour
- * tokens the way the old drawn mark did. Sized 2x its display box for retina.
+ * The brand mark. Still the old Nahjj artwork — a painted N — because the
+ * Silosage mark has not been drawn yet. Swap the file at the path below when
+ * it arrives; nothing else here has to change, and the box it renders into is
+ * sized 2x for retina.
  */
 function Logo() {
   return (
@@ -70,7 +70,21 @@ export function SiteHeader() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openMenu, setOpenMenu] = useState<string | null>(null);
   const [mobileSection, setMobileSection] = useState<string | null>(null);
+  const [scrolled, setScrolled] = useState(false);
   const { open: openContact } = useContactModal();
+
+  /* The reference's nav is transparent, sitting directly on the void with no
+     border and no backdrop blur. That only holds while it is over the top of
+     the page: this one is fixed, so once the page scrolls the copy would run
+     underneath it. It takes the void as a ground from that point on, which
+     keeps the transparent-on-hero reading the reference describes without
+     letting text collide with the wordmark. */
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   // Any navigation closes whatever is open.
   useEffect(() => {
@@ -91,28 +105,29 @@ export function SiteHeader() {
   const isActive = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
 
   return (
-    /* A floating island rather than a full-width bar: the shell holds both the
-       row and the mega-panel, so opening a menu grows the same element instead
-       of dropping a separate sheet beneath it. */
-    <header className="fixed inset-x-0 top-md z-50 px-base sm:top-base">
+    /* The shell holds both the row and the mega-panel, so opening a menu grows
+       the same element instead of dropping a separate sheet beneath it. The
+       ground is carried full-bleed on the header rather than on the shell:
+       inset, it would leave a strip of scrolling copy visible above the bar. */
+    <header
+      className={`fixed inset-x-0 top-0 z-50 px-base pt-md transition-colors duration-300 ease-out sm:pt-base ${
+        openMenu || mobileOpen || scrolled ? "bg-void pb-md sm:pb-base" : "bg-transparent"
+      }`}
+    >
       <div
         onMouseLeave={() => setOpenMenu(null)}
-        className={`mx-auto w-full max-w-5xl overflow-hidden border border-hairline bg-ink-deep/85 backdrop-blur-xl transition-[border-radius,box-shadow] duration-300 ease-out ${
-          openMenu || mobileOpen
-            ? "rounded-[1.75rem] shadow-[0_24px_60px_-12px_rgb(0_0_0/0.8)]"
-            : "rounded-full shadow-[0_12px_32px_-12px_rgb(0_0_0/0.7)]"
-        }`}
+        className="mx-auto w-full max-w-shell overflow-hidden rounded-lg"
       >
         {/* --- The row --- */}
         <div className="flex h-16 items-center justify-between gap-md pr-xs pl-lg">
           <Link
             href="/"
             className={`flex shrink-0 items-center gap-xs rounded-full ${FOCUS}`}
-            aria-label="Nahjj home"
+            aria-label="Silosage home"
           >
             <Logo />
             <span className="font-display text-subtitle-lg font-bold tracking-tight text-canvas">
-              Nahjj
+              Silosage
             </span>
           </Link>
 
@@ -197,7 +212,7 @@ export function SiteHeader() {
               openMenu === menu.label ? (
                 <div key={`panel-${menu.label}`} className="px-lg pb-lg">
                   <div className="flex items-center justify-between border-t border-hairline-soft py-base">
-                    <span className="text-caption-bold uppercase tracking-widest text-primary">
+                    <span className="text-caption-bold uppercase text-kicker">
                       {menu.label}
                     </span>
                     <Link
@@ -215,7 +230,7 @@ export function SiteHeader() {
                         href={item.href}
                         className={`group flex items-start gap-base rounded-xl border border-hairline-soft bg-surface-soft/40 p-base transition-colors hover:border-primary-container/40 hover:bg-surface-soft ${FOCUS}`}
                       >
-                        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-canvas/5 text-primary-container transition-colors group-hover:bg-primary-container group-hover:text-on-primary">
+                        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-canvas/5 text-canvas transition-colors group-hover:bg-primary-container group-hover:text-on-primary">
                           <Icon name={item.icon} size={20} />
                         </span>
                         <span className="flex flex-col gap-xxs">
@@ -267,7 +282,7 @@ export function SiteHeader() {
                         href={item.href}
                         className={`flex items-center gap-xs rounded-md px-xs py-xs text-body-sm text-charcoal hover:bg-surface-soft hover:text-canvas ${FOCUS}`}
                       >
-                        <Icon name={item.icon} size={18} className="text-primary-container" />
+                        <Icon name={item.icon} size={18} className="text-canvas" />
                         {item.label}
                       </Link>
                     ))}

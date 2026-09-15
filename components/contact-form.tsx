@@ -63,10 +63,10 @@ export function ContactForm({
         </span>
         <h2
           id={titleId}
-          className="text-heading-lg font-semibold tracking-tight text-canvas"
+          className="text-heading-lg text-canvas"
         >
           Thanks — that came through
-          <span className="text-accent-electric">.</span>
+          <span className="text-rust">.</span>
         </h2>
         <p className="max-w-2xl text-body-md leading-relaxed text-secondary">
           An engineer will read it and reply within 24 business hours — not a form letter, and not a
@@ -85,7 +85,7 @@ export function ContactForm({
 
   return (
     <>
-      <h2 id={titleId} className="pr-xxxl text-heading-lg font-semibold tracking-tight text-canvas">
+      <h2 id={titleId} className="pr-xxxl text-heading-lg text-canvas">
         Let&rsquo;s talk about your project
       </h2>
       <p className="mt-xxs text-body-sm-bold text-charcoal">
@@ -245,7 +245,7 @@ export function ContactForm({
         {state === "error" && <p className="text-body-sm text-status-critical">{error}</p>}
 
         <p className="flex items-center gap-xs text-caption text-secondary">
-          <Icon name="lock" size={14} className="shrink-0 text-primary" />
+          <Icon name="lock" size={14} className="shrink-0 text-stone" />
           Mutual NDA before any code review. We reply within 24 business hours.
         </p>
       </form>

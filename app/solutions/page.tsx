@@ -20,10 +20,10 @@ export default function SolutionsPage() {
     <div className="flex w-full flex-col">
       {/* Hero */}
       <section className="relative w-full overflow-hidden bg-ink-deep py-section-lg text-canvas">
-        <div className="pointer-events-none absolute -top-32 right-1/4 h-[520px] w-[520px] rounded-full bg-primary-container/15 blur-3xl" />
+        <div className="pointer-events-none absolute -top-32 right-1/4 h-[520px] w-[520px] rounded-full bg-canvas/[0.06] blur-3xl" />
         <div className="relative mx-auto flex max-w-shell flex-col gap-xl px-xxl">
           <Reveal delay={100}>
-            <h1 className="max-w-3xl text-display-lg-mobile font-bold tracking-tight text-canvas md:text-display-lg">
+            <h1 className="max-w-3xl text-display-lg-mobile text-canvas md:text-display-lg">
               Five domains we finish work in
               <Dot />
             </h1>
@@ -43,10 +43,10 @@ export default function SolutionsPage() {
           <div className="grid grid-cols-1 gap-xxxl lg:grid-cols-12">
             <Reveal className="lg:col-span-4">
               <div className="flex flex-col gap-xs lg:sticky lg:top-32">
-                <span className="text-caption-bold uppercase tracking-widest text-primary">
+                <span className="text-caption-bold uppercase text-kicker">
                   The Index
                 </span>
-                <h2 className="text-heading-lg font-semibold tracking-tight text-canvas">
+                <h2 className="text-heading-lg text-canvas">
                   Where unfinished work tends to sit
                   <Dot />
                 </h2>
@@ -67,12 +67,12 @@ export default function SolutionsPage() {
                     <span className="font-display text-body-md-bold text-stone">
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <h3 className="text-heading-lg font-semibold tracking-tight text-canvas transition-colors group-hover:text-primary">
+                    <h3 className="text-heading-lg text-canvas transition-colors group-hover:text-primary">
                       {s.name}
                     </h3>
-                    <p className="text-body-md text-primary">{s.tagline}</p>
+                    <p className="text-body-md text-secondary">{s.tagline}</p>
                     <p className="mt-xs text-body-md leading-relaxed text-secondary">{s.summary}</p>
-                    <span className="mt-xs inline-flex items-center gap-xs text-body-sm-bold text-primary-container transition-colors group-hover:text-primary">
+                    <span className="mt-xs inline-flex items-center gap-xs text-body-sm-bold text-canvas transition-colors group-hover:text-primary">
                       Read more
                       <Icon name="arrow_forward" size={16} />
                     </span>

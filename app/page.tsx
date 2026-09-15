@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Icon } from "@/components/icon";
 import { Reveal } from "@/components/reveal";
 import { Cta } from "@/components/cta";
-import { HeroWheel } from "@/components/hero-wheel";
+import { ParticleConstellation } from "@/components/particle-constellation";
 import { LogoMarquee } from "@/components/logo-marquee";
 import { SOLUTIONS } from "@/lib/solutions";
 import { SERVICES } from "@/lib/services";
@@ -42,25 +42,26 @@ export default function HomePage() {
     <div className="flex w-full flex-col">
       {/* HERO */}
       <section className="relative w-full overflow-hidden bg-ink-deep text-canvas">
-        <div className="pointer-events-none absolute -top-40 right-1/4 h-[600px] w-[600px] rounded-full bg-primary-container/15 blur-3xl" />
-        <div className="pointer-events-none absolute bottom-0 -left-32 h-[420px] w-[420px] rounded-full bg-accent-electric/10 blur-3xl" />
+        {/* The atmosphere is tonal, not chromatic: the accent stays rationed to
+            the call to action and the accent period, so the glow that used to
+            wash the hero orange is a plain lift in the ground instead. */}
+        <div className="pointer-events-none absolute -top-40 right-1/4 h-[600px] w-[600px] rounded-full bg-canvas/[0.06] blur-3xl" />
+        <div className="pointer-events-none absolute bottom-0 -left-32 h-[420px] w-[420px] rounded-full bg-canvas/[0.04] blur-3xl" />
 
         <div className="relative mx-auto max-w-shell px-xxl pt-section pb-section-lg">
 
           <div className="grid grid-cols-1 items-center gap-xxxl lg:grid-cols-12">
             <div className="flex flex-col gap-base lg:col-span-6">
               <Reveal delay={100}>
-                <h1 className="max-w-4xl text-display-lg-mobile font-bold tracking-tight text-canvas md:text-display-lg lg:text-hero-display">
-                  We take unfinished software{" "}
-                  <span className="text-accent-electric">all the way to production</span>
+                <h1 className="max-w-[18ch] text-heading-md text-canvas md:text-display-lg-mobile lg:text-heading-lg">
+                  We take unfinished software to production
                   <Dot />
                 </h1>
               </Reveal>
               <Reveal delay={200}>
-                <p className="mt-xs max-w-2xl font-display text-subtitle-md font-light text-stone md:text-heading-md lg:max-w-[34rem]">
-                  Stalled build, inherited codebase, migration that never finished? We assess what
-                  exists, take ownership of the remaining work, and deliver it — then hand it back
-                  documented and running.
+                <p className="mt-xs max-w-[40ch] text-body-md text-stone">
+                  Stalled build, inherited codebase, unfinished migration — we take ownership of
+                  what is left and deliver it.
                 </p>
               </Reveal>
               <Reveal delay={300}>
@@ -74,10 +75,12 @@ export default function HomePage() {
               </Reveal>
             </div>
 
-            {/* Solution wheel — all five domains, in order, as real text. */}
+            {/* The constellation. Decorative, and deliberately carrying no
+                content of its own: the five domains it replaced are listed in
+                full, with links and taglines, in the Solutions section below. */}
             <div className="relative lg:col-span-6">
-              <div className="mx-auto h-[340px] w-full max-w-[30rem] sm:h-[380px] lg:max-w-none">
-                <HeroWheel />
+              <div className="mx-auto h-[360px] w-full max-w-[34rem] sm:h-[460px] lg:h-[560px] lg:max-w-none">
+                <ParticleConstellation />
               </div>
             </div>
           </div>
@@ -93,10 +96,10 @@ export default function HomePage() {
           <div className="grid grid-cols-1 gap-xxxl lg:grid-cols-12">
             <Reveal className="lg:col-span-4">
               <div className="flex flex-col gap-xs lg:sticky lg:top-32">
-                <span className="text-caption-bold uppercase tracking-widest text-primary">
+                <span className="text-caption-bold uppercase text-kicker">
                   What We Take On
                 </span>
-                <h2 className="text-heading-lg font-semibold tracking-tight text-canvas">
+                <h2 className="text-heading-lg text-canvas">
                   Projects arrive with us in one of four states
                   <Dot />
                 </h2>
@@ -136,15 +139,15 @@ export default function HomePage() {
                     }`}
                   >
                     <div className="sm:col-span-4">
-                      <span className="font-display text-heading-lg font-bold text-canvas/40">
+                      <span className="font-display text-heading-lg text-canvas/40">
                         {String(i + 1).padStart(2, "0")}
                       </span>
-                      <p className="text-caption-bold uppercase tracking-wider text-primary">
+                      <p className="text-caption-bold uppercase text-kicker">
                         {s.label}
                       </p>
                     </div>
                     <div className="sm:col-span-8">
-                      <h3 className="text-heading-sm font-bold text-canvas">{s.title}</h3>
+                      <h3 className="text-heading-sm text-canvas">{s.title}</h3>
                       <p className="mt-xs text-body-md leading-relaxed text-secondary">{s.copy}</p>
                     </div>
                   </div>
@@ -157,7 +160,7 @@ export default function HomePage() {
 
       {/* SOLUTIONS — dark editorial split */}
       <section className="relative w-full overflow-hidden bg-ink-deep py-section-lg text-canvas">
-        <div className="pointer-events-none absolute -top-24 right-0 h-[420px] w-[420px] rounded-full bg-primary-container/10 blur-3xl" />
+        <div className="pointer-events-none absolute -top-24 right-0 h-[420px] w-[420px] rounded-full bg-canvas/[0.05] blur-3xl" />
         <div className="relative mx-auto max-w-shell px-xxl">
           <div className="grid grid-cols-1 gap-xxxl lg:grid-cols-12">
             <div className="lg:col-span-4">
@@ -165,7 +168,7 @@ export default function HomePage() {
                 <span className="text-caption-bold uppercase tracking-widest text-accent-electric">
                   Solutions
                 </span>
-                <h2 className="text-heading-lg font-semibold tracking-tight text-canvas">
+                <h2 className="text-heading-lg text-canvas">
                   Five domains we finish work in
                   <Dot />
                 </h2>
@@ -194,7 +197,7 @@ export default function HomePage() {
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     <span className="flex flex-1 flex-col gap-xxs">
-                      <span className="font-display text-heading-sm font-bold text-canvas transition-colors group-hover:text-accent-electric">
+                      <span className="font-display text-heading-sm text-canvas transition-colors group-hover:text-accent-electric">
                         {s.name}
                       </span>
                       <span className="text-body-sm text-stone">{s.tagline}</span>
@@ -218,17 +221,17 @@ export default function HomePage() {
           <Reveal>
             <div className="mb-section-sm flex flex-col justify-between gap-base md:flex-row md:items-end">
               <div className="flex max-w-2xl flex-col gap-xs">
-                <span className="text-caption-bold uppercase tracking-widest text-primary">
+                <span className="text-caption-bold uppercase text-kicker">
                   The Engagement Arc
                 </span>
-                <h2 className="text-heading-lg font-semibold tracking-tight text-canvas">
+                <h2 className="text-heading-lg text-canvas">
                   How a stalled project becomes a delivered one
                   <Dot />
                 </h2>
               </div>
               <Link
                 href="/services"
-                className="inline-flex items-center gap-xs text-body-sm-bold text-primary-container transition-colors hover:text-primary"
+                className="inline-flex items-center gap-xs text-body-sm-bold text-canvas transition-colors hover:text-primary"
               >
                 See the Full Process
                 <Icon name="arrow_forward" />
@@ -244,10 +247,10 @@ export default function HomePage() {
                   href={`/services#${s.slug}`}
                   className="group flex h-full flex-col gap-xs border-l-2 border-hairline pl-xl transition-colors hover:border-primary"
                 >
-                  <span className="font-display text-heading-lg font-bold text-canvas/40 transition-colors group-hover:text-primary-container">
+                  <span className="font-display text-heading-lg text-canvas/40 transition-colors group-hover:text-canvas">
                     {s.step}
                   </span>
-                  <h3 className="text-heading-sm font-semibold text-canvas transition-colors group-hover:text-primary">
+                  <h3 className="text-heading-sm text-canvas transition-colors group-hover:text-primary">
                     {s.name}
                   </h3>
                   <p className="text-body-sm leading-relaxed text-secondary">{s.tagline}</p>

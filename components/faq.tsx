@@ -25,19 +25,19 @@ export function Faq({
         <div className="grid grid-cols-1 gap-xxxl lg:grid-cols-12">
           <Reveal className="lg:col-span-4">
             <div className="flex flex-col gap-base lg:sticky lg:top-32">
-              <span className="text-caption-bold uppercase tracking-widest text-primary">
+              <span className="text-caption-bold uppercase text-kicker">
                 Before You Ask
               </span>
-              <h2 className="text-heading-lg font-semibold tracking-tight text-canvas">
+              <h2 className="text-heading-lg text-canvas">
                 The questions people hesitate to send
-                <span className="text-accent-electric">.</span>
+                <span className="text-rust">.</span>
               </h2>
               <p className="text-body-md text-secondary">
                 Mostly the ones that stop someone getting in touch at all. If yours is not here,
                 ask it directly — a straight answer costs you nothing.
               </p>
               <ContactTrigger
-                className="inline-flex w-fit items-center gap-xs pt-base text-body-sm-bold text-primary transition-colors hover:text-canvas"
+                className="inline-flex w-fit items-center gap-xs pt-base text-body-sm-bold text-canvas transition-colors hover:text-primary"
               >
                 Ask us something else
                 <Icon name="arrow_forward" size={16} />
@@ -57,7 +57,7 @@ export function Faq({
                     <Icon
                       name="add"
                       size={22}
-                      className="mt-xxs shrink-0 text-primary transition-transform duration-200 group-open:rotate-45"
+                      className="mt-xxs shrink-0 text-stone transition-transform duration-200 group-open:rotate-45"
                     />
                   </summary>
                   <p className="max-w-3xl pt-base text-body-sm leading-relaxed text-secondary">

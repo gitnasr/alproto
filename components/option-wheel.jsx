@@ -45,7 +45,7 @@ const OptionWheel = ({
   inset = 80,
   loop = false,
   draggable = true,
-  captureScroll = true /* NAHJJ */,
+  captureScroll = true /* SILOSAGE */,
   soundUrl = "",
   soundVolume = 0.5,
   className = "",
@@ -191,7 +191,7 @@ const OptionWheel = ({
   // Wheel / touchpad scrolling, registered manually so it can be non-passive.
   useEffect(() => {
     const el = rootRef.current;
-    /* NAHJJ: upstream always preventDefaults the wheel event, which takes
+    /* SILOSAGE: upstream always preventDefaults the wheel event, which takes
        the page scroll hostage for as long as the pointer is over the
        component. Fine for a standalone picker, not for one sitting in a
        hero — that is exactly where a visitor scrolls down. Opt out and the

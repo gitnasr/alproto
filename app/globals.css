@@ -1,184 +1,241 @@
 @import "tailwindcss";
 
 /* Studio Engineering System — type, spacing and radius tokens from DESIGN.md.
-   Colors are a dark-first re-theme: a near-black neutral ground with vivid
-   orange for display type, pills and glows, white headlines and grey body.
-   Token NAMES are unchanged, so every component keeps working; only the
-   values moved. */
+   Colours are the Dala re-theme: a pure #000000 void carrying white type, with
+   one saturated violet reserved for filled actions and a warm amber for
+   emphasis. Token NAMES are unchanged, so every component keeps working; only
+   the values moved.
+
+   The polarity that governed the previous light theme is gone rather than
+   inverted. Every surface is now the same black, so `canvas` is white
+   everywhere, `ink-deep` and `page` are both the void, and the scoped
+   re-mapping the dark bands used to need has been reduced to the one thing
+   still worth scoping. The void is the design: there are no panels, no card
+   fills and no mid-tone surfaces to separate. */
 @theme {
   /* --- Colors ---
-     Anchors: ground #121215, orange #F0601E bright / #D9541A deep,
-     highlight #FF8A4C, headline #F5F5F7, body #9A9AA6. */
-  --color-surface: #121215;
-  --color-surface-dim: #0a0a0c;
-  --color-surface-bright: #22222a;
-  --color-surface-container-lowest: #0a0a0c;
-  --color-surface-container-low: #16161a;
-  --color-surface-container: #1a1a20;
-  --color-surface-container-high: #202028;
-  --color-surface-container-highest: #262630;
-  --color-on-surface: #f5f5f7;
-  --color-on-surface-variant: #a8a8b4;
-  --color-inverse-surface: #f5f5f7;
-  --color-inverse-on-surface: #121215;
-  --color-outline: #6e6e7a;
-  --color-outline-variant: #34343e;
-  --color-surface-tint: #f0601e;
-  --color-primary: #fb7a3c;
-  --color-on-primary: #150e08;
-  --color-primary-container: #f0601e;
-  --color-on-primary-container: #1a0f06;
-  --color-inverse-primary: #8a3208;
-  --color-secondary: #a8a8b4;
-  --color-on-secondary: #121215;
-  --color-secondary-container: #1a1a20;
-  --color-on-secondary-container: #a8a8b4;
-  --color-tertiary: #f0601e;
-  --color-on-tertiary: #150e08;
-  --color-tertiary-container: #d9541a;
-  --color-on-tertiary-container: #fff1e6;
-  --color-error: #ff5a5a;
-  --color-on-error: #1a0000;
-  --color-error-container: #3a0f0f;
-  --color-on-error-container: #ffd6d6;
-  --color-primary-fixed: #ffd7c0;
-  --color-primary-fixed-dim: #ff9d66;
-  --color-on-primary-fixed: #2a0f00;
-  --color-on-primary-fixed-variant: #b8460f;
-  --color-secondary-fixed: #1a1a20;
-  --color-secondary-fixed-dim: #262630;
-  --color-on-secondary-fixed: #f5f5f7;
-  --color-on-secondary-fixed-variant: #a8a8b4;
-  --color-tertiary-fixed: #ffd7c0;
-  --color-tertiary-fixed-dim: #ff9d66;
-  --color-on-tertiary-fixed: #2a0f00;
-  --color-on-tertiary-fixed-variant: #b8460f;
-  --color-background: #121215;
-  --color-on-background: #f5f5f7;
-  --color-surface-variant: #1a1a20;
-  --color-canvas: #f5f5f7;
-  --color-surface-soft: #1a1a20;
-  --color-ink-deep: #0a0a0c;
-  --color-ink-body: #e4e4ea;
-  --color-charcoal: #b8b8c4;
-  --color-steel: #8e8e9a;
-  --color-stone: #9a9aa6;
-  --color-hairline: #2c2c36;
-  --color-hairline-soft: #22222a;
-  --color-accent-electric: #ff8a4c;
-  --color-accent-purple: #f0601e;
-  --color-status-success: #3fbf7f;
-  --color-status-warning: #f5b544;
-  --color-status-critical: #ff5a5a;
+     Anchors: Void #000000, Bone White #FFFFFF, Ash #9A9A9A, Silver Mist
+     #BDBDBD, Electric Iris #8052FF for filled actions only, Saffron Spark
+     #FFB829 for emphasis, Deep Verdant #15846E in the brand gradient. */
+  --color-surface: #000000;
+  --color-surface-dim: #000000;
+  --color-surface-bright: #000000;
+  --color-surface-container-lowest: #000000;
+  --color-surface-container-low: #000000;
+  --color-surface-container: #000000;
+  /* Text-only token: the oversized ghost numerals. A faint lift off the void,
+     never a panel. */
+  --color-surface-container-high: #2a2a2a;
+  --color-surface-container-highest: #3a3a3a;
+  --color-on-surface: #ffffff;
+  --color-on-surface-variant: #bdbdbd;
+  --color-inverse-surface: #ffffff;
+  --color-inverse-on-surface: #000000;
+  --color-outline: #9a9a9a;
+  --color-outline-variant: rgb(255 255 255 / 0.12);
+  --color-surface-tint: #8052ff;
 
-  /* The page ground. `canvas` cannot take this role: it is also the
-     light-text colour on the dark bands (71 text-canvas uses), so it
-     has to stay light. Section backgrounds reference this instead. */
-  --color-page: #121215;
-  /* Orange carries the accent period that closes each heading (see Dot()),
-     on every band. */
-  --color-rust: #f0601e;
+  /* The filled action. Violet is a button colour and nothing else: never a
+     section ground, never a large block, never body text. */
+  --color-primary-container: #8052ff;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #ffffff;
+  /* The hover lift on that fill, and what the text roles resolve to. */
+  --color-primary: #9470ff;
 
-  /* --- Type families --- */
-  --font-display: var(--font-hanken), ui-sans-serif, system-ui, sans-serif;
+  --color-secondary: #9a9a9a;
+  --color-on-secondary: #000000;
+  --color-secondary-container: rgb(255 255 255 / 0.06);
+  --color-on-secondary-container: #bdbdbd;
+  --color-tertiary: #ffb829;
+  --color-on-tertiary: #000000;
+  --color-tertiary-container: #15846e;
+  --color-on-tertiary-container: #ffffff;
+  --color-error: #ff6b6b;
+  --color-on-error: #000000;
+  --color-error-container: rgb(255 107 107 / 0.14);
+  --color-on-error-container: #ff9d9d;
+  --color-primary-fixed: #d9caff;
+  --color-primary-fixed-dim: #9470ff;
+  --color-on-primary-fixed: #17003f;
+  --color-on-primary-fixed-variant: #5a2fd6;
+  --color-secondary-fixed: rgb(255 255 255 / 0.08);
+  --color-secondary-fixed-dim: rgb(255 255 255 / 0.14);
+  --color-on-secondary-fixed: #ffffff;
+  --color-on-secondary-fixed-variant: #bdbdbd;
+  --color-tertiary-fixed: #ffe4ad;
+  --color-tertiary-fixed-dim: #ffb829;
+  --color-on-tertiary-fixed: #2a1c00;
+  --color-on-tertiary-fixed-variant: #a67512;
+  --color-background: #000000;
+  --color-on-background: #ffffff;
+  --color-surface-variant: #000000;
+
+  /* Bone White. Every piece of type on the site resolves here or to one of the
+     two greys below. */
+  --color-canvas: #ffffff;
+  /* No alt band: a "muted surface" would be a dark-grey panel, which the void
+     does not have. It stays black and the section separates by whitespace. */
+  --color-surface-soft: #000000;
+  --color-ink-deep: #000000;
+  --color-ink-body: #ffffff;
+  --color-charcoal: #bdbdbd;
+  --color-steel: #9a9a9a;
+  --color-stone: #9a9a9a;
+  /* There are no dividers in the reference. These are kept only as the
+     faintest possible rule, because the editorial ruled rows are this site's
+     information structure rather than decoration — at 10% they read as
+     spacing, not as borders. */
+  --color-hairline: rgb(255 255 255 / 0.1);
+  --color-hairline-soft: rgb(255 255 255 / 0.06);
+
+  /* Emphasis. Amber is the type accent — highlight spans, the accent period,
+     section labels — and is deliberately not the violet, which stays on
+     buttons. */
+  --color-accent-electric: #ffb829;
+  --color-accent-purple: #8052ff;
+  --color-status-success: #35c79a;
+  --color-status-warning: #ffb829;
+  --color-status-critical: #ff6b6b;
+
+  /* The page ground. */
+  --color-page: #000000;
+  /* The accent period that closes each heading (see Dot()). */
+  --color-rust: #ffb829;
+  /* The small uppercase label above a heading — amber, per the reference's
+     section headline block. */
+  --color-kicker: #ffb829;
+
+  /* Dala literals, in the reference's own token names so its snippets drop in
+     unaltered. */
+  --color-void: #000000;
+  --color-bone-white: #ffffff;
+  --color-ash-gray: #9a9a9a;
+  --color-silver-mist: #bdbdbd;
+  --color-electric-iris: #8052ff;
+  --color-saffron-spark: #ffb829;
+  --color-deep-verdant: #15846e;
+
+  /* --- Type families ---
+     PPNeueMontreal is proprietary; Inter is the reference's named substitute.
+     One typeface across every context — there is no second face and no mono. */
+  --font-display: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-body: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 
-  /* --- Type scale --- */
-  --text-hero-display: 64px;
-  --text-hero-display--line-height: 74px;
-  --text-hero-display--letter-spacing: -0.02em;
-  --text-hero-display--font-weight: 500;
+  /* --- Type scale ---
+     The signature: hierarchy comes from scale, not weight. Every display size
+     is weight 400 — the same weight as body — with tracking that deepens to
+     -0.04em as the size grows. Body copy at 18px drops to weight 200, which is
+     the other half of the signature; 600 appears only on 14px uppercase
+     labels. */
+  --text-hero-display: 113px;
+  --text-hero-display--line-height: 1.1;
+  --text-hero-display--letter-spacing: -0.04em;
+  --text-hero-display--font-weight: 400;
 
-  --text-hero-display-mobile: 36px;
-  --text-hero-display-mobile--line-height: 44px;
-  --text-hero-display-mobile--letter-spacing: -0.01em;
-  --text-hero-display-mobile--font-weight: 500;
+  --text-hero-display-mobile: 56px;
+  --text-hero-display-mobile--line-height: 1.05;
+  --text-hero-display-mobile--letter-spacing: -0.035em;
+  --text-hero-display-mobile--font-weight: 400;
 
-  --text-display-lg: 48px;
-  --text-display-lg--line-height: 56px;
-  --text-display-lg--letter-spacing: -0.015em;
-  --text-display-lg--font-weight: 500;
+  --text-display-lg: 78px;
+  --text-display-lg--line-height: 1.1;
+  --text-display-lg--letter-spacing: -0.04em;
+  --text-display-lg--font-weight: 400;
 
-  --text-display-lg-mobile: 32px;
-  --text-display-lg-mobile--line-height: 40px;
-  --text-display-lg-mobile--letter-spacing: -0.01em;
-  --text-display-lg-mobile--font-weight: 500;
+  --text-display-lg-mobile: 42px;
+  --text-display-lg-mobile--line-height: 1.15;
+  --text-display-lg-mobile--letter-spacing: -0.04em;
+  --text-display-lg-mobile--font-weight: 400;
 
-  --text-heading-lg: 36px;
-  --text-heading-lg--line-height: 46px;
-  --text-heading-lg--letter-spacing: -0.01em;
-  --text-heading-lg--font-weight: 500;
+  --text-heading-lg: 48px;
+  --text-heading-lg--line-height: 1.1;
+  --text-heading-lg--letter-spacing: -0.035em;
+  --text-heading-lg--font-weight: 400;
 
-  --text-heading-md: 28px;
-  --text-heading-md--line-height: 36px;
-  --text-heading-md--font-weight: 300;
+  --text-heading-md: 36px;
+  --text-heading-md--line-height: 1.2;
+  --text-heading-md--letter-spacing: -0.03em;
+  --text-heading-md--font-weight: 400;
 
-  --text-heading-sm: 24px;
-  --text-heading-sm--line-height: 30px;
-  --text-heading-sm--font-weight: 500;
+  --text-heading-sm: 27px;
+  --text-heading-sm--line-height: 1.15;
+  --text-heading-sm--letter-spacing: -0.02em;
+  --text-heading-sm--font-weight: 400;
 
-  --text-subtitle-lg: 18px;
-  --text-subtitle-lg--line-height: 26px;
-  --text-subtitle-lg--letter-spacing: -0.01em;
-  --text-subtitle-lg--font-weight: 700;
+  --text-subtitle-lg: 24px;
+  --text-subtitle-lg--line-height: 1.25;
+  --text-subtitle-lg--letter-spacing: -0.02em;
+  --text-subtitle-lg--font-weight: 400;
 
-  --text-subtitle-md: 18px;
-  --text-subtitle-md--line-height: 26px;
-  --text-subtitle-md--font-weight: 400;
+  /* The lead paragraph: large and ultra-light, the way the reference sets its
+     supporting copy. */
+  --text-subtitle-md: 24px;
+  --text-subtitle-md--line-height: 1.35;
+  --text-subtitle-md--letter-spacing: -0.02em;
+  --text-subtitle-md--font-weight: 200;
 
-  --text-body-md-bold: 16px;
-  --text-body-md-bold--line-height: 24px;
-  --text-body-md-bold--letter-spacing: -0.01em;
-  --text-body-md-bold--font-weight: 700;
+  --text-body-md-bold: 18px;
+  --text-body-md-bold--line-height: 1.5;
+  --text-body-md-bold--font-weight: 400;
 
-  --text-body-md: 16px;
-  --text-body-md--line-height: 24px;
-  --text-body-md--letter-spacing: -0.01em;
-  --text-body-md--font-weight: 400;
+  /* Weight 200 at 18px is the reference's signature body setting. */
+  --text-body-md: 18px;
+  --text-body-md--line-height: 1.5;
+  --text-body-md--font-weight: 200;
 
-  --text-body-sm-bold: 14px;
-  --text-body-sm-bold--line-height: 20px;
-  --text-body-sm-bold--letter-spacing: -0.01em;
-  --text-body-sm-bold--font-weight: 700;
+  --text-body-sm-bold: 15px;
+  --text-body-sm-bold--line-height: 1.5;
+  --text-body-sm-bold--font-weight: 600;
 
-  --text-body-sm: 14px;
-  --text-body-sm--line-height: 20px;
-  --text-body-sm--letter-spacing: -0.01em;
+  --text-body-sm: 15px;
+  --text-body-sm--line-height: 1.5;
   --text-body-sm--font-weight: 400;
 
-  --text-caption-bold: 12px;
-  --text-caption-bold--line-height: 16px;
-  --text-caption-bold--letter-spacing: 0.02em;
-  --text-caption-bold--font-weight: 700;
+  /* Nav and section labels: 14px, 600, uppercase, opened up to +0.025em —
+     the one place positive tracking appears. */
+  --text-caption-bold: 14px;
+  --text-caption-bold--line-height: 1.2;
+  --text-caption-bold--letter-spacing: 0.025em;
+  --text-caption-bold--font-weight: 600;
 
   --text-caption: 12px;
-  --text-caption--line-height: 16px;
+  --text-caption--line-height: 1.5;
   --text-caption--font-weight: 400;
 
   /* --- Spacing ---
+     Base unit 6px, and deliberately spacious: the reference runs 60–120px
+     between sections and never more than a couple of elements per viewport.
      NOTE: these named keys shadow Tailwind's container scale, so
-     `max-w-xs|sm|md|lg|xl` would resolve to 8px…24px instead of 20rem…36rem.
+     `max-w-xs|sm|md|lg|xl` would resolve to 6px…24px instead of 20rem…36rem.
      Use an explicit `max-w-[24rem]` for those four sizes; `max-w-2xl`+ are safe. */
-  --spacing-xxs: 4px;
-  --spacing-xs: 8px;
-  --spacing-sm: 10px;
-  --spacing-md: 12px;
-  --spacing-base: 16px;
-  --spacing-lg: 20px;
-  --spacing-xl: 24px;
-  --spacing-xxl: 32px;
-  --spacing-xxxl: 40px;
-  --spacing-section-sm: 48px;
-  --spacing-section: 64px;
-  --spacing-section-lg: 80px;
+  --spacing-xxs: 6px;
+  --spacing-xs: 12px;
+  --spacing-sm: 12px;
+  --spacing-md: 18px;
+  --spacing-base: 18px;
+  --spacing-lg: 24px;
+  --spacing-xl: 30px;
+  --spacing-xxl: 36px;
+  --spacing-xxxl: 48px;
+  --spacing-section-sm: 60px;
+  --spacing-section: 96px;
+  --spacing-section-lg: 120px;
   --spacing-hero: 120px;
 
-  /* --- Radius (normalized from the prototypes' mixed scale) --- */
-  --radius-sm: 0.5rem; /* inputs, spec rows */
-  --radius-md: 1rem; /* inner panels, media frames, icon squares */
-  --radius-lg: 1.5rem; /* secondary cards */
-  --radius-xl: 2rem; /* primary cards, hero panels */
-  --radius-2xl: 3rem; /* large feature + CTA blocks */
+  /* --- Radius ---
+     One radius token carries buttons, cards and the nav; only genuinely small
+     chips go fully round. */
+  --radius-sm: 12px;
+  --radius-md: 18px;
+  --radius-lg: 24px;
+  --radius-xl: 24px;
+  --radius-2xl: 24px;
+
+  /* --- Shadow ---
+     The reference has none. Hierarchy is scale, contrast and whitespace, and a
+     shadow would break the floating-on-void quality. */
+  --shadow-subtle: none;
 
   /* --- Container --- */
   --container-shell: 1280px;
@@ -188,9 +245,16 @@ html {
   scroll-behavior: smooth;
 }
 
+/* The light theme needed a rule here that re-scoped the whole text ramp
+   inside its dark bands. The void needs none: every surface is the same
+   black, so each token has one value and every `bg-ink-deep` section is
+   simply the page ground continuing. */
+
 body {
   background: var(--color-page);
-  color: var(--color-canvas);
+  /* Bone White on the void. Sections that set no colour of their own inherit
+     it from here, and nothing on the site needs to override it. */
+  color: var(--color-ink-body);
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
 }
@@ -362,18 +426,30 @@ h4 {
   }
 }
 
-/* Scroll-reveal (components/reveal.tsx). Motion only when the user allows it. */
+/* Scroll-reveal (components/reveal.tsx). Motion only when the user allows it.
+   Slower and longer-travelled than a typical fade-up: the reference's whole
+   site moves at this pace, where nothing snaps and everything arrives. The
+   opacity leads the transform slightly so content is readable before it has
+   finished settling. */
 @media (prefers-reduced-motion: no-preference) {
   .reveal {
     opacity: 0;
-    transform: translateY(28px);
+    transform: translateY(40px);
     transition:
-      opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
-      transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+      opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 1.1s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
   }
   .reveal.is-visible {
     opacity: 1;
     transform: none;
+  }
+  /* Already on screen when it mounted: there was no arrival to animate, so it
+     is simply present. Animating here would play the entrance *after* the
+     visitor is already looking at the space it occupies. */
+  .reveal.reveal-immediate {
+    transition: none;
+    transition-delay: 0s !important;
   }
 }
 
@@ -471,39 +547,9 @@ h4 {
 }
 
 /* Footer backdrop (components/site-footer.tsx).
-   The reference sits its footer panel over a photograph of raked light on
-   concrete, with the image showing above the panel's notched top edge. There
-   is no photography in this project, so the strip is built from layered
-   gradients: a cool concrete base, two soft light shafts falling from the top
-   right, and a warm bloom picking up the brand orange. To use a real photo
-   instead, add one line — `background-image: url("/…"), <the layers below>` —
-   and the gradients become its shading. */
+   The reference is flat and carries no gradients on UI at all, so the layered
+   light-on-concrete wash this used to paint is gone. The strip is the void,
+   and the footer panel above it separates by whitespace rather than tone. */
 .footer-backdrop {
-  background-color: #0e0e12;
-  background-image:
-    /* warm bloom, bottom left */
-    radial-gradient(120% 90% at 8% 100%, rgb(240 96 30 / 0.1), transparent 60%),
-    /* two shafts of light falling from the top right */
-    linear-gradient(200deg, rgb(245 245 247 / 0.11) 0 8%, transparent 8% 26%),
-    linear-gradient(200deg, transparent 0 34%, rgb(245 245 247 / 0.07) 34% 41%, transparent 41%),
-    /* fine vertical banding, like light through a slatted screen */
-    repeating-linear-gradient(
-      90deg,
-      rgb(245 245 247 / 0.035) 0 1px,
-      transparent 1px 7px
-    ),
-    /* depth: darker at the bottom so the panel edge reads against it */
-    linear-gradient(180deg, #1b1b22 0%, #0e0e12 70%, #0a0a0c 100%);
-}
-
-/* The banding should not scroll as one flat sheet on very wide screens. */
-@media (min-width: 1024px) {
-  .footer-backdrop {
-    background-size:
-      auto,
-      auto,
-      auto,
-      9px 100%,
-      auto;
-  }
+  background-color: var(--color-void);
 }
