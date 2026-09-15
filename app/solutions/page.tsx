@@ -31,7 +31,7 @@ export default function SolutionsPage() {
           <Reveal delay={200}>
             <p className="max-w-2xl text-subtitle-md leading-relaxed text-stone">
               Every engagement starts from something already underway. These are the areas where we
-              pick up the remaining work — most projects touch more than one of them.
+              pick up the remaining work, most projects touch more than one of them.
             </p>
           </Reveal>
         </div>
@@ -51,7 +51,7 @@ export default function SolutionsPage() {
                   <Dot />
                 </h2>
                 <p className="text-body-md leading-relaxed text-secondary">
-                  Read down the list — the one that matches your situation is usually obvious, and
+                  Read down the list, the one that matches your situation is usually obvious, and
                   each page says what we actually do in that domain.
                 </p>
               </div>

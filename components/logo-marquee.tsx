@@ -31,14 +31,14 @@ const CLIENTS: Client[] = [
 ];
 
 /**
- * At rest each mark is flattened to white: every logo here is dark brand
- * colour drawn for a light page (#13213C, #1F36C7, #005F86), so on the void
- * they would otherwise disappear entirely.
+ * At rest each mark is flattened to white, which keeps the strip evenly
+ * weighted rather than a scatter of competing brand colours. Hover restores
+ * the real colours, with no plate behind them.
  *
- * Hover restores the real colours over a light plate. Those colours measure
- * 1.2:1 to 2.7:1 against black, so without the plate they would vanish on
- * hover rather than resolve. Its padding is constant rather than added on
- * hover, so nothing reflows inside the marquee track.
+ * Worth knowing when judging the hover: these are all dark marks drawn for a
+ * light page. BBB (#005F86) and Unilever (#1F36C7) carry white elements and
+ * hold up on the void, but Skillsoft is solid #13213C — 1.3:1 here — so it
+ * dims rather than resolves. Only a lighter asset would fix that one.
  */
 function Mark({ client }: { client: Client }) {
   if (client.src) {
@@ -47,7 +47,7 @@ function Mark({ client }: { client: Client }) {
       <img
         src={client.src}
         alt={client.name}
-        className={`${client.height ?? "h-8"} w-auto shrink-0 rounded-md object-contain px-sm py-xxs opacity-60 brightness-0 invert transition-[opacity,background-color,filter] duration-300 hover:bg-bone-white hover:opacity-100 hover:brightness-100 hover:invert-0`}
+        className={`${client.height ?? "h-8"} w-auto shrink-0 object-contain px-sm py-xxs opacity-60 brightness-0 invert transition-[opacity,filter] duration-300 hover:opacity-100 hover:brightness-100 hover:invert-0`}
       />
     );
   }

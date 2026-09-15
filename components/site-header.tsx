@@ -6,7 +6,6 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Icon } from "./icon";
 import { SOLUTIONS } from "@/lib/solutions";
-import { SERVICES } from "@/lib/services";
 import { useContactModal } from "./contact-modal";
 import { Cta } from "./cta";
 
@@ -20,16 +19,6 @@ const MENUS: Menu[] = [
     items: SOLUTIONS.map((s) => ({
       href: `/solutions/${s.slug}`,
       label: s.navLabel,
-      desc: s.tagline,
-      icon: s.icon,
-    })),
-  },
-  {
-    label: "Services",
-    href: "/services",
-    items: SERVICES.map((s) => ({
-      href: `/services#${s.slug}`,
-      label: s.name,
       desc: s.tagline,
       icon: s.icon,
     })),

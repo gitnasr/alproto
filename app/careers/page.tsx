@@ -42,7 +42,7 @@ const HIRING_STEPS = [
   {
     n: "02",
     title: "Technical Deep Dive",
-    copy: "A conversation with a Principal Engineer about a real system you built — decisions, trade-offs, failures.",
+    copy: "A conversation with a Principal Engineer about a real system you built, decisions, trade-offs, failures.",
   },
   {
     n: "03",

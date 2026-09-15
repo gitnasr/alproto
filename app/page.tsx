@@ -5,7 +5,6 @@ import { Cta } from "@/components/cta";
 import { ParticleConstellation } from "@/components/particle-constellation";
 import { LogoMarquee } from "@/components/logo-marquee";
 import { SOLUTIONS } from "@/lib/solutions";
-import { SERVICES } from "@/lib/services";
 import { ContactTrigger } from "@/components/contact-trigger";
 
 /** The situations clients actually arrive with. */
@@ -60,15 +59,15 @@ export default function HomePage() {
               </Reveal>
               <Reveal delay={200}>
                 <p className="mt-xs max-w-[40ch] text-body-md text-stone">
-                  Stalled build, inherited codebase, unfinished migration — we take ownership of
+                  Stalled build, inherited codebase, unfinished migration. We take ownership of
                   what is left and deliver it.
                 </p>
               </Reveal>
               <Reveal delay={300}>
                 <div className="mt-lg flex flex-wrap items-center gap-base">
                   <Cta size="lg">Book a 15 Minute Call</Cta>
-                  <Cta variant="secondary" size="lg" href="/services">
-                    See How We Work
+                  <Cta variant="secondary" size="lg" href="/solutions">
+                    See What We Do
                     <Icon name="east" className="ml-xs" />
                   </Cta>
                 </div>
@@ -106,7 +105,7 @@ export default function HomePage() {
                 <p className="mt-xxs text-body-md leading-relaxed text-secondary">
                   Almost none of them went wrong for interesting reasons. Scope moved, someone key
                   left, a deadline that was never real got committed to anyway. That is what happens
-                  when a team is asked to move fast for long enough — and all of it is recoverable.
+                  when a team is asked to move fast for long enough, and all of it is recoverable.
                 </p>
                 <Link
                   href="/project-check"
@@ -207,62 +206,6 @@ export default function HomePage() {
                 </Reveal>
               ))}
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* HOW WE WORK */}
-      <section className="w-full bg-page py-section-lg">
-        <div className="mx-auto max-w-shell px-xxl">
-          <Reveal>
-            <div className="mb-section-sm flex flex-col justify-between gap-base md:flex-row md:items-end">
-              <div className="flex max-w-2xl flex-col gap-xs">
-                <span className="text-caption-bold uppercase text-kicker">
-                  The Engagement Arc
-                </span>
-                <h2 className="text-heading-lg text-canvas">
-                  How a stalled project becomes a delivered one
-                  <Dot />
-                </h2>
-              </div>
-              <Link
-                href="/services"
-                className="inline-flex shrink-0 items-center gap-xs whitespace-nowrap text-body-sm-bold text-canvas transition-colors hover:text-primary"
-              >
-                See the Full Process
-                <Icon name="arrow_forward" />
-              </Link>
-            </div>
-          </Reveal>
-
-          {/* The arc as six ruled entries rather than six tiles. Each stage is
-              a term over its definition, with what the stage ends in raised
-              beside the name as a small qualifier — the boxes, the left rails
-              and the oversized numerals are all gone. */}
-          <div className="flex flex-col">
-            {SERVICES.map((s, i) => (
-              <Reveal key={s.slug} delay={(i % 3) * 80}>
-                <Link
-                  href={`/services#${s.slug}`}
-                  className="group block border-b border-hairline py-xxl transition-colors hover:border-canvas/30"
-                >
-                  <div className="flex flex-col gap-xs sm:flex-row sm:items-baseline sm:justify-between sm:gap-xxl">
-                    <h3 className="font-display text-heading-sm text-canvas transition-colors group-hover:text-primary">
-                      {s.name}
-                    </h3>
-                    {/* The deliverable, set as a raised note rather than a
-                        footer line — it qualifies the stage, it is not a
-                        second fact about it. */}
-                    <p className="shrink-0 text-caption text-steel sm:text-right">
-                      <span className="align-super text-accent-electric">+</span> {s.deliverable}
-                    </p>
-                  </div>
-                  <p className="mt-xs max-w-[52ch] text-body-sm leading-relaxed text-secondary">
-                    {s.tagline}
-                  </p>
-                </Link>
-              </Reveal>
-            ))}
           </div>
         </div>
       </section>

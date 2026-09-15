@@ -22,7 +22,7 @@ export const HONEYPOT = "company_website";
 
 /** Never expose configuration detail to a visitor; they can only retry. */
 const GENERIC_FAILURE =
-  "We couldn't send that just now. Please try again in a moment — if it keeps failing, the problem is on our side.";
+  "We couldn't send that just now. Please try again in a moment, if it keeps failing, the problem is on our side.";
 
 export async function submitForm(form: HTMLFormElement): Promise<SubmitResult> {
   const data = new FormData(form);
@@ -36,7 +36,7 @@ export async function submitForm(form: HTMLFormElement): Promise<SubmitResult> {
   if (!FORM_ENDPOINT) {
     // Loud for whoever is building the site, generic for whoever is using it.
     console.error(
-      "[contact form] NEXT_PUBLIC_FORM_ENDPOINT is not set — submissions are going nowhere.",
+      "[contact form] NEXT_PUBLIC_FORM_ENDPOINT is not set, submissions are going nowhere.",
     );
     return { ok: false, reason: GENERIC_FAILURE };
   }

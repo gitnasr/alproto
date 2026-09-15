@@ -97,7 +97,7 @@ const BANDS: Band[] = [
   {
     min: 9,
     title: "This needs intervention, not encouragement",
-    copy: "What you are describing is not a rough patch — it is a project that has lost the ability to correct itself from the inside. That is recoverable, but not by pushing harder on the current plan. The first useful step is an outside read of what exists.",
+    copy: "What you are describing is not a rough patch. It is a project that has lost the ability to correct itself from the inside. That is recoverable, but not by pushing harder on the current plan. The first useful step is an outside read of what exists.",
     tone: "text-status-critical",
     chip: "bg-status-critical/10 text-status-critical",
     icon: "emergency_home",
@@ -105,7 +105,7 @@ const BANDS: Band[] = [
   {
     min: 5,
     title: "These are the warning signs, and they compound",
-    copy: "Individually each of these is survivable. Together they tend to reinforce each other — no tests makes releases risky, risky releases slow delivery, slow delivery pushes the date, and the date pressure defers the fixes. Breaking that loop early is far cheaper than breaking it late.",
+    copy: "Individually each of these is survivable. Together they tend to reinforce each other: no tests makes releases risky, risky releases slow delivery, slow delivery pushes the date, and the date pressure defers the fixes. Breaking that loop early is far cheaper than breaking it late.",
     tone: "text-status-warning",
     chip: "bg-status-warning/15 text-canvas",
     icon: "warning",
@@ -164,7 +164,7 @@ export function ProjectCheck() {
 
   async function copySummary() {
     const lines = SYMPTOMS.filter((s) => selected.has(s.id)).map((s) => `- ${s.label}`);
-    const text = `Project check — ${count} of ${SYMPTOMS.length} signs present:\n\n${lines.join("\n")}`;
+    const text = `Project check: ${count} of ${SYMPTOMS.length} signs present:\n\n${lines.join("\n")}`;
     try {
       await navigator.clipboard.writeText(text);
       setCopied(true);
@@ -202,10 +202,14 @@ export function ProjectCheck() {
             return (
               <li key={s.id}>
                 <label
-                  className={`flex cursor-pointer items-start gap-base rounded-xl border p-base transition-colors ${
+                  /* The site's hairline tokens (white at 6% and 10%) are tuned
+                     for dividers between rows of text. These are the outlines
+                     of a control you are meant to aim at, so they sit well
+                     above that. */
+                  className={`group flex cursor-pointer items-start gap-base rounded-xl border p-base transition-colors ${
                     on
                       ? "border-primary bg-primary/5"
-                      : "border-hairline-soft bg-page hover:border-hairline"
+                      : "border-canvas/25 bg-page hover:border-canvas/50"
                   }`}
                 >
                   <input
@@ -214,10 +218,16 @@ export function ProjectCheck() {
                     onChange={() => toggle(s.id)}
                     className="sr-only"
                   />
+                  {/* The empty box has to read as something you can click. The
+                      site's hairline is white at 10%, which is right for a
+                      divider and far too faint for a control — 40% clears the
+                      3:1 that interactive elements need against the void. */}
                   <span
                     aria-hidden
                     className={`mt-xxs flex h-5 w-5 shrink-0 items-center justify-center rounded-sm border transition-colors ${
-                      on ? "border-primary bg-primary text-canvas" : "border-hairline bg-page"
+                      on
+                        ? "border-primary bg-primary text-canvas"
+                        : "border-canvas/40 bg-page group-hover:border-canvas/70"
                     }`}
                   >
                     {on && <Icon name="check" size={14} />}
@@ -268,7 +278,7 @@ export function ProjectCheck() {
                   Nothing ticked yet
                 </h2>
                 <p className="text-body-sm leading-relaxed text-stone">
-                  Work down the list on the left. Nothing is recorded or sent anywhere — this runs
+                  Work down the list on the left. Nothing is recorded or sent anywhere. This runs
                   entirely in your browser, and we only hear from you if you decide to get in touch.
                 </p>
               </>
@@ -311,14 +321,14 @@ export function ProjectCheck() {
                   className="inline-flex items-center justify-center gap-xs rounded-full border border-canvas/25 px-xl py-sm text-body-sm-bold text-canvas transition-colors hover:border-canvas/50 hover:bg-canvas/10"
                 >
                   <Icon name={copied ? "check" : "content_copy"} size={18} />
-                  {copied ? "Copied — paste it into the form" : "Copy these results"}
+                  {copied ? "Copied. Paste it into the form" : "Copy these results"}
                 </button>
               </div>
             )}
           </div>
 
           <p className="px-xs text-caption text-secondary">
-            A checklist is not a diagnosis. It tells you whether a conversation is worth having —
+            A checklist is not a diagnosis. It tells you whether a conversation is worth having, 
             reading the actual code is what tells you what finishing it takes.
           </p>
         </div>

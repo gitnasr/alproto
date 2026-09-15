@@ -65,11 +65,11 @@ export function ContactForm({
           id={titleId}
           className="text-heading-lg text-canvas"
         >
-          Thanks — that came through
+          Thanks. That came through
           <span className="text-rust">.</span>
         </h2>
         <p className="max-w-2xl text-body-md leading-relaxed text-secondary">
-          An engineer will read it and reply within 24 business hours — not a form letter, and not a
+          An engineer will read it and reply within 24 business hours, not a form letter, and not a
           sales sequence. If it turns out you do not need us, we will say that too.
         </p>
         <button
@@ -203,7 +203,7 @@ export function ContactForm({
             name="current_state"
             rows={2}
             required
-            placeholder="How far it got, who built it, and where it stopped. Rough notes are fine — you do not need to tidy it up first."
+            placeholder="How far it got, who built it, and where it stopped. Rough notes are fine. You do not need to tidy it up first."
             className="w-full rounded-md border border-transparent bg-surface-soft px-base py-sm text-body-sm leading-relaxed text-canvas placeholder:text-stone transition-colors focus:border-primary-container focus:bg-page focus:outline-none"
           />
         </div>

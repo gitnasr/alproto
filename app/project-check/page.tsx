@@ -9,7 +9,7 @@ import { ContactTrigger } from "@/components/contact-trigger";
 export const metadata: Metadata = {
   title: "Project Check",
   description:
-    "A two-minute checklist for working out whether a software project is in trouble — and what kind of trouble. Runs entirely in your browser, nothing is sent anywhere.",
+    "A two-minute checklist for working out whether a software project is in trouble, and what kind of trouble. Runs entirely in your browser, nothing is sent anywhere.",
 };
 
 function Dot() {
@@ -28,7 +28,7 @@ export default function ProjectCheckPage() {
           
           <Reveal delay={100}>
             <h1 className="max-w-3xl text-display-lg-mobile text-canvas md:text-display-lg">
-              Is your project in trouble — and{" "}
+              Is your project in trouble, and{" "}
               <span className="text-accent-electric">what kind</span>
               <Dot />
             </h1>
@@ -43,7 +43,7 @@ export default function ProjectCheckPage() {
           <Reveal delay={300}>
             <div className="flex flex-wrap items-center gap-xl pt-xs text-caption text-stone">
               {[
-                ["lock", "Runs in your browser — nothing is sent or stored"],
+                ["lock", "Runs in your browser, nothing is sent or stored"],
                 ["schedule", "About two minutes"],
                 ["sentiment_satisfied", "No email required to see your result"],
               ].map(([icon, text]) => (
@@ -85,7 +85,7 @@ export default function ProjectCheckPage() {
                 to move fast for long enough.
               </p>
               <p className="text-body-md leading-relaxed text-stone">
-                The reason projects become unrecoverable is not the original problem — it is how long
+                The reason projects become unrecoverable is not the original problem. It is how long
                 it stays unexamined. Asking someone to look is not an admission of failure. It is the
                 cheapest thing available to you right now.
               </p>
@@ -106,7 +106,7 @@ export default function ProjectCheckPage() {
                   Rather just describe it in your own words?
                 </h2>
                 <p className="text-body-md leading-relaxed text-secondary">
-                  Tell us where the project stands — however messy — and we will come back with an
+                  Tell us where the project stands, however messy, and we will come back with an
                   honest read on what finishing it involves.
                 </p>
               </div>

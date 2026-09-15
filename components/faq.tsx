@@ -34,7 +34,7 @@ export function Faq({
               </h2>
               <p className="text-body-md text-secondary">
                 Mostly the ones that stop someone getting in touch at all. If yours is not here,
-                ask it directly — a straight answer costs you nothing.
+                ask it directly, a straight answer costs you nothing.
               </p>
               <ContactTrigger
                 className="inline-flex w-fit items-center gap-xs pt-base text-body-sm-bold text-canvas transition-colors hover:text-primary"
