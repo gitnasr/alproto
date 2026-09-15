@@ -170,7 +170,7 @@ export default function OpenSourcePage() {
                 </h2>
                 <p className="text-body-md leading-relaxed text-secondary">
                   If your project sits in one of our production stacks, we would like to hear from
-                  you — for sponsorship, contribution, or coordinated security work.
+                  you, for sponsorship, contribution, or coordinated security work.
                 </p>
               </div>
               <ContactTrigger

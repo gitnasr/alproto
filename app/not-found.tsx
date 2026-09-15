@@ -8,7 +8,7 @@ export default function NotFound() {
         <span className="inline-flex items-center gap-xs rounded-full bg-surface-soft px-base py-xxs shadow-sm">
           <Icon name="error" size={16} className="text-stone" />
           <span className="text-caption-bold uppercase tracking-wider text-canvas">
-            404 — Route Not Found
+            404: Route Not Found
           </span>
         </span>
         <h1 className="text-display-lg-mobile text-canvas md:text-display-lg">
@@ -16,7 +16,7 @@ export default function NotFound() {
         </h1>
         <p className="max-w-[36rem] text-subtitle-md leading-relaxed text-charcoal">
           The page you requested doesn&rsquo;t exist or has been moved. Head back to the homepage,
-          or explore our services and case studies.
+          or explore our solutions and case studies.
         </p>
         <div className="flex flex-wrap items-center justify-center gap-base pt-base">
           <Link
@@ -27,10 +27,10 @@ export default function NotFound() {
             Back to Home
           </Link>
           <Link
-            href="/services"
+            href="/solutions"
             className="inline-flex items-center justify-center gap-xs rounded-full bg-surface-container-low px-xxl py-sm text-body-sm-bold text-canvas transition-colors duration-200 hover:bg-surface-container"
           >
-            Explore Services
+            Explore Solutions
             <Icon name="arrow_forward" size={18} />
           </Link>
         </div>

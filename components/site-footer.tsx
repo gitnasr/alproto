@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { SOLUTIONS } from "@/lib/solutions";
-import { SERVICES } from "@/lib/services";
 import { Cta } from "@/components/cta";
 
 const COMPANY = [
@@ -9,12 +8,11 @@ const COMPANY = [
   { label: "About", href: "/about" },
   { label: "Careers", href: "/careers" },
   { label: "Open Source", href: "/open-source" },
-  { label: "FAQ", href: "/services#faq" },
+  { label: "FAQ", href: "/project-check#faq" },
 ];
 
 const PRIMARY = [
   { label: "Solutions", href: "/solutions" },
-  { label: "Services", href: "/services" },
   ...COMPANY,
 ];
 
@@ -80,7 +78,7 @@ export function SiteFooter() {
             ))}
           </nav>
 
-          {/* Every solution and service still reachable, one step quieter. */}
+          {/* Every solution still reachable, one step quieter. */}
           <div className="mt-lg flex max-w-3xl flex-wrap items-center justify-center gap-x-lg gap-y-xs">
             {SOLUTIONS.map((s) => (
               <Link
@@ -89,15 +87,6 @@ export function SiteFooter() {
                 className={`rounded-sm text-caption text-secondary underline-offset-4 transition-colors hover:text-canvas hover:underline ${FOCUS}`}
               >
                 {s.navLabel}
-              </Link>
-            ))}
-            {SERVICES.map((s) => (
-              <Link
-                key={s.slug}
-                href={`/services#${s.slug}`}
-                className={`rounded-sm text-caption text-secondary underline-offset-4 transition-colors hover:text-canvas hover:underline ${FOCUS}`}
-              >
-                {s.name}
               </Link>
             ))}
           </div>

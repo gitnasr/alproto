@@ -20,7 +20,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:5000"),
   title: {
-    default: "Silosage — Mission-critical software engineering",
+    default: "Silosage: Mission-critical software engineering",
     template: "%s · Silosage",
   },
   description:
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   openGraph: {
     siteName: "Silosage",
     type: "website",
-    title: "Silosage — Mission-critical software engineering",
+    title: "Silosage: Mission-critical software engineering",
     description:
       "High-performance digital product engineering firm. We architect, engineer, and deploy mission-critical software systems for global enterprises.",
   },

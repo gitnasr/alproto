@@ -25,7 +25,7 @@ const HERO_PHOTO =
 const DISCIPLINES = [
   {
     title: "Platform & Infrastructure",
-    copy: "Cloud environments, deployment pipelines, and the operational plumbing a product needs before anyone can rely on it — including ServiceNow and Azure estates already in flight.",
+    copy: "Cloud environments, deployment pipelines, and the operational plumbing a product needs before anyone can rely on it, including ServiceNow and Azure estates already in flight.",
   },
   {
     title: "Application Engineering",
@@ -71,8 +71,8 @@ export default function AboutPage() {
             </Reveal>
             <Reveal delay={100}>
               <p className="max-w-2xl text-subtitle-md leading-relaxed text-stone">
-                We are a small team that takes over software other people started — stalled builds,
-                inherited codebases, migrations that never completed — and carries it to production.
+                We are a small team that takes over software other people started, stalled builds,
+                inherited codebases, migrations that never completed, and carries it to production.
                 It is unglamorous work, and it is the work we are best at.
               </p>
             </Reveal>
@@ -110,7 +110,7 @@ export default function AboutPage() {
                 </h2>
                 <p className="text-body-md leading-relaxed text-secondary">
                   Rescue work rewards judgement over headcount. We stay small and senior, and cover
-                  the ground a stalled project actually needs — rather than a roster we have to keep
+                  the ground a stalled project actually needs, rather than a roster we have to keep
                   busy.
                 </p>
               </div>
@@ -180,7 +180,7 @@ export default function AboutPage() {
                 </h2>
                 <p className="text-body-md leading-relaxed text-secondary">
                   Fifteen minutes with an engineer who has taken over builds like yours before. No
-                  deck and no discovery script — just the state of your project and our questions.
+                  deck and no discovery script, just the state of your project and our questions.
                 </p>
               </div>
               <ContactTrigger className="inline-flex shrink-0 items-center justify-center gap-xs rounded-full bg-ink-deep px-xxxl py-base text-center text-body-md-bold text-canvas shadow-md transition-colors duration-200 hover:bg-charcoal">

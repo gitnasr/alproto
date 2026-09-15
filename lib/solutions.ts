@@ -25,9 +25,9 @@ export const SOLUTIONS: Solution[] = [
     name: "Project Rescue & Completion",
     navLabel: "Project Rescue & Completion",
     icon: "engineering",
-    tagline: "Stalled, half-built, or inherited — taken to production.",
+    tagline: "Stalled, half-built, or inherited, taken to production.",
     summary:
-      "Our core practice. When a build has lost momentum, changed hands, or outgrown the team that started it, we assess what exists, take ownership of the remaining work, and deliver it to production — then hand it back documented and maintainable.",
+      "Our core practice. When a build has lost momentum, changed hands, or outgrown the team that started it, we assess what exists, take ownership of the remaining work, and deliver it to production, then hand it back documented and maintainable.",
     signals: [
       "A build that has missed several deadlines with no credible path to launch",
       "A codebase inherited from a departed team or an agency that has moved on",
@@ -35,7 +35,7 @@ export const SOLUTIONS: Solution[] = [
       "An internal team stretched too thin to finish alongside day-to-day delivery",
     ],
     reassurance:
-      "None of these mean anyone was careless. Projects stall for ordinary reasons — scope that moved, people who left, a date that was never real — and it happens to competent teams under pressure. What makes a project unrecoverable is not the original problem, it is how long it goes unexamined. Asking someone to look is not an admission of failure.",
+      "None of these mean anyone was careless. Projects stall for ordinary reasons, scope that moved, people who left, a date that was never real, and it happens to competent teams under pressure. What makes a project unrecoverable is not the original problem, it is how long it goes unexamined. Asking someone to look is not an admission of failure.",
     deliverables: [
       {
         icon: "search_insights",
@@ -197,7 +197,7 @@ export const SOLUTIONS: Solution[] = [
     icon: "developer_mode_tv",
     tagline: "The remaining build, delivered to a standard you can maintain.",
     summary:
-      "The application layer is where most unfinished projects are judged. We complete the remaining product surface — web and mobile — with the testing, accessibility, and structure that keep it maintainable after we hand it over.",
+      "The application layer is where most unfinished projects are judged. We complete the remaining product surface, web and mobile, with the testing, accessibility, and structure that keep it maintainable after we hand it over.",
     signals: [
       "A product that is feature-incomplete and drifting further from its original scope",
       "A front end nobody wants to touch because changes break unrelated screens",

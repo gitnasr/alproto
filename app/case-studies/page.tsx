@@ -57,13 +57,13 @@ const BBB_PROJECTS = [
   {
     n: "01",
     title: "Bidirectional CRM Sync",
-    copy: "Two systems of record, each behaving as though it were the authoritative one. We built a two-way sync between a legacy CRM and HubSpot — field mapping, conflict resolution, and loop prevention — so a record edited in either platform reaches the other intact instead of being overwritten on the next cycle.",
+    copy: "Two systems of record, each behaving as though it were the authoritative one. We built a two-way sync between a legacy CRM and HubSpot, field mapping, conflict resolution, and loop prevention, so a record edited in either platform reaches the other intact instead of being overwritten on the next cycle.",
     diagram: true,
   },
   {
     n: "02",
     title: "High-Scale Business Automation",
-    copy: "Manual, human-coordinated processes rebuilt as orchestrated workflows on Camunda. Long-running processes modelled explicitly in BPMN, with approval steps, retries, and failure paths made visible — so the business could see where any case actually sat instead of having to ask someone.",
+    copy: "Manual, human-coordinated processes rebuilt as orchestrated workflows on Camunda. Long-running processes modelled explicitly in BPMN, with approval steps, retries, and failure paths made visible, so the business could see where any case actually sat instead of having to ask someone.",
     diagram: false,
   },
   {
@@ -121,7 +121,7 @@ export default function CaseStudiesPage() {
                   <Dot />
                 </h2>
                 <p className="text-body-md leading-relaxed text-secondary">
-                  Three projects across one relationship, over time — integration first, then the
+                  Three projects across one relationship, over time, integration first, then the
                   processes that ran on top of it, then the wider programme those two made possible.
                 </p>
               </div>
@@ -184,8 +184,8 @@ export default function CaseStudiesPage() {
               <Reveal delay={90}>
                 <p className="mt-xxl max-w-2xl border-t border-canvas/10 pt-xxl text-subtitle-md leading-relaxed text-stone">
                   Our specialists took ownership of the client&rsquo;s ServiceNow and Azure
-                  workstreams — running the queues, finishing the configuration, and keeping delivery
-                  moving — so the work reached a finished state instead of waiting on capacity that
+                  workstreams, running the queues, finishing the configuration, and keeping delivery
+                  moving, so the work reached a finished state instead of waiting on capacity that
                   never arrived.
                 </p>
               </Reveal>
@@ -270,7 +270,7 @@ export default function CaseStudiesPage() {
               <p className="max-w-2xl text-heading-sm leading-relaxed font-normal text-canvas">
                 Longer write-ups get published once the client is happy for us to, which takes rather
                 longer than the work did. If one of these resembles your situation, ask about it
-                directly — we can usually say more in a call than in public
+                directly. We can usually say more in a call than in public
                 <Dot />
               </p>
               <ContactTrigger className="inline-flex shrink-0 items-center gap-xs rounded-full bg-ink-deep px-xxl py-base text-body-sm-bold text-canvas transition-colors hover:bg-charcoal">

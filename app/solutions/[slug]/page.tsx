@@ -79,12 +79,6 @@ export default async function SolutionPage({ params }: Props) {
                     Book a 15 Minute Call
                     <Icon name="arrow_forward" size={18} />
                   </ContactTrigger>
-                  <Link
-                    href="/services"
-                    className="inline-flex items-center justify-center gap-xs rounded-full border border-canvas/25 px-xxl py-[14px] text-body-sm-bold text-canvas transition-colors duration-200 hover:border-canvas/50 hover:bg-canvas/10"
-                  >
-                    How We Work
-                  </Link>
                 </div>
               </Reveal>
             </div>
@@ -93,7 +87,7 @@ export default async function SolutionPage({ params }: Props) {
                 naming tools we "typically" use claims a house stack we do not have. */}
             <Reveal delay={250} className="lg:col-span-4">
               <p className="border-t border-canvas/20 pt-base text-body-sm leading-relaxed text-stone">
-                We work in whatever the project already uses — its language, its framework, its
+                We work in whatever the project already uses. Its language, its framework, its
                 cloud. Taking over a build means adopting the decisions already made, not restarting
                 on ours.
               </p>
@@ -117,7 +111,7 @@ export default async function SolutionPage({ params }: Props) {
                 </h2>
                 <p className="text-body-md leading-relaxed text-secondary">
                   If more than one of these sounds familiar, an assessment is usually the cheapest
-                  next step — it replaces guesswork with a scoped plan.
+                  next step. It replaces guesswork with a scoped plan.
                 </p>
               </div>
             </Reveal>
@@ -157,7 +151,7 @@ export default async function SolutionPage({ params }: Props) {
                       Not sure how far along this is?
                     </span>
                     <span className="text-caption text-secondary">
-                      Take the two-minute project check — nothing is sent anywhere.
+                      Take the two-minute project check. Nothing is sent anywhere.
                     </span>
                   </span>
                   <Icon
@@ -228,29 +222,19 @@ export default async function SolutionPage({ params }: Props) {
                   <Dot />
                 </h2>
               </div>
-              <Link
-                href="/services"
-                className="inline-flex items-center gap-xs text-body-sm-bold text-canvas transition-colors hover:text-primary"
-              >
-                See the Full Process
-                <Icon name="arrow_forward" />
-              </Link>
             </div>
           </Reveal>
 
           <Reveal>
             <div className="grid grid-cols-2 gap-base border-t border-hairline pt-xl md:grid-cols-3 lg:grid-cols-6">
               {SERVICES.map((s) => (
-                <Link
+                <div
                   key={s.slug}
-                  href={`/services#${s.slug}`}
-                  className="group flex flex-col gap-xxs border-l border-hairline pl-base transition-colors hover:border-primary"
+                  className="flex flex-col gap-xxs border-l border-hairline pl-base"
                 >
                   <span className="text-caption-bold text-stone">{s.step}</span>
-                  <span className="text-body-sm-bold text-canvas transition-colors group-hover:text-primary">
-                    {s.name}
-                  </span>
-                </Link>
+                  <span className="text-body-sm-bold text-canvas">{s.name}</span>
+                </div>
               ))}
             </div>
           </Reveal>
