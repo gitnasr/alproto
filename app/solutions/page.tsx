@@ -38,7 +38,7 @@ export default function SolutionsPage() {
       </section>
 
       {/* The five, as an index rather than five identical cards */}
-      <section className="w-full bg-canvas py-section-lg">
+      <section className="w-full bg-page py-section-lg">
         <div className="mx-auto max-w-shell px-xxl">
           <div className="grid grid-cols-1 gap-xxxl lg:grid-cols-12">
             <Reveal className="lg:col-span-4">
@@ -46,7 +46,7 @@ export default function SolutionsPage() {
                 <span className="text-caption-bold uppercase tracking-widest text-primary">
                   The Index
                 </span>
-                <h2 className="text-heading-lg font-semibold tracking-tight text-ink-deep">
+                <h2 className="text-heading-lg font-semibold tracking-tight text-canvas">
                   Where unfinished work tends to sit
                   <Dot />
                 </h2>
@@ -57,7 +57,7 @@ export default function SolutionsPage() {
               </div>
             </Reveal>
 
-            <div className="flex flex-col border-t border-ink-deep/20 lg:col-span-8">
+            <div className="flex flex-col border-t border-canvas/15 lg:col-span-8">
               {SOLUTIONS.map((s, i) => (
                 <Reveal key={s.slug} delay={i * 80}>
                   <Link
@@ -67,7 +67,7 @@ export default function SolutionsPage() {
                     <span className="font-display text-body-md-bold text-stone">
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <h3 className="text-heading-lg font-semibold tracking-tight text-ink-deep transition-colors group-hover:text-primary">
+                    <h3 className="text-heading-lg font-semibold tracking-tight text-canvas transition-colors group-hover:text-primary">
                       {s.name}
                     </h3>
                     <p className="text-body-md text-primary">{s.tagline}</p>
@@ -83,7 +83,7 @@ export default function SolutionsPage() {
               {/* The "not sure" case, as a closing note rather than a sixth card */}
               <Reveal delay={120}>
                 <div className="flex flex-col justify-between gap-base pt-xxl lg:flex-row lg:items-end">
-                  <p className="max-w-2xl text-heading-sm leading-relaxed font-normal text-ink-deep">
+                  <p className="max-w-2xl text-heading-sm leading-relaxed font-normal text-canvas">
                     Most rescues span several of these. Describe the situation and we will tell you
                     what it actually involves
                     <Dot />

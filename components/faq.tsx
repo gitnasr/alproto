@@ -15,9 +15,9 @@ export function Faq({
   /** Picks the band colour so the section never sits next to a matching one. */
   tone?: "soft" | "canvas";
 }) {
-  const band = tone === "canvas" ? "bg-canvas" : "bg-surface-soft";
+  const band = tone === "canvas" ? "bg-page" : "bg-surface-soft";
   /** Hover wash for a ruled row — the band decides which direction reads as "lift". */
-  const hover = tone === "canvas" ? "hover:bg-surface-soft" : "hover:bg-canvas";
+  const hover = tone === "canvas" ? "hover:bg-surface-soft" : "hover:bg-page";
 
   return (
     <section id={id} className={`w-full scroll-mt-24 py-section-lg ${band}`}>
@@ -28,7 +28,7 @@ export function Faq({
               <span className="text-caption-bold uppercase tracking-widest text-primary">
                 Before You Ask
               </span>
-              <h2 className="text-heading-lg font-semibold tracking-tight text-ink-deep">
+              <h2 className="text-heading-lg font-semibold tracking-tight text-canvas">
                 The questions people hesitate to send
                 <span className="text-accent-electric">.</span>
               </h2>
@@ -37,7 +37,7 @@ export function Faq({
                 ask it directly — a straight answer costs you nothing.
               </p>
               <ContactTrigger
-                className="inline-flex w-fit items-center gap-xs pt-base text-body-sm-bold text-primary transition-colors hover:text-ink-deep"
+                className="inline-flex w-fit items-center gap-xs pt-base text-body-sm-bold text-primary transition-colors hover:text-canvas"
               >
                 Ask us something else
                 <Icon name="arrow_forward" size={16} />
@@ -46,13 +46,13 @@ export function Faq({
           </Reveal>
 
           {/* Ruled rows rather than a stack of shadowed cards */}
-          <div className="flex flex-col border-t border-ink-deep/20 lg:col-span-8">
+          <div className="flex flex-col border-t border-canvas/15 lg:col-span-8">
             {FAQ.map((item, i) => (
               <Reveal key={item.question} delay={(i % 4) * 70}>
                 <details
                   className={`group border-b border-hairline px-xs py-lg transition-colors ${hover}`}
                 >
-                  <summary className="flex cursor-pointer list-none items-start justify-between gap-base text-body-md-bold text-ink-deep marker:hidden [&::-webkit-details-marker]:hidden">
+                  <summary className="flex cursor-pointer list-none items-start justify-between gap-base text-body-md-bold text-canvas marker:hidden [&::-webkit-details-marker]:hidden">
                     {item.question}
                     <Icon
                       name="add"

@@ -87,7 +87,7 @@ export default function OpenSourcePage() {
                 <span className="text-caption-bold uppercase tracking-widest text-primary">
                   Engagement Principles
                 </span>
-                <h2 className="text-heading-lg font-semibold text-ink-deep">
+                <h2 className="text-heading-lg font-semibold text-canvas">
                   How we participate
                   <Dot />
                 </h2>
@@ -105,7 +105,7 @@ export default function OpenSourcePage() {
                     <span className="font-display text-body-md-bold text-stone sm:col-span-1">
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <span className="font-display text-heading-sm font-semibold text-ink-deep sm:col-span-4">
+                    <span className="font-display text-heading-sm font-semibold text-canvas sm:col-span-4">
                       {p.title}
                     </span>
                     <p className="text-body-md leading-relaxed text-secondary sm:col-span-7">
@@ -160,12 +160,12 @@ export default function OpenSourcePage() {
       </section>
 
       {/* CTA */}
-      <section className="w-full bg-canvas py-section-lg">
+      <section className="w-full bg-page py-section-lg">
         <div className="mx-auto max-w-shell px-xxl">
           <Reveal>
-            <div className="flex flex-col justify-between gap-xxl border-t border-ink-deep/20 pt-xxl lg:flex-row lg:items-end">
+            <div className="flex flex-col justify-between gap-xxl border-t border-canvas/15 pt-xxl lg:flex-row lg:items-end">
               <div className="flex max-w-2xl flex-col gap-base">
-                <h2 className="text-heading-lg font-semibold tracking-tight text-ink-deep">
+                <h2 className="text-heading-lg font-semibold tracking-tight text-canvas">
                   Maintain a project we should be supporting?
                 </h2>
                 <p className="text-body-md leading-relaxed text-secondary">

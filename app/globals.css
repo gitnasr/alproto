@@ -1,84 +1,83 @@
 @import "tailwindcss";
 
 /* Studio Engineering System — type, spacing and radius tokens from DESIGN.md.
-   Colors are a re-theme drawn from the Nahjj logo: espresso brown, rust and sand
-   over champagne, replacing the original blue-on-white ramp. Token NAMES are unchanged, so every
-   component keeps working; only the values moved. */
+   Colors are a dark-first re-theme: a near-black neutral ground with vivid
+   orange for display type, pills and glows, white headlines and grey body.
+   Token NAMES are unchanged, so every component keeps working; only the
+   values moved. */
 @theme {
   /* --- Colors ---
-     Brand anchors, sampled from the logo artwork: Espresso #402018, Rust #B05030,
-     Sand #E8C489, over a Champagne #F8E7C9 ground. */
-  --color-surface: #fdf8f0;
-  --color-surface-dim: #ebd9b8;
-  --color-surface-bright: #fffdf9;
-  --color-surface-container-lowest: #ffffff;
-  --color-surface-container-low: #fdf5e8;
-  --color-surface-container: #fbeedb;
-  --color-surface-container-high: #f8e7c9;
-  --color-surface-container-highest: #f3dcb5;
-  --color-on-surface: #2a1610;
-  --color-on-surface-variant: #4f413a;
-  --color-inverse-surface: #3a2a22;
-  --color-inverse-on-surface: #fbf0e2;
-  --color-outline: #857568;
-  --color-outline-variant: #cfc3b0;
-  --color-surface-tint: #b85434;
-  --color-primary: #8a3a20;
-  --color-on-primary: #fdf8f0;
-  --color-primary-container: #b85434;
-  --color-on-primary-container: #fdeee0;
-  --color-inverse-primary: #f0b48a;
-  --color-secondary: #6b5a50;
-  --color-on-secondary: #ffffff;
-  --color-secondary-container: #ece0d2;
-  --color-on-secondary-container: #6b5a50;
-  --color-tertiary: #8a6a1f;
-  --color-on-tertiary: #ffffff;
-  --color-tertiary-container: #a9852f;
-  --color-on-tertiary-container: #fff6e3;
-  --color-error: #ba1a1a;
-  --color-on-error: #ffffff;
-  --color-error-container: #ffdad6;
-  --color-on-error-container: #93000a;
-  --color-primary-fixed: #fbddc8;
-  --color-primary-fixed-dim: #f0b48a;
-  --color-on-primary-fixed: #2a0c02;
-  --color-on-primary-fixed-variant: #7a3018;
-  --color-secondary-fixed: #ece0d2;
-  --color-secondary-fixed-dim: #d4c6b6;
-  --color-on-secondary-fixed: #241a14;
-  --color-on-secondary-fixed-variant: #4f413a;
-  --color-tertiary-fixed: #f8e7c9;
-  --color-tertiary-fixed-dim: #e8c489;
-  --color-on-tertiary-fixed: #2a1e00;
-  --color-on-tertiary-fixed-variant: #6b5210;
-  --color-background: #fdf8f0;
-  --color-on-background: #2a1610;
-  --color-surface-variant: #f3dcb5;
-  --color-canvas: #fdf8f0;
-  --color-surface-soft: #f8e7c9;
-  --color-ink-deep: #2a1610;
-  --color-ink-body: #3a2a22;
-  --color-charcoal: #4a3a32;
-  --color-steel: #6b5a50;
-  --color-stone: #a09288;
-  --color-hairline: #e0d2be;
-  --color-hairline-soft: #efe4d4;
-  --color-accent-electric: #e8c489;
-  --color-accent-purple: #a9852f;
-  --color-status-success: #3f7d58;
-  --color-status-warning: #b07d12;
-  --color-status-critical: #b3382c;
+     Anchors: ground #121215, orange #F0601E bright / #D9541A deep,
+     highlight #FF8A4C, headline #F5F5F7, body #9A9AA6. */
+  --color-surface: #121215;
+  --color-surface-dim: #0a0a0c;
+  --color-surface-bright: #22222a;
+  --color-surface-container-lowest: #0a0a0c;
+  --color-surface-container-low: #16161a;
+  --color-surface-container: #1a1a20;
+  --color-surface-container-high: #202028;
+  --color-surface-container-highest: #262630;
+  --color-on-surface: #f5f5f7;
+  --color-on-surface-variant: #a8a8b4;
+  --color-inverse-surface: #f5f5f7;
+  --color-inverse-on-surface: #121215;
+  --color-outline: #6e6e7a;
+  --color-outline-variant: #34343e;
+  --color-surface-tint: #f0601e;
+  --color-primary: #fb7a3c;
+  --color-on-primary: #150e08;
+  --color-primary-container: #f0601e;
+  --color-on-primary-container: #1a0f06;
+  --color-inverse-primary: #8a3208;
+  --color-secondary: #a8a8b4;
+  --color-on-secondary: #121215;
+  --color-secondary-container: #1a1a20;
+  --color-on-secondary-container: #a8a8b4;
+  --color-tertiary: #f0601e;
+  --color-on-tertiary: #150e08;
+  --color-tertiary-container: #d9541a;
+  --color-on-tertiary-container: #fff1e6;
+  --color-error: #ff5a5a;
+  --color-on-error: #1a0000;
+  --color-error-container: #3a0f0f;
+  --color-on-error-container: #ffd6d6;
+  --color-primary-fixed: #ffd7c0;
+  --color-primary-fixed-dim: #ff9d66;
+  --color-on-primary-fixed: #2a0f00;
+  --color-on-primary-fixed-variant: #b8460f;
+  --color-secondary-fixed: #1a1a20;
+  --color-secondary-fixed-dim: #262630;
+  --color-on-secondary-fixed: #f5f5f7;
+  --color-on-secondary-fixed-variant: #a8a8b4;
+  --color-tertiary-fixed: #ffd7c0;
+  --color-tertiary-fixed-dim: #ff9d66;
+  --color-on-tertiary-fixed: #2a0f00;
+  --color-on-tertiary-fixed-variant: #b8460f;
+  --color-background: #121215;
+  --color-on-background: #f5f5f7;
+  --color-surface-variant: #1a1a20;
+  --color-canvas: #f5f5f7;
+  --color-surface-soft: #1a1a20;
+  --color-ink-deep: #0a0a0c;
+  --color-ink-body: #e4e4ea;
+  --color-charcoal: #b8b8c4;
+  --color-steel: #8e8e9a;
+  --color-stone: #9a9aa6;
+  --color-hairline: #2c2c36;
+  --color-hairline-soft: #22222a;
+  --color-accent-electric: #ff8a4c;
+  --color-accent-purple: #f0601e;
+  --color-status-success: #3fbf7f;
+  --color-status-warning: #f5b544;
+  --color-status-critical: #ff5a5a;
 
-  /* Brand literals, for the places that want Champagne by name rather than
-     via a surface role (highlights on the dark Emerald Ink sections). */
-  --color-espresso: #402018;
-  --color-champagne: #f8e7c9;
-  --color-champagne-dim: #e8c489;
-  --color-champagne-soft: #fbeedb;
-  /* Rust reads on BOTH the champagne light ground and the espresso dark sections,
-     so it carries the accent period (see Dot()). */
-  --color-rust: #b05030;
+  /* The page ground. `canvas` cannot take this role: it is also the
+     light-text colour on the dark bands (71 text-canvas uses), so it
+     has to stay light. Section backgrounds reference this instead. */
+  --color-page: #121215;
+  /* Orange carries the accent period that closes each heading (see Dot()),
+     on every band. */
+  --color-rust: #f0601e;
 
   /* --- Type families --- */
   --font-display: var(--font-hanken), ui-sans-serif, system-ui, sans-serif;
@@ -190,8 +189,8 @@ html {
 }
 
 body {
-  background: var(--color-canvas);
-  color: var(--color-ink-deep);
+  background: var(--color-page);
+  color: var(--color-canvas);
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
 }
@@ -405,7 +404,7 @@ h4 {
   margin: auto;
 }
 .contact-modal::backdrop {
-  background: rgb(42 22 16 / 0.72);
+  background: rgb(6 6 8 / 0.82);
   backdrop-filter: blur(4px);
 }
 @media (prefers-reduced-motion: no-preference) {
@@ -468,5 +467,43 @@ h4 {
 @keyframes marquee-scroll {
   to {
     transform: translateX(-50%);
+  }
+}
+
+/* Footer backdrop (components/site-footer.tsx).
+   The reference sits its footer panel over a photograph of raked light on
+   concrete, with the image showing above the panel's notched top edge. There
+   is no photography in this project, so the strip is built from layered
+   gradients: a cool concrete base, two soft light shafts falling from the top
+   right, and a warm bloom picking up the brand orange. To use a real photo
+   instead, add one line — `background-image: url("/…"), <the layers below>` —
+   and the gradients become its shading. */
+.footer-backdrop {
+  background-color: #0e0e12;
+  background-image:
+    /* warm bloom, bottom left */
+    radial-gradient(120% 90% at 8% 100%, rgb(240 96 30 / 0.1), transparent 60%),
+    /* two shafts of light falling from the top right */
+    linear-gradient(200deg, rgb(245 245 247 / 0.11) 0 8%, transparent 8% 26%),
+    linear-gradient(200deg, transparent 0 34%, rgb(245 245 247 / 0.07) 34% 41%, transparent 41%),
+    /* fine vertical banding, like light through a slatted screen */
+    repeating-linear-gradient(
+      90deg,
+      rgb(245 245 247 / 0.035) 0 1px,
+      transparent 1px 7px
+    ),
+    /* depth: darker at the bottom so the panel edge reads against it */
+    linear-gradient(180deg, #1b1b22 0%, #0e0e12 70%, #0a0a0c 100%);
+}
+
+/* The banding should not scroll as one flat sheet on very wide screens. */
+@media (min-width: 1024px) {
+  .footer-backdrop {
+    background-size:
+      auto,
+      auto,
+      auto,
+      9px 100%,
+      auto;
   }
 }

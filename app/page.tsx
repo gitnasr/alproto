@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { Icon } from "@/components/icon";
 import { Reveal } from "@/components/reveal";
-import { HeroOrbit } from "@/components/hero-orbit";
-import { CallBadge } from "@/components/call-badge";
+import { Cta } from "@/components/cta";
+import { HeroWheel } from "@/components/hero-wheel";
 import { LogoMarquee } from "@/components/logo-marquee";
 import { SOLUTIONS } from "@/lib/solutions";
 import { SERVICES } from "@/lib/services";
@@ -65,31 +65,19 @@ export default function HomePage() {
               </Reveal>
               <Reveal delay={300}>
                 <div className="mt-lg flex flex-wrap items-center gap-base">
-                  <ContactTrigger
-                    className="inline-flex items-center justify-center rounded-full bg-primary-container px-xxl py-[14px] text-body-sm-bold text-on-primary shadow-md transition-all duration-200 hover:bg-primary hover:shadow-lg"
-                  >
-                    Book a 15 Minute Call
-                  </ContactTrigger>
-                  <Link
-                    href="/services"
-                    className="inline-flex items-center justify-center gap-xs rounded-full border border-canvas/25 px-xxl py-[14px] text-body-sm-bold text-canvas transition-colors duration-200 hover:border-canvas/50 hover:bg-canvas/10"
-                  >
+                  <Cta size="lg">Book a 15 Minute Call</Cta>
+                  <Cta variant="secondary" size="lg" href="/services">
                     See How We Work
-                    <Icon name="east" />
-                  </Link>
+                    <Icon name="east" className="ml-xs" />
+                  </Cta>
                 </div>
               </Reveal>
             </div>
 
-            {/* Draggable capability sphere — one disc per solution domain. */}
+            {/* Solution wheel — all five domains, in order, as real text. */}
             <div className="relative lg:col-span-6">
-              <div className="mx-auto h-[300px] w-full max-w-[420px] sm:h-[340px] lg:h-[400px]">
-                <HeroOrbit />
-              </div>
-              {/* One instance: centred under the diagram on narrow screens,
-                  overlapping its lower-left corner from large ones up. */}
-              <div className="mt-lg flex justify-center lg:mt-0 lg:block">
-                <CallBadge className="lg:absolute lg:bottom-0 lg:-left-24" />
+              <div className="mx-auto h-[340px] w-full max-w-[30rem] sm:h-[380px] lg:max-w-none">
+                <HeroWheel />
               </div>
             </div>
           </div>
@@ -108,7 +96,7 @@ export default function HomePage() {
                 <span className="text-caption-bold uppercase tracking-widest text-primary">
                   What We Take On
                 </span>
-                <h2 className="text-heading-lg font-semibold tracking-tight text-ink-deep">
+                <h2 className="text-heading-lg font-semibold tracking-tight text-canvas">
                   Projects arrive with us in one of four states
                   <Dot />
                 </h2>
@@ -119,10 +107,10 @@ export default function HomePage() {
                 </p>
                 <Link
                   href="/project-check"
-                  className="group mt-base inline-flex items-baseline justify-between gap-xl border-t border-ink-deep/20 pt-base transition-colors hover:border-primary"
+                  className="group mt-base inline-flex items-baseline justify-between gap-xl border-t border-canvas/15 pt-base transition-colors hover:border-primary"
                 >
                   <span className="flex flex-col gap-xxs text-left">
-                    <span className="text-body-sm-bold text-ink-deep transition-colors group-hover:text-primary">
+                    <span className="text-body-sm-bold text-canvas transition-colors group-hover:text-primary">
                       Not sure which one you&rsquo;re in?
                     </span>
                     <span className="text-caption text-secondary">
@@ -148,7 +136,7 @@ export default function HomePage() {
                     }`}
                   >
                     <div className="sm:col-span-4">
-                      <span className="font-display text-heading-lg font-bold text-surface-container-high">
+                      <span className="font-display text-heading-lg font-bold text-canvas/40">
                         {String(i + 1).padStart(2, "0")}
                       </span>
                       <p className="text-caption-bold uppercase tracking-wider text-primary">
@@ -156,7 +144,7 @@ export default function HomePage() {
                       </p>
                     </div>
                     <div className="sm:col-span-8">
-                      <h3 className="text-heading-sm font-bold text-ink-deep">{s.title}</h3>
+                      <h3 className="text-heading-sm font-bold text-canvas">{s.title}</h3>
                       <p className="mt-xs text-body-md leading-relaxed text-secondary">{s.copy}</p>
                     </div>
                   </div>
@@ -225,7 +213,7 @@ export default function HomePage() {
       </section>
 
       {/* HOW WE WORK */}
-      <section className="w-full bg-canvas py-section-lg">
+      <section className="w-full bg-page py-section-lg">
         <div className="mx-auto max-w-shell px-xxl">
           <Reveal>
             <div className="mb-section-sm flex flex-col justify-between gap-base md:flex-row md:items-end">
@@ -233,7 +221,7 @@ export default function HomePage() {
                 <span className="text-caption-bold uppercase tracking-widest text-primary">
                   The Engagement Arc
                 </span>
-                <h2 className="text-heading-lg font-semibold tracking-tight text-ink-deep">
+                <h2 className="text-heading-lg font-semibold tracking-tight text-canvas">
                   How a stalled project becomes a delivered one
                   <Dot />
                 </h2>
@@ -256,16 +244,16 @@ export default function HomePage() {
                   href={`/services#${s.slug}`}
                   className="group flex h-full flex-col gap-xs border-l-2 border-hairline pl-xl transition-colors hover:border-primary"
                 >
-                  <span className="font-display text-heading-lg font-bold text-surface-container-high transition-colors group-hover:text-primary-container">
+                  <span className="font-display text-heading-lg font-bold text-canvas/40 transition-colors group-hover:text-primary-container">
                     {s.step}
                   </span>
-                  <h3 className="text-heading-sm font-semibold text-ink-deep transition-colors group-hover:text-primary">
+                  <h3 className="text-heading-sm font-semibold text-canvas transition-colors group-hover:text-primary">
                     {s.name}
                   </h3>
                   <p className="text-body-sm leading-relaxed text-secondary">{s.tagline}</p>
                   <p className="mt-auto pt-base text-caption-bold uppercase tracking-wider text-steel">
                     Ends with
-                    <span className="ml-xs normal-case text-ink-deep">{s.deliverable}</span>
+                    <span className="ml-xs normal-case text-canvas">{s.deliverable}</span>
                   </p>
                 </Link>
               </Reveal>

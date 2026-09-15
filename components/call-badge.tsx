@@ -15,14 +15,18 @@ export function CallBadge({
   tone = "dark",
 }: {
   className?: string;
-  /** "dark" sits on the ink hero; "light" sits on canvas/soft bands. */
+  /** "dark" steps up from the deepest band; "light" steps down from a lifted one. */
   tone?: "dark" | "light";
 }) {
   const { open } = useContactModal();
 
+  // Every band is dark now, so both tones carry a dark face with light type;
+  // the tone only decides which way it steps away from the band behind it.
   const face =
-    tone === "dark" ? "bg-canvas text-ink-deep shadow-xl" : "bg-ink-deep text-canvas shadow-lg";
-  const lead = tone === "dark" ? "text-charcoal" : "text-canvas/70";
+    tone === "dark"
+      ? "bg-surface-soft text-canvas shadow-xl ring-1 ring-primary-container/35"
+      : "bg-ink-deep text-canvas shadow-lg ring-1 ring-primary-container/35";
+  const lead = "text-canvas/70";
 
   return (
     <button

@@ -27,7 +27,7 @@ const TIMELINE = [
 ];
 
 const FIELD =
-  "h-11 w-full rounded-md border border-transparent bg-surface-soft px-base text-body-sm text-ink-deep placeholder:text-stone transition-colors focus:border-primary-container focus:bg-canvas focus:outline-none";
+  "h-11 w-full rounded-md border border-transparent bg-surface-soft px-base text-body-sm text-canvas placeholder:text-stone transition-colors focus:border-primary-container focus:bg-page focus:outline-none";
 const LABEL = "mb-xxs block text-body-sm text-charcoal";
 
 export function ContactForm({
@@ -63,7 +63,7 @@ export function ContactForm({
         </span>
         <h2
           id={titleId}
-          className="text-heading-lg font-semibold tracking-tight text-ink-deep"
+          className="text-heading-lg font-semibold tracking-tight text-canvas"
         >
           Thanks — that came through
           <span className="text-accent-electric">.</span>
@@ -85,7 +85,7 @@ export function ContactForm({
 
   return (
     <>
-      <h2 id={titleId} className="pr-xxxl text-heading-lg font-semibold tracking-tight text-ink-deep">
+      <h2 id={titleId} className="pr-xxxl text-heading-lg font-semibold tracking-tight text-canvas">
         Let&rsquo;s talk about your project
       </h2>
       <p className="mt-xxs text-body-sm-bold text-charcoal">
@@ -204,7 +204,7 @@ export function ContactForm({
             rows={2}
             required
             placeholder="How far it got, who built it, and where it stopped. Rough notes are fine — you do not need to tidy it up first."
-            className="w-full rounded-md border border-transparent bg-surface-soft px-base py-sm text-body-sm leading-relaxed text-ink-deep placeholder:text-stone transition-colors focus:border-primary-container focus:bg-canvas focus:outline-none"
+            className="w-full rounded-md border border-transparent bg-surface-soft px-base py-sm text-body-sm leading-relaxed text-canvas placeholder:text-stone transition-colors focus:border-primary-container focus:bg-page focus:outline-none"
           />
         </div>
 

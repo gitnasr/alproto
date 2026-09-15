@@ -107,7 +107,7 @@ const BANDS: Band[] = [
     title: "These are the warning signs, and they compound",
     copy: "Individually each of these is survivable. Together they tend to reinforce each other — no tests makes releases risky, risky releases slow delivery, slow delivery pushes the date, and the date pressure defers the fixes. Breaking that loop early is far cheaper than breaking it late.",
     tone: "text-status-warning",
-    chip: "bg-status-warning/15 text-ink-deep",
+    chip: "bg-status-warning/15 text-canvas",
     icon: "warning",
   },
   {
@@ -188,7 +188,7 @@ export function ProjectCheck() {
                 setSelected(new Set());
                 setCopied(false);
               }}
-              className="inline-flex items-center gap-xxs text-caption-bold text-secondary transition-colors hover:text-ink-deep"
+              className="inline-flex items-center gap-xxs text-caption-bold text-secondary transition-colors hover:text-canvas"
             >
               <Icon name="restart_alt" size={16} />
               Clear
@@ -205,7 +205,7 @@ export function ProjectCheck() {
                   className={`flex cursor-pointer items-start gap-base rounded-xl border p-base transition-colors ${
                     on
                       ? "border-primary bg-primary/5"
-                      : "border-hairline-soft bg-canvas hover:border-hairline"
+                      : "border-hairline-soft bg-page hover:border-hairline"
                   }`}
                 >
                   <input
@@ -217,13 +217,13 @@ export function ProjectCheck() {
                   <span
                     aria-hidden
                     className={`mt-xxs flex h-5 w-5 shrink-0 items-center justify-center rounded-sm border transition-colors ${
-                      on ? "border-primary bg-primary text-canvas" : "border-hairline bg-canvas"
+                      on ? "border-primary bg-primary text-canvas" : "border-hairline bg-page"
                     }`}
                   >
                     {on && <Icon name="check" size={14} />}
                   </span>
                   <span className="flex flex-col gap-xxs">
-                    <span className="text-body-sm-bold text-ink-deep">{s.label}</span>
+                    <span className="text-body-sm-bold text-canvas">{s.label}</span>
                     <span className="text-caption text-secondary">{s.detail}</span>
                   </span>
                 </label>
