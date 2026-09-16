@@ -10,10 +10,6 @@ export const metadata: Metadata = {
     "Join a small team of Staff-level engineers shipping mission-critical systems. Learn how we hire, what we value, and how to introduce yourself.",
 };
 
-function Dot() {
-  return <span className="text-rust">.</span>;
-}
-
 const VALUES = [
   {
     title: "Staff-Caliber Bar",
@@ -67,10 +63,9 @@ export default function CareersPage() {
         <div className="relative mx-auto flex max-w-shell flex-col gap-xl px-xxl">
           
           <Reveal delay={100}>
-            <h1 className="max-w-3xl text-display-lg-mobile text-canvas md:text-display-lg">
-              Build the systems everything else{" "}
-              <span className="text-accent-electric">depends on</span>
-              <Dot />
+            <h1 className="max-w-3xl text-heading-md text-canvas md:text-display-lg-mobile lg:text-heading-lg">
+              Build the <span className="text-accent-electric">systems</span> everything else
+              depends on
             </h1>
           </Reveal>
           <Reveal delay={200}>
@@ -93,7 +88,6 @@ export default function CareersPage() {
               </span>
               <h2 className="text-heading-lg text-canvas">
                 What you can expect
-                <Dot />
               </h2>
             </div>
           </Reveal>
@@ -127,7 +121,6 @@ export default function CareersPage() {
                 </span>
                 <h2 className="text-heading-lg text-canvas">
                   How we hire
-                  <Dot />
                 </h2>
                 <p className="text-body-md text-stone">
                   Four focused steps, no drawn-out gauntlets. We evaluate the way we work: on real
@@ -167,7 +160,6 @@ export default function CareersPage() {
               <div className="flex max-w-2xl flex-col gap-base">
                 <h2 className="text-heading-lg text-canvas">
                   No open listing that fits? Introduce yourself anyway
-                  <Dot />
                 </h2>
                 <p className="text-body-md leading-relaxed text-secondary">
                   Roles open as new engagements are commissioned. Tell us about the hardest system

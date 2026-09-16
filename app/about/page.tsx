@@ -10,10 +10,6 @@ export const metadata: Metadata = {
     "Who we are: a small team of engineers who take over unfinished software and carry it to production.",
 };
 
-function Dot() {
-  return <span className="text-rust">.</span>;
-}
-
 /**
  * Placeholder photography (Unsplash CDN) — swap for a real photo of the team.
  * Download the chosen image into /public and point this at it before launch.
@@ -63,14 +59,13 @@ export default function AboutPage() {
         <div className="relative mx-auto grid max-w-shell grid-cols-1 items-center gap-xxxl lg:grid-cols-12">
           <div className="flex flex-col gap-lg lg:col-span-7">
             <Reveal>
-              <h1 className="text-display-lg-mobile text-canvas md:text-display-lg lg:text-hero-display">
-                Led by engineers.{" "}
-                <span className="text-accent-electric">Built to finish things</span>
-                <Dot />
+              <h1 className="max-w-3xl text-heading-md text-canvas md:text-display-lg-mobile lg:text-heading-lg">
+                Led by engineers. Built to{" "}
+                <span className="text-accent-electric">finish</span> things
               </h1>
             </Reveal>
             <Reveal delay={100}>
-              <p className="max-w-2xl text-subtitle-md leading-relaxed text-stone">
+              <p className="max-w-2xl text-body-md leading-relaxed text-stone">
                 We are a small team that takes over software other people started, stalled builds,
                 inherited codebases, migrations that never completed, and carries it to production.
                 It is unglamorous work, and it is the work we are best at.
@@ -106,7 +101,6 @@ export default function AboutPage() {
                 </span>
                 <h2 className="text-heading-lg text-canvas">
                   Small on purpose
-                  <Dot />
                 </h2>
                 <p className="text-body-md leading-relaxed text-secondary">
                   Rescue work rewards judgement over headcount. We stay small and senior, and cover
@@ -149,7 +143,6 @@ export default function AboutPage() {
           <Reveal>
             <h2 className="max-w-2xl text-heading-lg text-canvas">
               Three things we hold to
-              <Dot />
             </h2>
           </Reveal>
 

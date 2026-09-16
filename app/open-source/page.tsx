@@ -10,10 +10,6 @@ export const metadata: Metadata = {
     "How Silosage engages with open source: upstream-first contributions, responsible disclosure, and tooling we release from client-funded work.",
 };
 
-function Dot() {
-  return <span className="text-rust">.</span>;
-}
-
 const PRINCIPLES = [
   {
     title: "Upstream First",
@@ -62,10 +58,9 @@ export default function OpenSourcePage() {
         <div className="relative mx-auto flex max-w-shell flex-col gap-xl px-xxl">
           
           <Reveal delay={100}>
-            <h1 className="max-w-3xl text-display-lg-mobile text-canvas md:text-display-lg">
-              We build on open source.{" "}
-              <span className="text-accent-electric">We build it back</span>
-              <Dot />
+            <h1 className="max-w-3xl text-heading-md text-canvas md:text-display-lg-mobile lg:text-heading-lg">
+              We build on <span className="text-accent-electric">open source</span>. We build it
+              back
             </h1>
           </Reveal>
           <Reveal delay={200}>
@@ -89,7 +84,6 @@ export default function OpenSourcePage() {
                 </span>
                 <h2 className="text-heading-lg text-canvas">
                   How we participate
-                  <Dot />
                 </h2>
               </div>
             </Reveal>
@@ -131,7 +125,6 @@ export default function OpenSourcePage() {
                 </span>
                 <h2 className="text-heading-lg text-canvas">
                   Tooling focus areas
-                  <Dot />
                 </h2>
               </div>
               <p className="max-w-[28rem] text-body-sm text-stone">

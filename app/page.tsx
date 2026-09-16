@@ -31,11 +31,6 @@ const SITUATIONS = [
   },
 ];
 
-/** Signature accent: the electric period that closes a heading. */
-function Dot() {
-  return <span className="text-rust">.</span>;
-}
-
 export default function HomePage() {
   return (
     <div className="flex w-full flex-col">
@@ -54,7 +49,6 @@ export default function HomePage() {
               <Reveal delay={100}>
                 <h1 className="max-w-[18ch] text-heading-md text-canvas md:text-display-lg-mobile lg:text-heading-lg">
                   We take unfinished software to production
-                  <Dot />
                 </h1>
               </Reveal>
               <Reveal delay={200}>
@@ -100,7 +94,6 @@ export default function HomePage() {
                 </span>
                 <h2 className="text-heading-lg text-canvas">
                   Projects arrive with us in one of four states
-                  <Dot />
                 </h2>
                 <p className="mt-xxs text-body-md leading-relaxed text-secondary">
                   Almost none of them went wrong for interesting reasons. Scope moved, someone key
@@ -169,7 +162,6 @@ export default function HomePage() {
                 </span>
                 <h2 className="text-heading-lg text-canvas">
                   Five domains we finish work in
-                  <Dot />
                 </h2>
                 <p className="text-body-md text-stone">
                   Most engagements touch more than one. Whatever the domain, the commitment is the

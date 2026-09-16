@@ -143,7 +143,7 @@ export function CalendlyEmbed({ url }: { url: string }) {
   }
 
   return (
-    <div className="relative h-[clamp(440px,66vh,700px)] w-full">
+    <div className="relative h-[clamp(400px,54vh,560px)] w-full">
       {!loaded && (
         <p
           aria-live="polite"

@@ -23,10 +23,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-function Dot() {
-  return <span className="text-rust">.</span>;
-}
-
 export default async function SolutionPage({ params }: Props) {
   const { slug } = await params;
   const solution = getSolution(slug);
@@ -58,9 +54,8 @@ export default async function SolutionPage({ params }: Props) {
           <div className="grid grid-cols-1 items-start gap-xxxl lg:grid-cols-12">
             <div className="flex flex-col gap-base lg:col-span-8">
               <Reveal delay={100}>
-                <h1 className="text-display-lg-mobile text-canvas md:text-display-lg">
+                <h1 className="text-heading-md text-canvas md:text-display-lg-mobile lg:text-heading-lg">
                   {solution.name}
-                  <Dot />
                 </h1>
               </Reveal>
               <Reveal delay={200}>
@@ -107,7 +102,6 @@ export default async function SolutionPage({ params }: Props) {
                 </span>
                 <h2 className="text-heading-lg text-canvas">
                   The signals that bring this work to us
-                  <Dot />
                 </h2>
                 <p className="text-body-md leading-relaxed text-secondary">
                   If more than one of these sounds familiar, an assessment is usually the cheapest
@@ -178,7 +172,6 @@ export default async function SolutionPage({ params }: Props) {
                 </span>
                 <h2 className="text-heading-lg text-canvas">
                   Concrete work, not a capability list
-                  <Dot />
                 </h2>
               </div>
             </Reveal>
@@ -219,7 +212,6 @@ export default async function SolutionPage({ params }: Props) {
                 </span>
                 <h2 className="text-heading-lg text-canvas">
                   The same arc, whatever the domain
-                  <Dot />
                 </h2>
               </div>
             </div>
@@ -247,7 +239,6 @@ export default async function SolutionPage({ params }: Props) {
           <Reveal>
             <h2 className="mb-xxl text-heading-lg text-canvas">
               Other solution areas
-              <Dot />
             </h2>
           </Reveal>
           <div className="flex flex-col border-t border-hairline">

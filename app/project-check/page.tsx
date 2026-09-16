@@ -12,10 +12,6 @@ export const metadata: Metadata = {
     "A two-minute checklist for working out whether a software project is in trouble, and what kind of trouble. Runs entirely in your browser, nothing is sent anywhere.",
 };
 
-function Dot() {
-  return <span className="text-rust">.</span>;
-}
-
 export default function ProjectCheckPage() {
   return (
     <div className="flex w-full flex-col">
@@ -27,10 +23,9 @@ export default function ProjectCheckPage() {
         <div className="relative mx-auto flex max-w-shell flex-col gap-xl px-xxl">
           
           <Reveal delay={100}>
-            <h1 className="max-w-3xl text-display-lg-mobile text-canvas md:text-display-lg">
-              Is your project in trouble, and{" "}
-              <span className="text-accent-electric">what kind</span>
-              <Dot />
+            <h1 className="max-w-3xl text-heading-md text-canvas md:text-display-lg-mobile lg:text-heading-lg">
+              Is your project <span className="text-accent-electric">in trouble</span>, and what
+              kind
             </h1>
           </Reveal>
           <Reveal delay={200}>
@@ -75,7 +70,6 @@ export default function ProjectCheckPage() {
               </span>
               <h2 className="text-heading-lg text-canvas">
                 Projects rarely go wrong for interesting reasons
-                <Dot />
               </h2>
               <p className="text-body-md leading-relaxed text-stone">
                 Almost every build we are called into went sideways the same ordinary way: the scope
