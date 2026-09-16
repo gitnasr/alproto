@@ -79,11 +79,7 @@ export function ContactModalProvider({ children }: { children: ReactNode }) {
           // A click that lands on the dialog itself is a backdrop click.
           if (e.target === dialogRef.current) close();
         }}
-        className={`contact-modal rounded-xl bg-page p-0 text-canvas shadow-2xl ${
-          // Calendly renders a single centred column once its event-type panel is
-          // hidden, so a wide dialog just buys empty gutters.
-          calendlyUrl ? "w-[min(34rem,calc(100vw-2rem))]" : "w-[min(40rem,calc(100vw-2rem))]"
-        }`}
+        className="contact-modal w-[min(40rem,calc(100vw-2rem))] rounded-[2rem] border border-canvas/30 bg-page p-0 text-canvas shadow-2xl"
       >
         <div className="relative max-h-[92vh] overflow-y-auto p-xl max-sm:px-base sm:p-xxl [@media(max-height:840px)]:p-base [@media(max-height:840px)]:sm:p-xl">
           <button
@@ -99,7 +95,7 @@ export function ContactModalProvider({ children }: { children: ReactNode }) {
             <>
               <h2
                 id={TITLE_ID}
-                className="pr-xxxl text-heading-lg text-canvas"
+                className="pr-xxl text-heading-sm text-canvas"
               >
                 Book a 15 minute call
               </h2>
@@ -108,7 +104,7 @@ export function ContactModalProvider({ children }: { children: ReactNode }) {
                 honest read on what it takes to finish.
               </p>
 
-              <div className="mt-base">{isOpen && <CalendlyEmbed url={calendlyUrl} />}</div>
+              <div className="mt-xs">{isOpen && <CalendlyEmbed url={calendlyUrl} />}</div>
             </>
           ) : (
             <ContactForm titleId={TITLE_ID} onClose={close} />

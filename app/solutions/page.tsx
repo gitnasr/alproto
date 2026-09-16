@@ -11,10 +11,6 @@ export const metadata: Metadata = {
     "The five domains we take unfinished work in: project rescue, cloud and infrastructure, AI and automation, data platforms, and product engineering.",
 };
 
-function Dot() {
-  return <span className="text-rust">.</span>;
-}
-
 export default function SolutionsPage() {
   return (
     <div className="flex w-full flex-col">
@@ -23,9 +19,8 @@ export default function SolutionsPage() {
         <div className="pointer-events-none absolute -top-32 right-1/4 h-[520px] w-[520px] rounded-full bg-canvas/[0.06] blur-3xl" />
         <div className="relative mx-auto flex max-w-shell flex-col gap-xl px-xxl">
           <Reveal delay={100}>
-            <h1 className="max-w-3xl text-display-lg-mobile text-canvas md:text-display-lg">
+            <h1 className="max-w-3xl text-heading-md text-canvas md:text-display-lg-mobile lg:text-heading-lg">
               Five domains we finish work in
-              <Dot />
             </h1>
           </Reveal>
           <Reveal delay={200}>
@@ -48,7 +43,6 @@ export default function SolutionsPage() {
                 </span>
                 <h2 className="text-heading-lg text-canvas">
                   Where unfinished work tends to sit
-                  <Dot />
                 </h2>
                 <p className="text-body-md leading-relaxed text-secondary">
                   Read down the list, the one that matches your situation is usually obvious, and
@@ -86,7 +80,6 @@ export default function SolutionsPage() {
                   <p className="max-w-2xl text-heading-sm leading-relaxed font-normal text-canvas">
                     Most rescues span several of these. Describe the situation and we will tell you
                     what it actually involves
-                    <Dot />
                   </p>
                   <ContactTrigger className="inline-flex w-fit shrink-0 items-center gap-xs rounded-full bg-ink-deep px-xxl py-base text-body-sm-bold text-canvas transition-colors hover:bg-charcoal">
                     Book a 15 Minute Call

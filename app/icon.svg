@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" width="192" height="192">
+  <!--
+    Tab icon, from public/logos/silosage-mark.svg.
+
+    Two differences from the source, both for this context:
+      - Square. The mark is 175x190 and a favicon slot is square, so it is
+        scaled to 150 tall and centred with padding rather than letting the
+        browser crop or squash it.
+      - No c2pa metadata. The source carries ~14KB of base64 provenance that a
+        favicon has no use for; only the two paths are kept.
+
+    Transparent by request: no ground behind the mark. Note the ribbon is bone
+    white, so it leans on the browser's own tab colour for contrast — it reads
+    strongly on a dark tab strip and faintly on a light one. The Electric Iris
+    chevron carries it either way.
+  -->
+  <g transform="translate(26.9 21) scale(0.7895)">
+    <path d="M87.5 0 L0 51 L0 89 L42.5 113.6 L131.7 62 L142.5 68.5 L55 122 L87.5 140 L175 89 L175 51 L131 25 L44.8 74.8 L33 68 L119 18 Z" fill="#F2F2F0"/>
+    <path d="M0 104.5 L0 140 L87.5 190 L175 140 L175 104.5 L87.5 154 Z" fill="#8052FF"/>
+  </g>
+</svg>

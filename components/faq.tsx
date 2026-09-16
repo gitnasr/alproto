@@ -1,7 +1,6 @@
 import { Icon } from "./icon";
 import { Reveal } from "./reveal";
 import { FAQ } from "@/lib/faq";
-import { ContactTrigger } from "@/components/contact-trigger";
 
 /**
  * Objection-handling accordion. Built on native <details> so it works without
@@ -28,20 +27,11 @@ export function Faq({
               <span className="text-caption-bold uppercase text-kicker">
                 Before You Ask
               </span>
-              <h2 className="text-heading-lg text-canvas">
-                The questions people hesitate to send
-                <span className="text-rust">.</span>
-              </h2>
+              <h2 className="text-heading-lg text-canvas">FAQ</h2>
               <p className="text-body-md text-secondary">
                 Mostly the ones that stop someone getting in touch at all. If yours is not here,
                 ask it directly, a straight answer costs you nothing.
               </p>
-              <ContactTrigger
-                className="inline-flex w-fit items-center gap-xs pt-base text-body-sm-bold text-canvas transition-colors hover:text-primary"
-              >
-                Ask us something else
-                <Icon name="arrow_forward" size={16} />
-              </ContactTrigger>
             </div>
           </Reveal>
 

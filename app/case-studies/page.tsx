@@ -9,10 +9,6 @@ export const metadata: Metadata = {
     "Selected engagements: CRM integration, process automation, digital transformation, and ServiceNow and Azure platform delivery.",
 };
 
-function Dot() {
-  return <span className="text-rust">.</span>;
-}
-
 /* ---------------------------------------------------------------------------
    Diagram. This describes the actual mechanism of the engagement, which is
    what an icon in a rounded square cannot do. Inline SVG, no data invented.
@@ -83,9 +79,8 @@ export default function CaseStudiesPage() {
 
         <div className="relative mx-auto flex max-w-shell flex-col gap-xl px-xxl">
           <Reveal>
-            <h1 className="max-w-3xl text-display-lg-mobile text-canvas md:text-display-lg">
-              Projects taken to <span className="text-accent-electric">production</span>
-              <Dot />
+            <h1 className="max-w-3xl text-heading-md text-canvas md:text-display-lg-mobile lg:text-heading-lg">
+              <span className="text-accent-electric">Projects</span> taken to production
             </h1>
           </Reveal>
           <Reveal delay={100}>
@@ -111,14 +106,24 @@ export default function CaseStudiesPage() {
           <div className="grid grid-cols-1 gap-xxxl lg:grid-cols-12">
             <Reveal className="lg:col-span-4">
               <div className="flex flex-col gap-base lg:sticky lg:top-32">
-                <img
-                  src="/logos/bbb.svg"
-                  alt="Better Business Bureau"
-                  className="h-20 w-auto self-start"
-                />
-                <h2 className="text-heading-lg text-canvas">
-                  Better Business Bureau
-                  <Dot />
+                {/* The logo is the heading, with the name carried by its alt
+                    text — the same treatment the Unilever and AstraZeneca blocks
+                    below use, so the outline keeps a heading without printing the
+                    client name twice beside its own wordmark. */}
+                {/* BBB supply this as real artwork — three blues and a genuine
+                    alpha channel — so it is used exactly as authored: no plate, no
+                    recolouring, no invert. Worth knowing it is drawn for a light
+                    ground: on the void its blues run 1.4:1 (#202050) to 4.0:1
+                    (#2070b0), so the darkest navy reads faintly. A reversed
+                    (white) version from BBB would be the proper fix. */}
+                <h2 className="self-start">
+                  <img
+                    src="/logos/bbb-primary.png"
+                    alt="Better Business Bureau"
+                    width={777}
+                    height={490}
+                    className="h-24 w-auto"
+                  />
                 </h2>
                 <p className="text-body-md leading-relaxed text-secondary">
                   Three projects across one relationship, over time, integration first, then the
@@ -162,11 +167,15 @@ export default function CaseStudiesPage() {
           <div className="grid grid-cols-1 gap-xxxl lg:grid-cols-12">
             <Reveal className="lg:col-span-4">
               <div className="flex flex-col gap-base lg:sticky lg:top-32">
+                {/* Its own colours, matching what the logo marquee shows on hover:
+                    the filter simply comes off, so the file paints its #1F36C7 and
+                    white as authored. The blue alone is 2.2:1 on the void; the white
+                    detail is what carries it. */}
                 <h2>
                   <img
                     src="/logos/unilever.svg"
                     alt="Unilever"
-                    className="h-12 w-auto brightness-0 invert"
+                    className="h-12 w-auto"
                   />
                 </h2>
                 <p className="text-caption-bold uppercase tracking-widest text-canvas/40">
@@ -236,7 +245,6 @@ export default function CaseStudiesPage() {
               <div className="flex flex-col gap-base lg:sticky lg:top-32">
                 <h2 className="text-heading-lg text-canvas">
                   Gravity Lab
-                  <Dot />
                 </h2>
                 <p className="text-caption-bold uppercase tracking-widest text-canvas/40">
                   Education technology
@@ -271,7 +279,6 @@ export default function CaseStudiesPage() {
                 Longer write-ups get published once the client is happy for us to, which takes rather
                 longer than the work did. If one of these resembles your situation, ask about it
                 directly. We can usually say more in a call than in public
-                <Dot />
               </p>
               <ContactTrigger className="inline-flex shrink-0 items-center gap-xs rounded-full bg-ink-deep px-xxl py-base text-body-sm-bold text-canvas transition-colors hover:bg-charcoal">
                 Book a 15 Minute Call
