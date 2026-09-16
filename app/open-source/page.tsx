@@ -52,8 +52,8 @@ export default function OpenSourcePage() {
     <div className="flex w-full flex-col">
       {/* Hero */}
       <section className="relative w-full overflow-hidden bg-ink-deep py-section-lg text-canvas">
-        <div className="pointer-events-none absolute -top-32 left-1/4 h-[520px] w-[520px] rounded-full bg-canvas/[0.04] blur-3xl" />
-        <div className="pointer-events-none absolute -bottom-24 right-0 h-[380px] w-[380px] rounded-full bg-canvas/[0.06] blur-3xl" />
+        <div className="pointer-events-none absolute hidden md:block -top-32 left-1/4 h-[520px] w-[520px] rounded-full bg-canvas/[0.04] blur-3xl" />
+        <div className="pointer-events-none absolute hidden md:block -bottom-24 right-0 h-[380px] w-[380px] rounded-full bg-canvas/[0.06] blur-3xl" />
 
         <div className="relative mx-auto flex max-w-shell flex-col gap-xl px-xxl">
           
@@ -115,7 +115,7 @@ export default function OpenSourcePage() {
 
       {/* Focus areas — dark */}
       <section className="relative w-full overflow-hidden bg-ink-deep py-section-lg text-canvas">
-        <div className="pointer-events-none absolute -top-24 right-0 h-[420px] w-[420px] rounded-full bg-canvas/[0.05] blur-3xl" />
+        <div className="pointer-events-none absolute hidden md:block -top-24 right-0 h-[420px] w-[420px] rounded-full bg-canvas/[0.05] blur-3xl" />
         <div className="relative mx-auto flex max-w-shell flex-col gap-xxxl px-xxl">
           <Reveal>
             <div className="flex flex-col justify-between gap-base md:flex-row md:items-end">

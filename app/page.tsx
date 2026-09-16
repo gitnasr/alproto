@@ -39,8 +39,8 @@ export default function HomePage() {
         {/* The atmosphere is tonal, not chromatic: the accent stays rationed to
             the call to action and the accent period, so the glow that used to
             wash the hero orange is a plain lift in the ground instead. */}
-        <div className="pointer-events-none absolute -top-40 right-1/4 h-[600px] w-[600px] rounded-full bg-canvas/[0.06] blur-3xl" />
-        <div className="pointer-events-none absolute bottom-0 -left-32 h-[420px] w-[420px] rounded-full bg-canvas/[0.04] blur-3xl" />
+        <div className="pointer-events-none absolute hidden md:block -top-40 right-1/4 h-[600px] w-[600px] rounded-full bg-canvas/[0.06] blur-3xl" />
+        <div className="pointer-events-none absolute hidden md:block bottom-0 -left-32 h-[420px] w-[420px] rounded-full bg-canvas/[0.04] blur-3xl" />
 
         <div className="relative mx-auto max-w-shell px-xxl pt-section pb-section-lg">
 
@@ -152,7 +152,7 @@ export default function HomePage() {
 
       {/* SOLUTIONS — dark editorial split */}
       <section className="relative w-full overflow-hidden bg-ink-deep py-section-lg text-canvas">
-        <div className="pointer-events-none absolute -top-24 right-0 h-[420px] w-[420px] rounded-full bg-canvas/[0.05] blur-3xl" />
+        <div className="pointer-events-none absolute hidden md:block -top-24 right-0 h-[420px] w-[420px] rounded-full bg-canvas/[0.05] blur-3xl" />
         <div className="relative mx-auto max-w-shell px-xxl">
           <div className="grid grid-cols-1 gap-xxxl lg:grid-cols-12">
             <div className="lg:col-span-4">

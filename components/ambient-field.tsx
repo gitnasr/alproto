@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { isLite } from "@/lib/lite";
 
 /**
  * Site-wide ambient drift: a thin scatter of outlined triangles and points
@@ -63,7 +64,23 @@ function build(w: number, h: number): Mote[] {
   });
 }
 
+/**
+ * Not mounted at all on phones, touch screens or reduced motion. This is the
+ * most expensive thing on the page for a phone: a canvas covering the entire
+ * viewport at 2x density, cleared and redrawn every frame and composited over
+ * everything else — around 1.2 million pixels a frame, for a purely decorative
+ * drift. Deciding before mounting means the canvas is never created there,
+ * rather than created and then stopped.
+ */
 export function AmbientField() {
+  const [enabled, setEnabled] = useState(false);
+  useEffect(() => {
+    setEnabled(!isLite());
+  }, []);
+  return enabled ? <AmbientCanvas /> : null;
+}
+
+function AmbientCanvas() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {

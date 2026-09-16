@@ -75,7 +75,7 @@ export default function CaseStudiesPage() {
     <div className="flex w-full flex-col">
       {/* Hero */}
       <section className="relative w-full overflow-hidden bg-ink-deep py-section-lg text-canvas">
-        <div className="pointer-events-none absolute -top-32 right-1/4 h-[520px] w-[520px] rounded-full bg-canvas/[0.06] blur-3xl" />
+        <div className="pointer-events-none absolute hidden md:block -top-32 right-1/4 h-[520px] w-[520px] rounded-full bg-canvas/[0.06] blur-3xl" />
 
         <div className="relative mx-auto flex max-w-shell flex-col gap-xl px-xxl">
           <Reveal>
@@ -162,7 +162,7 @@ export default function CaseStudiesPage() {
 
       {/* Unilever — its own band, the client pinned while the account scrolls */}
       <section className="relative w-full overflow-hidden bg-ink-deep py-section-lg text-canvas">
-        <div className="pointer-events-none absolute -top-24 right-0 h-[420px] w-[420px] rounded-full bg-canvas/[0.05] blur-3xl" />
+        <div className="pointer-events-none absolute hidden md:block -top-24 right-0 h-[420px] w-[420px] rounded-full bg-canvas/[0.05] blur-3xl" />
         <div className="relative mx-auto max-w-shell px-xxl">
           <div className="grid grid-cols-1 gap-xxxl lg:grid-cols-12">
             <Reveal className="lg:col-span-4">
@@ -238,7 +238,7 @@ export default function CaseStudiesPage() {
 
       {/* Gravity Lab — the one-off, dark band */}
       <section className="relative w-full overflow-hidden bg-ink-deep py-section-lg text-canvas">
-        <div className="pointer-events-none absolute -bottom-24 left-0 h-[380px] w-[380px] rounded-full bg-canvas/[0.04] blur-3xl" />
+        <div className="pointer-events-none absolute hidden md:block -bottom-24 left-0 h-[380px] w-[380px] rounded-full bg-canvas/[0.04] blur-3xl" />
         <div className="relative mx-auto max-w-shell px-xxl">
           <div className="grid grid-cols-1 gap-xxxl lg:grid-cols-12">
             <Reveal className="lg:col-span-4">
