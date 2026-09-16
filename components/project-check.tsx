@@ -328,7 +328,7 @@ export function ProjectCheck() {
           </div>
 
           <p className="px-xs text-caption text-secondary">
-            A checklist is not a diagnosis. It tells you whether a conversation is worth having, 
+            A checklist is not a diagnosis. It tells you whether a conversation is worth having;
             reading the actual code is what tells you what finishing it takes.
           </p>
         </div>

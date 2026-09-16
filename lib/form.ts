@@ -22,7 +22,7 @@ export const HONEYPOT = "company_website";
 
 /** Never expose configuration detail to a visitor; they can only retry. */
 const GENERIC_FAILURE =
-  "We couldn't send that just now. Please try again in a moment, if it keeps failing, the problem is on our side.";
+  "We couldn't send that just now. Please try again in a moment. If it keeps failing, the problem is on our side.";
 
 export async function submitForm(form: HTMLFormElement): Promise<SubmitResult> {
   const data = new FormData(form);
