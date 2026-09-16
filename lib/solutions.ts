@@ -25,7 +25,7 @@ export const SOLUTIONS: Solution[] = [
     name: "Project Rescue & Completion",
     navLabel: "Project Rescue & Completion",
     icon: "engineering",
-    tagline: "Stalled, half-built, or inherited, taken to production.",
+    tagline: "Stalled, half-built or inherited software, taken to production.",
     summary:
       "Our core practice. When a build has lost momentum, changed hands, or outgrown the team that started it, we assess what exists, take ownership of the remaining work, and deliver it to production, then hand it back documented and maintainable.",
     signals: [
@@ -35,7 +35,7 @@ export const SOLUTIONS: Solution[] = [
       "An internal team stretched too thin to finish alongside day-to-day delivery",
     ],
     reassurance:
-      "None of these mean anyone was careless. Projects stall for ordinary reasons, scope that moved, people who left, a date that was never real, and it happens to competent teams under pressure. What makes a project unrecoverable is not the original problem, it is how long it goes unexamined. Asking someone to look is not an admission of failure.",
+      "None of these mean anyone was careless. Projects stall for ordinary reasons: scope that moved, people who left, a date that was never realistic. It happens to competent teams under pressure. What makes a project unrecoverable is not the original problem but how long it goes unexamined. Asking someone to look is not an admission of failure.",
     deliverables: [
       {
         icon: "search_insights",

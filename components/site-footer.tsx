@@ -51,9 +51,10 @@ export function SiteFooter() {
           <p className="mt-lg font-display text-display-lg-mobile leading-none text-canvas md:text-display-lg lg:text-hero-display">
             Silosage
           </p>
-          {/* --- Two actions, dash-separated, the way the reference pairs them --- */}
+          {/* No "Book a call" here: the header's button is fixed and always on
+              screen, so a second copy at the foot of every page only repeats it.
+              The footer offers the lower-commitment next step instead. */}
           <div className="mt-xxl flex items-center gap-base text-caption-bold uppercase tracking-widest">
-            <Cta size="sm">Book a call</Cta>
             <Cta variant="secondary" size="sm" href="/project-check">
               Project check
             </Cta>

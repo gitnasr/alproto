@@ -82,7 +82,7 @@ export default async function SolutionPage({ params }: Props) {
                 naming tools we "typically" use claims a house stack we do not have. */}
             <Reveal delay={250} className="lg:col-span-4">
               <p className="border-t border-canvas/20 pt-base text-body-sm leading-relaxed text-stone">
-                We work in whatever the project already uses. Its language, its framework, its
+                We work in whatever the project already uses: its language, its framework, its
                 cloud. Taking over a build means adopting the decisions already made, not restarting
                 on ours.
               </p>

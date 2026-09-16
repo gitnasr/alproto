@@ -30,7 +30,7 @@ export function Faq({
               <h2 className="text-heading-lg text-canvas">FAQ</h2>
               <p className="text-body-md text-secondary">
                 Mostly the ones that stop someone getting in touch at all. If yours is not here,
-                ask it directly, a straight answer costs you nothing.
+                ask it directly. A straight answer costs you nothing.
               </p>
             </div>
           </Reveal>

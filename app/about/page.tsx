@@ -66,8 +66,8 @@ export default function AboutPage() {
             </Reveal>
             <Reveal delay={100}>
               <p className="max-w-2xl text-body-md leading-relaxed text-stone">
-                We are a small team that takes over software other people started, stalled builds,
-                inherited codebases, migrations that never completed, and carries it to production.
+                We are a small team that takes over software other people started, such as stalled
+                builds, inherited codebases and unfinished migrations, and carries it to production.
                 It is unglamorous work, and it is the work we are best at.
               </p>
             </Reveal>

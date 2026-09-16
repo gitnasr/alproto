@@ -100,8 +100,8 @@ export default function ProjectCheckPage() {
                   Rather just describe it in your own words?
                 </h2>
                 <p className="text-body-md leading-relaxed text-secondary">
-                  Tell us where the project stands, however messy, and we will come back with an
-                  honest read on what finishing it involves.
+                  Tell us where the project stands, whatever its current state, and we will come
+                  back with an honest assessment of what finishing it involves.
                 </p>
               </div>
               <ContactTrigger

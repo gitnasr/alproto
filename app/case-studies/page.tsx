@@ -53,7 +53,7 @@ const BBB_PROJECTS = [
   {
     n: "01",
     title: "Bidirectional CRM Sync",
-    copy: "Two systems of record, each behaving as though it were the authoritative one. We built a two-way sync between a legacy CRM and HubSpot, field mapping, conflict resolution, and loop prevention, so a record edited in either platform reaches the other intact instead of being overwritten on the next cycle.",
+    copy: "Two systems of record, each behaving as though it were the authoritative one. We built a two-way sync between a legacy CRM and HubSpot, covering field mapping, conflict resolution and loop prevention, so a record edited in either platform reaches the other intact instead of being overwritten on the next cycle.",
     diagram: true,
   },
   {
@@ -126,7 +126,7 @@ export default function CaseStudiesPage() {
                   />
                 </h2>
                 <p className="text-body-md leading-relaxed text-secondary">
-                  Three projects across one relationship, over time, integration first, then the
+                  Three projects across one relationship, over time: integration first, then the
                   processes that ran on top of it, then the wider programme those two made possible.
                 </p>
               </div>
