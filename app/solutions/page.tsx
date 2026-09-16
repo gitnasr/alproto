@@ -16,7 +16,7 @@ export default function SolutionsPage() {
     <div className="flex w-full flex-col">
       {/* Hero */}
       <section className="relative w-full overflow-hidden bg-ink-deep py-section-lg text-canvas">
-        <div className="pointer-events-none absolute -top-32 right-1/4 h-[520px] w-[520px] rounded-full bg-canvas/[0.06] blur-3xl" />
+        <div className="pointer-events-none absolute hidden md:block -top-32 right-1/4 h-[520px] w-[520px] rounded-full bg-canvas/[0.06] blur-3xl" />
         <div className="relative mx-auto flex max-w-shell flex-col gap-xl px-xxl">
           <Reveal delay={100}>
             <h1 className="max-w-3xl text-heading-md text-canvas md:text-display-lg-mobile lg:text-heading-lg">

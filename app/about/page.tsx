@@ -53,8 +53,8 @@ export default function AboutPage() {
     <div className="flex w-full flex-col">
       {/* Hero */}
       <section className="relative w-full overflow-hidden bg-ink-deep px-xxl py-section-lg text-canvas">
-        <div className="pointer-events-none absolute -top-32 right-1/4 h-[520px] w-[520px] rounded-full bg-canvas/[0.06] blur-3xl" />
-        <div className="pointer-events-none absolute bottom-0 -left-24 h-[380px] w-[380px] rounded-full bg-canvas/[0.04] blur-3xl" />
+        <div className="pointer-events-none absolute hidden md:block -top-32 right-1/4 h-[520px] w-[520px] rounded-full bg-canvas/[0.06] blur-3xl" />
+        <div className="pointer-events-none absolute hidden md:block bottom-0 -left-24 h-[380px] w-[380px] rounded-full bg-canvas/[0.04] blur-3xl" />
 
         <div className="relative mx-auto grid max-w-shell grid-cols-1 items-center gap-xxxl lg:grid-cols-12">
           <div className="flex flex-col gap-lg lg:col-span-7">
@@ -138,7 +138,7 @@ export default function AboutPage() {
 
       {/* How we work */}
       <section className="relative w-full overflow-hidden bg-ink-deep px-xxl py-section-lg text-canvas">
-        <div className="pointer-events-none absolute -top-24 right-0 h-[420px] w-[420px] rounded-full bg-canvas/[0.05] blur-3xl" />
+        <div className="pointer-events-none absolute hidden md:block -top-24 right-0 h-[420px] w-[420px] rounded-full bg-canvas/[0.05] blur-3xl" />
         <div className="relative mx-auto flex max-w-shell flex-col gap-xxxl">
           <Reveal>
             <h2 className="max-w-2xl text-heading-lg text-canvas">

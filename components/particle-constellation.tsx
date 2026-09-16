@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { isLite } from "@/lib/lite";
 
 /**
  * The hero constellation: a shaped cloud of a few thousand particles turning
@@ -24,6 +25,10 @@ import { useEffect, useRef } from "react";
 
 /** Points on the shell. Dense enough to read as a surface, not a scatter. */
 const COUNT = 2600;
+/* On a phone the shell still has to read as a sphere, and ~900 points is
+   about where it stops looking like one. Every point is a projection and a
+   draw per frame, so this is roughly a third of the per-frame work. */
+const COUNT_LITE = 900;
 /** How many of those are drawn as outlined triangles rather than dots. */
 const TRIANGLE_SHARE = 0.12;
 /** Loose marks drifting in the surrounding void. */
@@ -68,11 +73,11 @@ type Drifter = {
  * A naive random lat/long bunches particles at the poles, which reads as two
  * bright caps rather than a shell.
  */
-function buildShell(): Point[] {
+function buildShell(count: number): Point[] {
   const points: Point[] = [];
   const golden = Math.PI * (3 - Math.sqrt(5));
-  for (let i = 0; i < COUNT; i++) {
-    const y = 1 - (i / (COUNT - 1)) * 2;
+  for (let i = 0; i < count; i++) {
+    const y = 1 - (i / (count - 1)) * 2;
     const radius = Math.sqrt(Math.max(0, 1 - y * y));
     const theta = golden * i;
     /* Pushing a minority of particles inside the shell gives the cloud a
@@ -132,7 +137,8 @@ export function ParticleConstellation({ className = "" }: { className?: string }
     const ctx = canvas.getContext("2d", { alpha: true });
     if (!ctx) return;
 
-    const shell = buildShell();
+    const lite = isLite();
+    const shell = buildShell(lite ? COUNT_LITE : COUNT);
     let drifters: Drifter[] = [];
     let width = 0;
     let height = 0;
@@ -153,7 +159,10 @@ export function ParticleConstellation({ className = "" }: { className?: string }
     const resize = () => {
       const rect = canvas.getBoundingClientRect();
       if (!rect.width || !rect.height) return;
-      const ratio = Math.min(window.devicePixelRatio || 1, 2);
+      /* Phones commonly report 3x. Fill cost scales with the square of this,
+         so capping at 1.5 there drops over half the pixels of 2x, and at dot
+         sizes this small the difference does not show. */
+      const ratio = Math.min(window.devicePixelRatio || 1, lite ? 1.5 : 2);
       width = rect.width;
       height = rect.height;
       canvas.width = Math.round(width * ratio);

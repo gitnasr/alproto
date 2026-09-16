@@ -1,8 +1,10 @@
 "use client";
 
-import type { ReactNode } from "react";
+import { useEffect, useState, type CSSProperties, type ReactNode } from "react";
+import Link from "next/link";
 import SpecularButton from "./specular-button";
 import { useContactModal } from "./contact-modal";
+import { isLite } from "@/lib/lite";
 
 /**
  * The site's two calls to action, as SpecularButton presets.
@@ -70,6 +72,42 @@ export function Cta({
 }: Props) {
   const { open } = useContactModal();
   const preset = PRESETS[variant];
+
+  /* Plain until proven capable. The server and the first client render both
+     produce the CSS-only pill, so hydration always matches; a desktop with a
+     real pointer then upgrades to the WebGL rim after mount. A phone never
+     does — and never creates a GPU context for an effect it could not show. */
+  const [rich, setRich] = useState(false);
+  useEffect(() => {
+    setRich(!isLite());
+  }, []);
+
+  if (!rich) {
+    /* The same classes and custom properties SpecularButton sets, so the pill
+       is visually identical at rest — only the canvas layer is missing. */
+    const pill = {
+      "aria-label": ariaLabel,
+      className: `specular-button specular-button--${size}${className ? ` ${className}` : ""}`,
+      style: {
+        "--sb-radius": "999px",
+        "--sb-tint": preset.tint,
+        "--sb-tint-opacity": preset.tintOpacity,
+        "--sb-blur": "0px",
+        "--sb-text-color": preset.textColor,
+      } as CSSProperties,
+    };
+    const label = <span className="specular-button__label">{children}</span>;
+
+    return href ? (
+      <Link href={href} {...pill}>
+        {label}
+      </Link>
+    ) : (
+      <button type="button" onClick={open} {...pill}>
+        {label}
+      </button>
+    );
+  }
 
   return (
     <SpecularButton

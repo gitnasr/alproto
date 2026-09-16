@@ -36,7 +36,7 @@ export function SiteFooter() {
     <footer className="relative isolate w-full overflow-hidden pt-[7rem] sm:pt-[9rem]">
       <div aria-hidden className="footer-backdrop absolute inset-0 -z-10" />
 
-      <div className="rounded-t-[2rem] border-t border-hairline bg-ink-deep/95 pt-section-lg pb-xxl backdrop-blur-sm sm:rounded-t-[3rem]">
+      <div className="rounded-t-[2rem] border-t border-hairline bg-ink-deep/95 pt-section-lg pb-xxl sm:rounded-t-[3rem]">
         <div className="mx-auto max-w-shell px-xxl">
         {/* --- Centred brand stack --- */}
         <div className="flex flex-col items-center text-center">

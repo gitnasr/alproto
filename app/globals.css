@@ -434,10 +434,14 @@ h4 {
   .reveal {
     opacity: 0;
     transform: translateY(40px);
+    /* No `will-change`. It held a GPU layer open on every revealed element
+       permanently, long after its one-time transition had finished — 14 of
+       them on the homepage, each costing layer memory for the life of the
+       page. Browsers promote opacity and transform for the duration of the
+       transition on their own, and release it after. */
     transition:
       opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
       transform 1.1s cubic-bezier(0.16, 1, 0.3, 1);
-    will-change: opacity, transform;
   }
   .reveal.is-visible {
     opacity: 1;
