@@ -11,7 +11,7 @@
  * in that event type's own questions, so the answers land on the booking itself.
  */
 
-export const CALENDLY_URL = process.env.NEXT_PUBLIC_CALENDLY_URL ?? "https://calendly.com/ibrahimkhodair1/30min";
+export const CALENDLY_URL = process.env.NEXT_PUBLIC_CALENDLY_URL ?? "https://calendly.com/silosage-sales/15-minute-meeting";
 
 export const CALENDLY_SCRIPT = "https://assets.calendly.com/assets/external/widget.js";
 export const CALENDLY_STYLES = "https://assets.calendly.com/assets/external/widget.css";
