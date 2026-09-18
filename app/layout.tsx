@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   openGraph: {
     siteName: "Silosage",
     type: "website",
-    title: "Silosage: Mission-critical software engineering",
+    title: "Silosage",
     description:
       "High-performance digital product engineering firm. We architect, engineer, and deploy mission-critical software systems for global enterprises.",
   },
