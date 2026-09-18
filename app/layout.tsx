@@ -20,7 +20,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:5000"),
   title: {
-    default: "Silosage: Mission-critical software engineering",
+    default: "Silosage",
     template: "%s · Silosage",
   },
   description:
